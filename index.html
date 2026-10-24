@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COC VIPBot — Auto Loot, Smart Wall Upgrade & Multi-Instance Bot</title>
+  <meta name="description" content="Otomatisasi farming Clash of Clans terbaik dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Builder Base, Support Multi Instances, dan Anti-Ban System." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://coc-vipbot.web.id/" />
+
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://coc-vipbot.web.id/" />
+  <meta property="og:title" content="COC VIPBot — Smarter Farming, Auto Up Wall & Multi-Instance" />
+  <meta property="og:description" content="Tingkatkan progres desa utama & Builder Base secara otomatis dengan Best Loot Finder, Auto Up Wall, dan sistem Anti-Ban." />
+  <meta property="og:site_name" content="COC VIPBot" />
+  <meta name="theme-color" content="#080D18" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Skip to Content for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Background Ambient Glows -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-gold"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- ================= A. NAVBAR ================= -->
+  <header class="site-header" id="top">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="COC VIPBot Home">
+        <img src="assets/logo.svg" alt="COC VIPBot Logo" width="180" height="36" />
+      </a>
+
+      <button
+        class="mobile-nav-toggle"
+        id="mobileNavToggle"
+        aria-controls="primaryNavigation"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <nav class="primary-nav" id="primaryNavigation" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
+          <li><a href="#features" class="nav-link" data-i18n="nav_features">Features</a></li>
+          <li><a href="#showcase" class="nav-link" data-i18n="nav_showcase">Video Showcase</a></li>
+          <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how">How It Works</a></li>
+          <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
+        </ul>
+        <div class="nav-cta-wrapper">
+          <!-- Tombol Bahasa (ID / ENG) -->
+          <button type="button" class="btn btn-lang btn-sm" id="langSwitchBtn" aria-label="Switch Language ID or ENG">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="lang-option active-lang" data-lang-ind="id">ID</span>
+            <span class="lang-divider">/</span>
+            <span class="lang-option" data-lang-ind="en">ENG</span>
+          </button>
+
+          <!-- Tombol CTA Utama -->
+          <a href="#pricing" class="btn btn-primary btn-sm">
+            <span data-i18n="nav_cta">Free Trial 1 Hari</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- ================= B. HERO SECTION ================= -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="eyebrow-badge">
+            <span class="status-dot"></span>
+            <span data-i18n="hero_eyebrow">NEXT-GEN CLASH AUTOMATION ENGINE</span>
+            <span class="badge-pill gold-pill">🔥 MULTI-INSTANCE READY</span>
+          </div>
+
+          <h1 class="hero-title" data-i18n="hero_title">
+            Non-Stop Deadbase Loot.<br />
+            <span class="text-gradient">Auto Max Walls Faster.</span>
+          </h1>
+
+          <p class="hero-description" data-i18n="hero_desc">
+            Dominasi progres Home Village &amp; Builder Base Anda dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> untuk banyak akun sekaligus, serta proteksi algoritma <em>Anti-Ban</em> yang humanis.
+          </p>
+
+          <div class="hero-highlights">
+            <span class="hero-chip" data-i18n="hero_chip1">⚡ Trial Gratis 1 Hari</span>
+            <span class="hero-chip" data-i18n="hero_chip2">🧱 Auto Wall Main &amp; Builder Base</span>
+            <span class="hero-chip" data-i18n="hero_chip3">🖥️ Multi-Instances</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#pricing" class="btn btn-primary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span data-i18n="hero_btn_primary">Claim Free Trial 1 Hari</span>
+            </a>
+            <a href="#showcase" class="btn btn-secondary btn-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <span data-i18n="hero_btn_secondary">Tonton Cara Kerja Bot</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Futuristic Live Engine Preview Card -->
+        <div class="hero-visual reveal">
+          <div class="cyber-card">
+            <div class="cyber-card-header">
+              <div class="window-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="window-title">COC_VIPBot_Engine_v2.4 — Multi-Instance</div>
+              <span class="demo-tag">LIVE PREVIEW UI</span>
+            </div>
+
+            <div class="cyber-card-body">
+              <div class="status-banner">
+                <div class="status-indicator">
+                  <span class="pulse-ring"></span>
+                  <div>
+                    <div class="status-label">ANTI-BAN HUMANIZER ENGINE</div>
+                    <div class="status-value">Active • Randomized Click &amp; Delay</div>
+                  </div>
+                </div>
+                <span class="version-chip">SAFE MODE</span>
+              </div>
+
+              <!-- Multi Instance Mini Grid -->
+              <div class="instance-preview-grid">
+                <div class="instance-pill active-inst">
+                  <span class="inst-dot"></span>
+                  <div>
+                    <strong>Instance #1 (TH16)</strong>
+                    <small>Searching Loot &gt; 1.2M</small>
+                  </div>
+                </div>
+                <div class="instance-pill active-inst">
+                  <span class="inst-dot"></span>
+                  <div>
+                    <strong>Instance #2 (TH15)</strong>
+                    <small class="gold-text">Upgrading Wall Lv.16</small>
+                  </div>
+                </div>
+                <div class="instance-pill active-inst">
+                  <span class="inst-dot"></span>
+                  <div>
+                    <strong>Instance #3 (BH10)</strong>
+                    <small class="emerald-text">Builder Base Farming</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="visual-bars">
+                <div class="bar-item">
+                  <div class="bar-label">
+                    <span>Best Loot Finder Filter (Gold + Elixir)</span>
+                    <span class="cyan-text">Min. 850K / Match</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill fill-blue" style="width: 88%"></div>
+                  </div>
+                </div>
+                <div class="bar-item">
+                  <div class="bar-label">
+                    <span>Smart Wall Upgrade Storage Trigger</span>
+                    <span class="gold-text">Auto-Spend at 80% Full</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill fill-gold" style="width: 80%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="terminal-preview" aria-label="Illustrative log output">
+                <code>[INST-1] Deadbase found! Gold: 1,150,400 | Elixir: 1,210,000</code>
+                <code>[INST-2] Storage threshold reached -&gt; Auto Upgraded 4x Walls!</code>
+                <code>[INST-3] Builder Base battle won -&gt; Auto Builder Wall checked.</code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= C. TRUST / CORE ADVANTAGES BAR ================= -->
+    <section class="trust-section" aria-label="Core System Advantages">
+      <div class="container">
+        <div class="trust-grid reveal">
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <span class="trust-label" data-i18n="trust_label1">Multi-Account Power</span>
+              <strong class="trust-value">Support Multi Instances</strong>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon emerald-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <span class="trust-label" data-i18n="trust_label2">Dual Village Automation</span>
+              <strong class="trust-value">Home Village + Builder Base</strong>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon gold-icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <span class="trust-label" data-i18n="trust_label3">Security Layer</span>
+              <strong class="trust-value">Smart Anti-Ban Humanizer</strong>
+            </div>
+          </div>
+
+          <div class="trust-item">
+            <div class="trust-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <span class="trust-label" data-i18n="trust_label4">Dedicated Assistance</span>
+              <strong class="trust-value">Up to VIPP Support Tier</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= D. FEATURES SECTION (3 DISTINCT AURA COLORS) ================= -->
+    <section class="features-section section-padding" id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">POWERFUL AUTOMATION MODULES</span>
+          <h2 class="section-title" data-i18n="feat_sec_title">Fitur Unggulan COC VIPBot</h2>
+          <p class="section-subtitle" data-i18n="feat_sec_sub">
+            Dirancang khusus untuk memaksimalkan perolehan loot harian dan mempercepat progres Wall di semua akun Anda secara bersamaan.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1: Best Loot Finder (Standard Blue/Cyan) -->
+          <article class="feature-card reveal">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+              </svg>
+            </div>
+            <span class="feature-badge">Precision Radar</span>
+            <h3 class="feature-title">Best Loot Finder</h3>
+            <p class="feature-desc" data-i18n="feat_1_desc">
+              Pemindaian cepat untuk menemukan base kaya (deadbase &amp; kolektor penuh) sesuai target minimum Gold, Elixir, dan Dark Elixir yang Anda atur.
+            </p>
+          </article>
+
+          <!-- Card 2: Auto Up Wall (AURA #1: MOLTEN GOLD & FIRE) -->
+          <article class="feature-card gold-fire-card reveal">
+            <div class="fire-aura-glow" aria-hidden="true"></div>
+            <div class="card-top-row">
+              <div class="feature-icon-wrap gold-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v6"/><path d="M15 9v6"/><path d="M9 15v6"/>
+                </svg>
+              </div>
+              <span class="hot-hook-badge">🔥 KILLER FEATURE</span>
+            </div>
+            <span class="feature-badge gold-badge">Super Smart System</span>
+            <h3 class="feature-title gold-gradient-text">Auto Up Wall</h3>
+            <p class="feature-desc" data-i18n="feat_2_desc">
+              Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mendeteksi kelebihan Gold/Elixir dan langsung meng-upgrade Wall desa utama Anda tanpa henti.
+            </p>
+          </article>
+
+          <!-- Card 3: Anti Ban (Standard Blue/Cyan) -->
+          <article class="feature-card reveal">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <span class="feature-badge">Humanized Engine</span>
+            <h3 class="feature-title">Anti Ban</h3>
+            <p class="feature-desc" data-i18n="feat_3_desc">
+              Dilengkapi randomized tap coordinates, jeda waktu natural, dan pola deployment pasukan yang meniru perilaku sentuhan jari manusia asli.
+            </p>
+          </article>
+
+          <!-- Card 4: Full Support System (Standard Blue/Cyan) -->
+          <article class="feature-card reveal">
+            <div class="feature-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+              </svg>
+            </div>
+            <span class="feature-badge">Guided Setup</span>
+            <h3 class="feature-title">Full Support System</h3>
+            <p class="feature-desc" data-i18n="feat_4_desc">
+              Panduan instalasi lengkap, troubleshooting cepat, serta pembaruan berkala agar bot selalu optimal mengikuti update terbaru game.
+            </p>
+          </article>
+
+          <!-- Card 5: Support Multi Instances (AURA #2: NEON CYBER CYAN) -->
+          <article class="feature-card cyan-plasma-card reveal">
+            <div class="cyan-aura-glow" aria-hidden="true"></div>
+            <div class="card-top-row">
+              <div class="feature-icon-wrap cyan-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h4v4H7z"/><path d="M13 8h4v4h-4z"/>
+                </svg>
+              </div>
+              <span class="cyan-hook-badge">⚡ MULTI-ACCOUNT</span>
+            </div>
+            <span class="feature-badge cyan-badge">High Efficiency</span>
+            <h3 class="feature-title cyan-gradient-text">Support Multi Instances</h3>
+            <p class="feature-desc" data-i18n="feat_5_desc">
+              Punya banyak akun Clash of Clans? Jalankan beberapa jendela emulator sekaligus dalam satu PC secara paralel tanpa saling mengganggu!
+            </p>
+          </article>
+
+          <!-- Card 6: Auto Builder Base Loot & Wall (AURA #3: MATRIX EMERALD GREEN) -->
+          <article class="feature-card emerald-venom-card reveal">
+            <div class="emerald-aura-glow" aria-hidden="true"></div>
+            <div class="card-top-row">
+              <div class="feature-icon-wrap emerald-icon">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                </svg>
+              </div>
+              <span class="emerald-hook-badge">🟢 6TH BUILDER RUSHER</span>
+            </div>
+            <span class="feature-badge emerald-badge">Dual Base Automation</span>
+            <h3 class="feature-title emerald-gradient-text">Auto Builder Base Loot &amp; Wall</h3>
+            <p class="feature-desc" data-i18n="feat_6_desc">
+              Otomatisasi penuh untuk malam hari di Builder Base! Kumpulkan Builder Gold &amp; Elixir secara instan dan upgrade tembok Builder Base tanpa perlu repot bermain manual.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= E. VIDEO SHOWCASE SECTION ================= -->
+    <section class="showcase-section section-padding" id="showcase">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">OFFICIAL VIDEO SHOWCASE</span>
+          <h2 class="section-title" data-i18n="show_sec_title">Lihat UI Bot &amp; Cara Kerjanya</h2>
+          <p class="section-subtitle" data-i18n="show_sec_sub">
+            Tonton demonstrasi singkat (30–60 detik) bagaimana COC VIPBot memindai deadbase, menurunkan pasukan dengan sistem Anti-Ban, dan meng-upgrade Wall secara otomatis.
+          </p>
+        </div>
+
+        <div class="video-showcase-wrapper reveal">
+          <div class="video-frame-header">
+            <div class="window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="video-frame-title">
+              <span class="live-rec-dot"></span>
+              <span>COC_VIPBot_Gameplay_Showcase.mp4 (1080p 60FPS)</span>
+            </div>
+            <span class="video-duration-badge">00:45 DEMO</span>
+          </div>
+
+          <div class="video-stage" id="videoStage">
+            <!-- 1. Native HTML5 Video -->
+            <video
+              id="showcaseNativeVideo"
+              class="showcase-video-element"
+              controls
+              playsinline
+              preload="metadata"
+              hidden
+            >
+              Browser Anda tidak mendukung pemutaran video HTML5.
+            </video>
+
+            <!-- 2. YouTube Embed Iframe -->
+            <iframe
+              id="showcaseYoutubeIframe"
+              class="showcase-video-element"
+              title="COC VIPBot Video Showcase"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              hidden
+            ></iframe>
+
+            <!-- 3. Interactive Poster / Simulated Demo State -->
+            <div class="video-poster-overlay" id="videoPosterOverlay">
+              <div class="simulated-bot-screen" id="simulatedScreen">
+                <div class="sim-hud-top">
+                  <span class="sim-chip">🎯 Target: Gold &gt; 900K | Elixir &gt; 900K</span>
+                  <span class="sim-chip gold-chip">🧱 Auto Wall: ON</span>
+                  <span class="sim-chip">🛡️ Anti-Ban Delay: 1.4s</span>
+                </div>
+
+                <div class="sim-center-play">
+                  <button type="button" class="play-pulse-btn" id="triggerDemoVideoBtn" aria-label="Putar Preview Cara Kerja Bot">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  </button>
+                  <h3 class="sim-Overlay-title" id="simTitleText" data-i18n="show_sim_title">Klik untuk Simulasi Cara Kerja UI Bot</h3>
+                  <p class="sim-overlay-sub" id="simSubText" data-i18n="show_sim_sub">
+                    (Area ini siap memutar video MP4 30–60 detik Anda begitu file videonya dimasukkan ke folder assets/images/)
+                  </p>
+                </div>
+
+                <div class="sim-live-console" id="simLiveConsole">
+                  <div class="sim-step active-step" data-step="1">
+                    <strong>1. Scanning Loot</strong>
+                    <span data-i18n="show_step1">Best Loot Finder memfilter base mati...</span>
+                  </div>
+                  <div class="sim-step" data-step="2">
+                    <strong>2. Smart Attack</strong>
+                    <span data-i18n="show_step2">Deploy pasukan dengan pola Anti-Ban...</span>
+                  </div>
+                  <div class="sim-step" data-step="3">
+                    <strong>3. Auto Up Wall</strong>
+                    <span data-i18n="show_step3">Upgrade Wall Main &amp; Builder Base!</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-caption-bar">
+            <div class="vc-item">
+              <span class="vc-dot"></span>
+              <span><strong>00:00 - 00:15</strong> Setup UI &amp; Multi-Instance</span>
+            </div>
+            <div class="vc-item">
+              <span class="vc-dot"></span>
+              <span><strong>00:15 - 00:30</strong> Best Loot Finder &amp; Attack</span>
+            </div>
+            <div class="vc-item">
+              <span class="vc-dot gold-dot"></span>
+              <span><strong>00:30 - 00:45</strong> Auto Up Wall &amp; Builder Base</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= F. HOW IT WORKS ================= -->
+    <section class="steps-section section-padding" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="how_eyebrow">4 LANGKAH MUDAH</span>
+          <h2 class="section-title" data-i18n="how_sec_title">Bagaimana COC VIPBot Bekerja?</h2>
+          <p class="section-subtitle" data-i18n="how_sec_sub">
+            Tidak perlu pengaturan rumit. Dari klaim Trial Gratis hingga bot berjalan otomatis meng-upgrade Wall Anda hanya butuh beberapa menit.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-number">01</div>
+            <h3 class="step-title" data-i18n="how_1_title">Klaim Free Trial 1 Hari / Pilih Paket</h3>
+            <p class="step-desc" data-i18n="how_1_desc">
+              Mulai dengan Trial Gratis 1 Hari untuk mencoba seluruh fitur secara langsung, atau pilih paket 1 Minggu, 1 Bulan, hingga Life Time.
+            </p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">02</div>
+            <h3 class="step-title" data-i18n="how_2_title">Hubungkan Emulator &amp; Multi-Instances</h3>
+            <p class="step-desc" data-i18n="how_2_desc">
+              Buka aplikasi COC VIPBot di PC Anda. Sistem otomatis mendeteksi emulator dan mengizinkan Anda menjalankan satu atau banyak akun sekaligus.
+            </p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">03</div>
+            <h3 class="step-title" data-i18n="how_3_title">Aktifkan Loot Finder &amp; Auto Up Wall</h3>
+            <p class="step-desc" data-i18n="how_3_desc">
+              Centang modul Best Loot Finder, Super Smart Wall Upgrade, serta Auto Builder Base sesuai target resource yang Anda inginkan.
+            </p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number">04</div>
+            <h3 class="step-title" data-i18n="how_4_title">Klik Start &amp; Biarkan Bot Bekerja</h3>
+            <p class="step-desc" data-i18n="how_4_desc">
+              Sistem Anti-Ban kami akan menjalankan pencarian loot, menyerang, dan meng-upgrade tembok desa Anda 24/7 secara otomatis dan aman.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= G. PRICING SECTION ================= -->
+    <section class="pricing-section section-padding" id="pricing">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow" data-i18n="price_eyebrow">HARGA TRANSPARAN &amp; FLEKSIBEL</span>
+          <h2 class="section-title" data-i18n="price_sec_title">Pilih Paket Terbaik Untuk Desa Anda</h2>
+          <p class="section-subtitle" data-i18n="price_sec_sub">
+            Semua paket membuka 100% fitur utama. Coba gratis selama 1 hari, atau pilih paket 1 Bulan &amp; Life Time untuk nilai hemat terbaik!
+          </p>
+        </div>
+
+        <div class="pricing-grid-4">
+          <!-- TIER 1: TRIAL FREE 1 HARI -->
+          <div class="pricing-card reveal">
+            <div>
+              <div class="pricing-header">
+                <span class="tier-name" data-i18n="tier1_name">Trial Free</span>
+                <div class="tier-price">
+                  <span class="price-currency">Rp</span>
+                  <span class="price-amount">0</span>
+                  <span class="price-period" data-i18n="tier1_period">/ 1 Hari</span>
+                </div>
+                <p class="tier-desc" data-i18n="tier1_desc">Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya.</p>
+              </div>
+
+              <ul class="tier-features">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur Unlock</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti Ban</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Super Smart Wall Upgrade</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur For Builder Base</span>
+                </li>
+                <li class="support-tier-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Standard Support</strong></span>
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="btn btn-secondary btn-block" data-config-link="checkoutTrialUrl" data-i18n="tier1_btn">
+              Claim Free Trial
+            </button>
+          </div>
+
+          <!-- TIER 2: 1 MINGGU (28.900) -->
+          <div class="pricing-card reveal">
+            <div>
+              <div class="pricing-header">
+                <span class="tier-name" data-i18n="tier2_name">Paket 1 Minggu</span>
+                <div class="tier-price">
+                  <span class="price-currency">Rp</span>
+                  <span class="price-amount">28.900</span>
+                  <span class="price-period" data-i18n="tier2_period">/ 7 Hari</span>
+                </div>
+                <p class="tier-desc" data-i18n="tier2_desc">Cocok untuk kejar progres mingguan, event Clan Games, atau mengisi penuh storage dengan cepat.</p>
+              </div>
+
+              <ul class="tier-features">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur Unlock</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti Ban</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Super Smart Wall Upgrade</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur For Builder Base</span>
+                </li>
+                <li class="support-tier-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Standard Support</strong></span>
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="btn btn-secondary btn-block" data-config-link="checkoutWeeklyUrl" data-i18n="tier2_btn">
+              Pilih Paket 1 Minggu
+            </button>
+          </div>
+
+          <!-- TIER 3: 1 BULAN (99.000 — BEST VALUE #1: ELECTRIC CYAN) -->
+          <div class="pricing-card best-monthly-card reveal">
+            <div class="popular-ribbon cyan-ribbon" data-i18n="tier3_ribbon">⚡ MOST POPULAR • HEMAT 15%</div>
+            <div>
+              <div class="pricing-header">
+                <div class="tier-title-row">
+                  <span class="tier-name cyan-text" data-i18n="tier3_name">Paket 1 Bulan</span>
+                  <span class="value-Savings-pill" data-i18n="tier3_pill">~Rp 3.300 / hari</span>
+                </div>
+                <div class="tier-price">
+                  <span class="price-currency">Rp</span>
+                  <span class="price-amount">99.000</span>
+                  <span class="price-period" data-i18n="tier3_period">/ 30 Hari</span>
+                </div>
+                <p class="tier-desc" data-i18n="tier3_desc">Pilihan favorit mayoritas pemain! Jauh lebih hemat dibanding beli mingguan untuk farming non-stop sebulan penuh.</p>
+              </div>
+
+              <ul class="tier-features">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur Unlock</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti Ban</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Super Smart Wall Upgrade</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur For Builder Base</span>
+                </li>
+                <li class="support-tier-row priority-support-row">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span><strong>Priority Support</strong> <small class="tier-upgrade-tag">UPGRADED</small></span>
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" data-config-link="checkoutMonthlyUrl" data-i18n="tier3_btn">
+              Ambil Best Monthly
+            </button>
+          </div>
+
+          <!-- TIER 4: LIFE TIME (499.000 — BEST VALUE #2: ROYAL GOLD & FIRE KING) -->
+          <div class="pricing-card best-lifetime-card reveal">
+            <div class="fire-aura-glow" aria-hidden="true"></div>
+            <div class="popular-ribbon gold-ribbon" data-i18n="tier4_ribbon">👑 ULTIMATE BEST VALUE • SEKALI BAYAR</div>
+            <div>
+              <div class="pricing-header">
+                <div class="tier-title-row">
+                  <span class="tier-name gold-gradient-text">Life Time VIPP</span>
+                  <span class="value-Savings-pill gold-savings-pill" data-i18n="tier4_pill">Akses Selamanya</span>
+                </div>
+                <div class="tier-price">
+                  <span class="price-currency gold-text">Rp</span>
+                  <span class="price-amount gold-gradient-text">499.000</span>
+                  <span class="price-period" data-i18n="tier4_period">/ Selamanya</span>
+                </div>
+                <p class="tier-desc" data-i18n="tier4_desc">Investasi terbaik tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya, plus layanan kasta tertinggi VIPP Support.</p>
+              </div>
+
+              <ul class="tier-features">
+                <li>
+                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>All Fitur Unlock</strong></span>
+                </li>
+                <li>
+                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti Ban</span>
+                </li>
+                <li>
+                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Super Smart Wall Upgrade</span>
+                </li>
+                <li>
+                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Fitur For Builder Base</span>
+                </li>
+                <li class="support-tier-row vipp-support-row">
+                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                  <div>
+                    <span class="vipp-badge-text">🔥 VIPP Support</span>
+                    <small class="vipp-subtext">Standard ➔ Priority ➔ <strong>VIPP Exclusive</strong></small>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="btn btn-gold btn-block" data-config-link="checkoutLifetimeUrl" data-i18n="tier4_btn">
+              👑 Ambil Paket Life Time Sekarang
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= H. FAQ SECTION ================= -->
+    <section class="faq-section section-padding" id="faq">
+      <div class="container faq-container">
+        <div class="section-header reveal">
+          <span class="section-eyebrow">FAQ</span>
+          <h2 class="section-title" data-i18n="faq_sec_title">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+          <p class="section-subtitle" data-i18n="faq_sec_sub">
+            Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga perbedaan tingkat Support.
+          </p>
+        </div>
+
+        <div class="faq-list reveal" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
+                <span data-i18n="faq_q1">Apakah Trial Free 1 Hari membuka semua fitur seperti Auto Up Wall &amp; Multi-Instance?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1" hidden>
+              <p data-i18n="faq_a1">
+                Ya! Paket Trial Free 1 Hari memberikan akses All Fitur Unlock termasuk Best Loot Finder, Super Smart Wall Upgrade, Auto Builder Base, dan sistem Anti-Ban agar Anda bisa membuktikan sendiri performanya sebelum berlangganan.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
+                <span data-i18n="faq_q2">Bagaimana cara kerja fitur Auto Up Wall di Home Village dan Builder Base?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" hidden>
+              <p data-i18n="faq_a2">
+                Setiap kali sesi serangan selesai dan jumlah Gold atau Elixir Anda melewati batas minimum yang Anda tentukan, bot secara cerdas akan mencari tembok (Wall) baik di desa utama maupun di Builder Base dan langsung melakukan upgrade secara otomatis.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
+                <span data-i18n="faq_q3">Apa itu Support Multi Instances dan berapa akun yang bisa dijalankan?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" hidden>
+              <p data-i18n="faq_a3">
+                Support Multi Instances memungkinkan Anda menjalankan beberapa akun Clash of Clans di beberapa jendela emulator secara bersamaan dalam 1 PC. Jumlah instance yang dapat berjalan bergantung pada kapasitas RAM dan prosesor komputer Anda.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
+                <span data-i18n="faq_q4">Apa perbedaan Standard Support, Priority Support, dan VIPP Support?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4" hidden>
+              <p data-i18n="faq_a4">
+                Standard Support (Trial &amp; 1 Minggu) mencakup bantuan tiket komunitas reguler. Priority Support (Paket 1 Bulan) mendapatkan antrean respons lebih cepat. Sedangkan VIPP Support (khusus member Life Time) adalah layanan eksklusif kasta tertinggi dengan bantuan setup prioritas utama dan konsultasi multi-instance.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
+                <span data-i18n="faq_q5">Bagaimana sistem Anti-Ban pada COC VIPBot bekerja?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5" hidden>
+              <p data-i18n="faq_a5">
+                Sistem All Strategies with Anti-Ban kami tidak melakukan modifikasi memori game, melainkan membaca layar secara visual dan meniru ketukan jari manusia dengan titik koordinat acak, kecepatan bervariasi, serta jadwal istirahat natural.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <h3 class="faq-heading">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
+                <span data-i18n="faq_q6">Bagaimana cara mengunduh dan melakukan pembayaran?</span>
+                <span class="faq-icon" aria-hidden="true"></span>
+              </button>
+            </h3>
+            <div class="faq-content" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6" hidden>
+              <p data-i18n="faq_a6">
+                Pilih paket yang Anda inginkan pada bagian Pricing di atas atau bergabung ke komunitas resmi kami untuk mendapatkan panduan aktivasi lisensi secara instan.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= I. COMMUNITY / CTA SECTION ================= -->
+    <section class="cta-section section-padding" id="community">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="cta-glow" aria-hidden="true"></div>
+          <span class="section-eyebrow" data-i18n="cta_eyebrow">SIAP FARMING OTOMATIS?</span>
+          <h2 class="cta-title" data-i18n="cta_title">Maksimalkan Desa Utama &amp; Builder Base Anda Sekarang</h2>
+          <p class="cta-desc" data-i18n="cta_desc">
+            Jangan biarkan Builder dan Storage Anda menganggur. Mulai dengan Trial Gratis 1 Hari atau amankan lisensi Life Time VIPP Support hari ini!
+          </p>
+
+          <div class="cta-buttons">
+            <a href="#pricing" class="btn btn-gold btn-lg">
+              <span data-i18n="cta_btn1">🔥 Lihat Paket &amp; Klaim Trial</span>
+            </a>
+            <a href="#community" class="btn btn-secondary btn-lg" data-config-link="communityUrl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>Join Community</span>
+            </a>
+            <a href="#support" class="btn btn-outline btn-lg" data-config-link="supportUrl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>Contact VIPP Support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= J. FOOTER (CLEANED) ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#home" class="brand-logo" aria-label="COC VIPBot Home">
+            <img src="assets/logo.svg" alt="COC VIPBot Logo" width="165" height="33" />
+          </a>
+          <p class="footer-bio" data-i18n="footer_bio">
+            Platform otomatisasi farming Clash of Clans dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Builder Base, dan dukungan Multi-Instances.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-list">
+            <li><a href="#home" data-i18n="nav_home">Home</a></li>
+            <li><a href="#features" data-i18n="nav_features">Features</a></li>
+            <li><a href="#showcase" data-i18n="nav_showcase">Video Showcase</a></li>
+            <li><a href="#how-it-works" data-i18n="nav_how">How It Works</a></li>
+            <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
+            <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Access &amp; Support</h4>
+          <ul class="footer-list">
+            <li><a href="#pricing" data-config-link="checkoutTrialUrl">Free Trial 1 Hari</a></li>
+            <li><a href="#pricing" data-config-link="checkoutLifetimeUrl">Paket Life Time VIPP</a></li>
+            <li><a href="#community" data-config-link="communityUrl">Official Community</a></li>
+            <li><a href="#support" data-config-link="supportUrl">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> COC VIPBot (coc-vipbot.web.id). All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Honest Placeholder Modal / Toast Notification -->
+  <div class="toast-modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="toast-backdrop" id="modalBackdrop"></div>
+    <div class="toast-card">
+      <div class="toast-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 id="modalTitle" class="toast-title">Link Segera Aktif</h3>
+      <p id="modalMessage" class="toast-desc">
+        Tautan ini sedang disiapkan dan akan langsung aktif begitu URL resmi dimasukkan ke dalam konfigurasi website.
+      </p>
+      <button type="button" class="btn btn-primary btn-sm" id="closeModalBtn">OK</button>
+    </div>
+  </div>
+
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+</html>

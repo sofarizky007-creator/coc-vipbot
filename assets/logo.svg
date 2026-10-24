@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 48" width="240" height="48" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#22D3EE" />
+    </linearGradient>
+  </defs>
+  <!-- Hexagonal Tech Shield Icon -->
+  <g transform="translate(4, 4)">
+    <path d="M20 2L36 8.5V20C36 31.2 29.1 38.4 20 42C10.9 38.4 4 31.2 4 20V8.5L20 2Z" fill="#111D31" stroke="url(#logoGrad)" stroke-width="2.5" stroke-linejoin="round" />
+    <path d="M13 17L20 24L27 17" stroke="#22D3EE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="20" cy="30" r="2.5" fill="#3B82F6" />
+  </g>
+  <!-- Brand Typography -->
+  <text x="52" y="31" font-family="system-ui, -apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, sans-serif" font-size="22" font-weight="800" fill="#F8FAFC" letter-spacing="0.5">
+    COC <tspan fill="url(#logoGrad)">VIPBot</tspan>
+  </text>
+</svg>
