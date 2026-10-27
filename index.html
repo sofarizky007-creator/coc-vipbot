@@ -73,6 +73,12 @@
             <span class="lang-option" data-lang-ind="en">ENG</span>
           </button>
 
+          <!-- Tombol Download EXE di Navbar -->
+          <a href="#download" class="btn btn-secondary btn-sm" data-config-link="downloadUrl">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span data-i18n="nav_download">Download .EXE</span>
+          </a>
+
           <!-- Tombol CTA Utama -->
           <a href="#pricing" class="btn btn-primary btn-sm">
             <span data-i18n="nav_cta">Free Trial 1 Hari</span>
@@ -91,7 +97,7 @@
           <div class="eyebrow-badge">
             <span class="status-dot"></span>
             <span data-i18n="hero_eyebrow">NEXT-GEN CLASH AUTOMATION ENGINE</span>
-            <span class="badge-pill gold-pill">🔥 MULTI-INSTANCE READY</span>
+            <span class="badge-pill gold-pill">🔥 AUTO-UPDATER v1.0.0</span>
           </div>
 
           <h1 class="hero-title" data-i18n="hero_title">
@@ -100,13 +106,13 @@
           </h1>
 
           <p class="hero-description" data-i18n="hero_desc">
-            Dominasi progres Home Village &amp; Builder Base Anda dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> untuk banyak akun sekaligus, serta proteksi algoritma <em>Anti-Ban</em> yang humanis.
+            Dominasi progres Home Village &amp; Builder Base Anda dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> mandiri untuk banyak emulator sekaligus, serta fitur <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.
           </p>
 
           <div class="hero-highlights">
             <span class="hero-chip" data-i18n="hero_chip1">⚡ Trial Gratis 1 Hari</span>
             <span class="hero-chip" data-i18n="hero_chip2">🧱 Auto Wall Main &amp; Builder Base</span>
-            <span class="hero-chip" data-i18n="hero_chip3">🖥️ Multi-Instances</span>
+            <span class="hero-chip" data-i18n="hero_chip3">🖥️ Multi-Instances Mandiri</span>
           </div>
 
           <div class="hero-actions">
@@ -114,86 +120,143 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               <span data-i18n="hero_btn_primary">Claim Free Trial 1 Hari</span>
             </a>
+            <a href="#download" class="btn btn-gold btn-lg" data-config-link="downloadUrl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="hero_btn_download">Download Bot (.EXE)</span>
+            </a>
             <a href="#showcase" class="btn btn-secondary btn-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span data-i18n="hero_btn_secondary">Tonton Cara Kerja Bot</span>
+              <span data-i18n="hero_btn_secondary">Video Demo</span>
             </a>
           </div>
         </div>
 
-        <!-- Futuristic Live Engine Preview Card -->
+        <!-- REPLIKA IDENTIK UI APLIKASI COC VIPBOT (PYSIDE6) -->
         <div class="hero-visual reveal">
-          <div class="cyber-card">
-            <div class="cyber-card-header">
-              <div class="window-dots">
-                <span></span><span></span><span></span>
+          <div class="bot-app-window" aria-label="Interactive COC VIPBot Desktop UI Preview">
+            <!-- OS Window Titlebar -->
+            <div class="bot-win-titlebar">
+              <div class="bot-win-title">
+                <span class="bot-win-icon">⚔️</span>
+                <span>COC Bot v1.0.0 — [LDPlayer / MuMu | 127.0.0.1:5555]</span>
               </div>
-              <div class="window-title">COC_VIPBot_Engine_v2.4 — Multi-Instance</div>
-              <span class="demo-tag">LIVE PREVIEW UI</span>
+              <div class="bot-win-controls">
+                <span>─</span><span>□</span><span class="win-close">✕</span>
+              </div>
             </div>
 
-            <div class="cyber-card-body">
-              <div class="status-banner">
-                <div class="status-indicator">
-                  <span class="pulse-ring"></span>
-                  <div>
-                    <div class="status-label">ANTI-BAN HUMANIZER ENGINE</div>
-                    <div class="status-value">Active • Randomized Click &amp; Delay</div>
+            <!-- Inner CentralWidget (#080F20) -->
+            <div class="bot-central-widget">
+              <!-- TOP HEADER BAR (#101A30) -->
+              <div class="bot-header-bar">
+                <div class="bot-header-top">
+                  <span class="bot-brand-title">⚔  CLASH OF CLANS</span>
+                  <div class="bot-header-btns">
+                    <span class="bot-mini-combo">🌐 ID ▾</span>
+                    <span class="bot-mini-btn tutorial-btn">📋 Tutorial</span>
+                    <span class="bot-mini-btn scan-btn">↻ Scan</span>
                   </div>
                 </div>
-                <span class="version-chip">SAFE MODE</span>
-              </div>
-
-              <!-- Multi Instance Mini Grid -->
-              <div class="instance-preview-grid">
-                <div class="instance-pill active-inst">
-                  <span class="inst-dot"></span>
-                  <div>
-                    <strong>Instance #1 (TH16)</strong>
-                    <small>Searching Loot &gt; 1.2M</small>
-                  </div>
-                </div>
-                <div class="instance-pill active-inst">
-                  <span class="inst-dot"></span>
-                  <div>
-                    <strong>Instance #2 (TH15)</strong>
-                    <small class="gold-text">Upgrading Wall Lv.16</small>
-                  </div>
-                </div>
-                <div class="instance-pill active-inst">
-                  <span class="inst-dot"></span>
-                  <div>
-                    <strong>Instance #3 (BH10)</strong>
-                    <small class="emerald-text">Builder Base Farming</small>
-                  </div>
+                <div class="bot-header-emu">
+                  <span class="bot-emu-label">🎯 Emulator:</span>
+                  <div class="bot-emu-select">LDPlayer #1 (127.0.0.1:5555) [1600x900]</div>
+                  <span class="bot-emu-status">● READY</span>
                 </div>
               </div>
 
-              <div class="visual-bars">
-                <div class="bar-item">
-                  <div class="bar-label">
-                    <span>Best Loot Finder Filter (Gold + Elixir)</span>
-                    <span class="cyan-text">Min. 850K / Match</span>
-                  </div>
-                  <div class="progress-track">
-                    <div class="progress-fill fill-blue" style="width: 88%"></div>
+              <!-- NAVIGATION & MODE SWITCHER BAR -->
+              <div class="bot-nav-row">
+                <button type="button" class="bot-back-btn" id="mockSwitchModeBtn" title="Klik untuk ganti tampilan Desa Asal / Desa Malam">
+                  🔄 <span data-i18n="mock_switch_village">Ganti Desa</span>
+                </button>
+                <span class="bot-village-badge" id="mockVillageBadge">☀️ DESA ASAL</span>
+              </div>
+
+              <!-- PANEL DESA ASAL (HOME VILLAGE) -->
+              <div id="mockPanelAsal" class="bot-mode-panel">
+                <!-- Card 1: Loop & Timer -->
+                <div class="bot-ui-card bot-row-card">
+                  <span class="bot-field-lbl">Loop:</span>
+                  <div class="bot-spinbox">15</div>
+                  <span class="bot-field-lbl">Timer:</span>
+                  <div class="bot-spinbox">60 s</div>
+                </div>
+
+                <!-- Card 2: Minimal Loot -->
+                <div class="bot-ui-card">
+                  <div class="bot-card-caption" data-i18n="mock_min_loot">MINIMAL LOOT (0 = LANGSUNG SERANG)</div>
+                  <div class="bot-loot-grid">
+                    <div class="bot-loot-col">
+                      <span class="bot-loot-lbl">🟡 Gold</span>
+                      <div class="bot-spinbox">500,000</div>
+                    </div>
+                    <div class="bot-loot-col">
+                      <span class="bot-loot-lbl">🟣 Elixir</span>
+                      <div class="bot-spinbox">500,000</div>
+                    </div>
+                    <div class="bot-loot-col">
+                      <span class="bot-loot-lbl">⚫ Dark</span>
+                      <div class="bot-spinbox">5,000</div>
+                    </div>
                   </div>
                 </div>
-                <div class="bar-item">
-                  <div class="bar-label">
-                    <span>Smart Wall Upgrade Storage Trigger</span>
-                    <span class="gold-text">Auto-Spend at 80% Full</span>
+
+                <!-- Card 3: More Option & Set Army -->
+                <div class="bot-ui-card bot-tools-card">
+                  <div class="bot-tool-row">
+                    <span class="bot-tool-btn">⚙️ More Option</span>
+                    <span class="bot-summary-gold">Wall:ON | Card:ON | Cake:ON</span>
                   </div>
-                  <div class="progress-track">
-                    <div class="progress-fill fill-gold" style="width: 80%"></div>
+                  <div class="bot-tool-row">
+                    <span class="bot-tool-btn primary-tool">🎯 Set Army</span>
+                    <span class="bot-summary-cyan">5 Slot (T:18 S:7 H:4 M:1)</span>
                   </div>
                 </div>
               </div>
 
-              <div class="terminal-preview" aria-label="Illustrative log output">
-                <code>[INST-1] Deadbase found! Gold: 1,150,400 | Elixir: 1,210,000</code>
-                <code>[INST-2] Storage threshold reached -&gt; Auto Upgraded 4x Walls!</code>
-                <code>[INST-3] Builder Base battle won -&gt; Auto Builder Wall checked.</code>
+              <!-- PANEL DESA MALAM (BUILDER BASE - Terlihat saat tombol Ganti Desa diklik) -->
+              <div id="mockPanelMalam" class="bot-mode-panel" hidden>
+                <div class="bot-ui-card">
+                  <div class="bot-card-caption">🌙 DESA MALAM (FAST DEPLOY)</div>
+                  <div class="bot-malam-desc" data-i18n="mock_malam_desc">
+                    Pastikan layar di Desa Malam. Deploy 1 Hero + 6 Troop otomatis &amp; Auto Up Wall.
+                  </div>
+                </div>
+
+                <div class="bot-ui-card bot-row-card">
+                  <span class="bot-field-lbl">Loop:</span>
+                  <div class="bot-spinbox">20</div>
+                  <span class="bot-field-lbl">Timer:</span>
+                  <div class="bot-spinbox">45 s</div>
+                </div>
+
+                <div class="bot-ui-card bot-tools-card">
+                  <div class="bot-tool-row">
+                    <span class="bot-tool-btn">⚙️ More Option</span>
+                    <span class="bot-summary-gold">Wall:ON | Skill:11s</span>
+                  </div>
+                  <div class="bot-tool-row">
+                    <span class="bot-tool-btn primary-tool">🌙 Set Army</span>
+                    <span class="bot-summary-cyan">1 Hero + 6 Troop</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BARIS TOMBOL START | SISA LOOP | STOP | HIDE LOG -->
+              <div class="bot-ctrl-row">
+                <button type="button" class="bot-btn-start" id="mockBtnStart">▶ Start</button>
+                <div class="bot-rem-badge" id="mockRemLoop">Sisa: 12</div>
+                <button type="button" class="bot-btn-stop" id="mockBtnStop">⏹ Stop</button>
+                <button type="button" class="bot-btn-toggle" id="mockBtnToggleLog" title="Sembunyikan / Tampilkan Log">▲</button>
+              </div>
+
+              <!-- KOTAK LOG AKTIVITAS REAL-TIME -->
+              <div class="bot-log-box" id="mockLogContainer">
+                <div class="bot-log-line">[09:14:20] [TARGET] LDPlayer (127.0.0.1:5555) | Res: 1600x900</div>
+                <div class="bot-log-line">[09:14:22] [READY] Base musuh terdeteksi via End Battle!</div>
+                <div class="bot-log-line log-ok">[09:14:23] [LOOT] Gold: 850,400/500,000 (OK) | Elixir: 920,100 (OK)</div>
+                <div class="bot-log-line">[09:14:25] [FAST-DEPLOY] Menurunkan Troop, Spell, Hero &amp; Machine...</div>
+                <div class="bot-log-line log-gold" id="mockDynamicLog">[09:15:10] [WALL-SUCCESS] Upgrade 5 Wall menggunakan GOLD selesai!</div>
               </div>
             </div>
           </div>
@@ -230,8 +293,8 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <span class="trust-label" data-i18n="trust_label3">Security Layer</span>
-              <strong class="trust-value">Smart Anti-Ban Humanizer</strong>
+              <span class="trust-label" data-i18n="trust_label3">Smart Recovery</span>
+              <strong class="trust-value">Auto-Reload &amp; Auto Zoom-Out</strong>
             </div>
           </div>
 
@@ -240,8 +303,8 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             </div>
             <div>
-              <span class="trust-label" data-i18n="trust_label4">Dedicated Assistance</span>
-              <strong class="trust-value">Up to VIPP Support Tier</strong>
+              <span class="trust-label" data-i18n="trust_label4">Global Payment</span>
+              <strong class="trust-value">QRIS Indonesia &amp; Binance Pay</strong>
             </div>
           </div>
         </div>
@@ -260,14 +323,14 @@
         </div>
 
         <div class="features-grid">
-          <!-- Card 1: Best Loot Finder (Standard Blue/Cyan) -->
+          <!-- Card 1: Best Loot Finder -->
           <article class="feature-card reveal">
             <div class="feature-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
               </svg>
             </div>
-            <span class="feature-badge">Precision Radar</span>
+            <span class="feature-badge">Precision OCR Radar</span>
             <h3 class="feature-title">Best Loot Finder</h3>
             <p class="feature-desc" data-i18n="feat_1_desc">
               Pemindaian cepat untuk menemukan base kaya (deadbase &amp; kolektor penuh) sesuai target minimum Gold, Elixir, dan Dark Elixir yang Anda atur.
@@ -288,35 +351,35 @@
             <span class="feature-badge gold-badge">Super Smart System</span>
             <h3 class="feature-title gold-gradient-text">Auto Up Wall</h3>
             <p class="feature-desc" data-i18n="feat_2_desc">
-              Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mendeteksi kelebihan Gold/Elixir dan langsung meng-upgrade Wall desa utama Anda tanpa henti.
+              Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mendeteksi kelebihan Gold/Elixir dan langsung meng-upgrade banyak Wall sekaligus tanpa henti.
             </p>
           </article>
 
-          <!-- Card 3: Anti Ban (Standard Blue/Cyan) -->
+          <!-- Card 3: Anti Ban & Auto Reload -->
           <article class="feature-card reveal">
             <div class="feature-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
               </svg>
             </div>
-            <span class="feature-badge">Humanized Engine</span>
-            <h3 class="feature-title">Anti Ban</h3>
+            <span class="feature-badge">Humanized &amp; Auto-Reload</span>
+            <h3 class="feature-title">Anti Ban &amp; Auto-Reconnect</h3>
             <p class="feature-desc" data-i18n="feat_3_desc">
-              Dilengkapi randomized tap coordinates, jeda waktu natural, dan pola deployment pasukan yang meniru perilaku sentuhan jari manusia asli.
+              Dilengkapi pola deploy natural, klaim otomatis Star Bonus harian, serta fitur Auto-Reload pintar saat koneksi internet PC Anda sempat terputus.
             </p>
           </article>
 
-          <!-- Card 4: Full Support System (Standard Blue/Cyan) -->
+          <!-- Card 4: Full Support & Auto-Updater -->
           <article class="feature-card reveal">
             <div class="feature-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
               </svg>
             </div>
-            <span class="feature-badge">Guided Setup</span>
-            <h3 class="feature-title">Full Support System</h3>
+            <span class="feature-badge">1-Click Auto Update</span>
+            <h3 class="feature-title">Full Support &amp; Auto-Updater</h3>
             <p class="feature-desc" data-i18n="feat_4_desc">
-              Panduan instalasi lengkap, troubleshooting cepat, serta pembaruan berkala agar bot selalu optimal mengikuti update terbaru game.
+              Aplikasi .EXE dilengkapi sistem Auto-Update 1-Klik langsung dari dalam bot setiap kali ada pembaruan fitur, tanpa perlu mengunduh ulang manual.
             </p>
           </article>
 
@@ -331,10 +394,10 @@
               </div>
               <span class="cyan-hook-badge">⚡ MULTI-ACCOUNT</span>
             </div>
-            <span class="feature-badge cyan-badge">High Efficiency</span>
+            <span class="feature-badge cyan-badge">Isolated Configs</span>
             <h3 class="feature-title cyan-gradient-text">Support Multi Instances</h3>
             <p class="feature-desc" data-i18n="feat_5_desc">
-              Punya banyak akun Clash of Clans? Jalankan beberapa jendela emulator sekaligus dalam satu PC secara paralel tanpa saling mengganggu!
+              Punya banyak akun Clash of Clans? Jalankan beberapa jendela MuMuPlayer / LDPlayer sekaligus dengan penyimpanan setting Army &amp; Wall yang terpisah mandiri!
             </p>
           </article>
 
@@ -352,7 +415,7 @@
             <span class="feature-badge emerald-badge">Dual Base Automation</span>
             <h3 class="feature-title emerald-gradient-text">Auto Builder Base Loot &amp; Wall</h3>
             <p class="feature-desc" data-i18n="feat_6_desc">
-              Otomatisasi penuh untuk malam hari di Builder Base! Kumpulkan Builder Gold &amp; Elixir secara instan dan upgrade tembok Builder Base tanpa perlu repot bermain manual.
+              Otomatisasi penuh untuk malam hari di Builder Base! Deploy kilat 1 Hero + 6 Troop, aktifkan skill berkala, dan upgrade tembok Desa Malam otomatis.
             </p>
           </article>
         </div>
@@ -366,7 +429,7 @@
           <span class="section-eyebrow">OFFICIAL VIDEO SHOWCASE</span>
           <h2 class="section-title" data-i18n="show_sec_title">Lihat UI Bot &amp; Cara Kerjanya</h2>
           <p class="section-subtitle" data-i18n="show_sec_sub">
-            Tonton demonstrasi singkat (30–60 detik) bagaimana COC VIPBot memindai deadbase, menurunkan pasukan dengan sistem Anti-Ban, dan meng-upgrade Wall secara otomatis.
+            Tonton demonstrasi singkat (30–60 detik) bagaimana COC VIPBot memindai deadbase, menurunkan pasukan dengan cepat, dan meng-upgrade Wall secara otomatis.
           </p>
         </div>
 
@@ -379,7 +442,7 @@
               <span class="live-rec-dot"></span>
               <span>COC_VIPBot_Gameplay_Showcase.mp4 (1080p 60FPS)</span>
             </div>
-            <span class="video-duration-badge">00:45 DEMO</span>
+            <span class="video-duration-badge">LIVE DEMO</span>
           </div>
 
           <div class="video-stage" id="videoStage">
@@ -409,33 +472,33 @@
             <div class="video-poster-overlay" id="videoPosterOverlay">
               <div class="simulated-bot-screen" id="simulatedScreen">
                 <div class="sim-hud-top">
-                  <span class="sim-chip">🎯 Target: Gold &gt; 900K | Elixir &gt; 900K</span>
-                  <span class="sim-chip gold-chip">🧱 Auto Wall: ON</span>
-                  <span class="sim-chip">🛡️ Anti-Ban Delay: 1.4s</span>
+                  <span class="sim-chip">🎯 Target: Gold &gt; 500K | Elixir &gt; 500K</span>
+                  <span class="sim-chip gold-chip">🧱 Auto Wall: ON (More Mode)</span>
+                  <span class="sim-chip">🔍 Auto Zoom-Out: ON</span>
                 </div>
 
                 <div class="sim-center-play">
                   <button type="button" class="play-pulse-btn" id="triggerDemoVideoBtn" aria-label="Putar Preview Cara Kerja Bot">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </button>
-                  <h3 class="sim-Overlay-title" id="simTitleText" data-i18n="show_sim_title">Klik untuk Simulasi Cara Kerja UI Bot</h3>
+                  <h3 class="sim-Overlay-title" id="simTitleText" data-i18n="show_sim_title">Klik untuk Simulasi Alur Kerja COC VIPBot</h3>
                   <p class="sim-overlay-sub" id="simSubText" data-i18n="show_sim_sub">
-                    (Area ini siap memutar video MP4 30–60 detik Anda begitu file videonya dimasukkan ke folder assets/images/)
+                    (Pemutar ini otomatis menampilkan video rekaman asli Anda begitu file MP4 ditaruh di folder assets/images/)
                   </p>
                 </div>
 
                 <div class="sim-live-console" id="simLiveConsole">
                   <div class="sim-step active-step" data-step="1">
-                    <strong>1. Scanning Loot</strong>
+                    <strong>1. Scanning Loot &amp; Cloud</strong>
                     <span data-i18n="show_step1">Best Loot Finder memfilter base mati...</span>
                   </div>
                   <div class="sim-step" data-step="2">
-                    <strong>2. Smart Attack</strong>
-                    <span data-i18n="show_step2">Deploy pasukan dengan pola Anti-Ban...</span>
+                    <strong>2. Balanced-Fast Deploy</strong>
+                    <span data-i18n="show_step2">Menurunkan Troop, Spell, Hero &amp; Ability...</span>
                   </div>
                   <div class="sim-step" data-step="3">
-                    <strong>3. Auto Up Wall</strong>
-                    <span data-i18n="show_step3">Upgrade Wall Main &amp; Builder Base!</span>
+                    <strong>3. Auto Wall &amp; Zoom-Out</strong>
+                    <span data-i18n="show_step3">Upgrade Wall &amp; Reset Kamera Otomatis!</span>
                   </div>
                 </div>
               </div>
@@ -445,15 +508,15 @@
           <div class="video-caption-bar">
             <div class="vc-item">
               <span class="vc-dot"></span>
-              <span><strong>00:00 - 00:15</strong> Setup UI &amp; Multi-Instance</span>
+              <span><strong>00:00 - 00:15</strong> Scan Emulator &amp; Set Army</span>
             </div>
             <div class="vc-item">
               <span class="vc-dot"></span>
-              <span><strong>00:15 - 00:30</strong> Best Loot Finder &amp; Attack</span>
+              <span><strong>00:15 - 00:30</strong> Filter Loot &amp; Fast Deploy</span>
             </div>
             <div class="vc-item">
               <span class="vc-dot gold-dot"></span>
-              <span><strong>00:30 - 00:45</strong> Auto Up Wall &amp; Builder Base</span>
+              <span><strong>00:30 - 00:45</strong> Auto Up Wall &amp; Pinch Zoom-Out</span>
             </div>
           </div>
         </div>
@@ -474,25 +537,25 @@
         <div class="steps-grid">
           <div class="step-card reveal">
             <div class="step-number">01</div>
-            <h3 class="step-title" data-i18n="how_1_title">Klaim Free Trial 1 Hari / Pilih Paket</h3>
+            <h3 class="step-title" data-i18n="how_1_title">Unduh Bot (.EXE) &amp; Klaim Key</h3>
             <p class="step-desc" data-i18n="how_1_desc">
-              Mulai dengan Trial Gratis 1 Hari untuk mencoba seluruh fitur secara langsung, atau pilih paket 1 Minggu, 1 Bulan, hingga Life Time.
+              Unduh aplikasi COC_VIPBot.exe, lalu klaim Trial Gratis 1 Hari via Bot Telegram kami atau pilih paket berlangganan (QRIS Indonesia / Binance Pay).
             </p>
           </div>
 
           <div class="step-card reveal">
             <div class="step-number">02</div>
-            <h3 class="step-title" data-i18n="how_2_title">Hubungkan Emulator &amp; Multi-Instances</h3>
+            <h3 class="step-title" data-i18n="how_2_title">Hubungkan Emulator (1600x900)</h3>
             <p class="step-desc" data-i18n="how_2_desc">
-              Buka aplikasi COC VIPBot di PC Anda. Sistem otomatis mendeteksi emulator dan mengizinkan Anda menjalankan satu atau banyak akun sekaligus.
+              Atur resolusi MuMuPlayer / LDPlayer ke 1600x900 (240 DPI). Klik tombol Scan di bot untuk memilih target emulator untuk masing-masing akun.
             </p>
           </div>
 
           <div class="step-card reveal">
             <div class="step-number">03</div>
-            <h3 class="step-title" data-i18n="how_3_title">Aktifkan Loot Finder &amp; Auto Up Wall</h3>
+            <h3 class="step-title" data-i18n="how_3_title">Atur Set Army &amp; More Option</h3>
             <p class="step-desc" data-i18n="how_3_desc">
-              Centang modul Best Loot Finder, Super Smart Wall Upgrade, serta Auto Builder Base sesuai target resource yang Anda inginkan.
+              Rekam titik slot pasukan Anda di menu Set Army, lalu aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.
             </p>
           </div>
 
@@ -500,22 +563,40 @@
             <div class="step-number">04</div>
             <h3 class="step-title" data-i18n="how_4_title">Klik Start &amp; Biarkan Bot Bekerja</h3>
             <p class="step-desc" data-i18n="how_4_desc">
-              Sistem Anti-Ban kami akan menjalankan pencarian loot, menyerang, dan meng-upgrade tembok desa Anda 24/7 secara otomatis dan aman.
+              Bot akan mencari lawan, menyerang, mengklaim Star Bonus, me-reload otomatis jika putus koneksi, dan meng-upgrade Wall Anda 24/7.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= G. PRICING SECTION ================= -->
+    <!-- ================= G. PRICING SECTION (DUAL PAYMENT: QRIS INDO & BINANCE) ================= -->
     <section class="pricing-section section-padding" id="pricing">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-eyebrow" data-i18n="price_eyebrow">HARGA TRANSPARAN &amp; FLEKSIBEL</span>
           <h2 class="section-title" data-i18n="price_sec_title">Pilih Paket Terbaik Untuk Desa Anda</h2>
           <p class="section-subtitle" data-i18n="price_sec_sub">
-            Semua paket membuka 100% fitur utama. Coba gratis selama 1 hari, atau pilih paket 1 Bulan &amp; Life Time untuk nilai hemat terbaik!
+            Semua paket membuka 100% fitur utama. Mendukung pembayaran instan via <strong>QRIS Indonesia (IDR)</strong> dan <strong>Binance Pay QRIS (USDT)</strong> untuk pengguna internasional!
           </p>
+
+          <!-- SAKLAR PEMILIHAN METODE PEMBAYARAN / REGION -->
+          <div class="payment-region-switcher" role="group" aria-label="Pilih Mata Uang & Metode Pembayaran">
+            <button type="button" class="region-btn active-region" id="regionBtnIdr" data-region="idr">
+              <span class="region-flag">🇮🇩</span>
+              <div class="region-txt">
+                <strong>QRIS Indonesia (IDR)</strong>
+                <small>DANA, GoPay, OVO, ShopeePay, Bank</small>
+              </div>
+            </button>
+            <button type="button" class="region-btn" id="regionBtnUsdt" data-region="usdt">
+              <span class="region-flag">🌍</span>
+              <div class="region-txt">
+                <strong>International (Binance QR)</strong>
+                <small>USDT / Crypto via Binance Pay</small>
+              </div>
+            </button>
+          </div>
         </div>
 
         <div class="pricing-grid-4">
@@ -525,11 +606,11 @@
               <div class="pricing-header">
                 <span class="tier-name" data-i18n="tier1_name">Trial Free</span>
                 <div class="tier-price">
-                  <span class="price-currency">Rp</span>
-                  <span class="price-amount">0</span>
+                  <span class="price-currency" data-price-curr="trial">Rp</span>
+                  <span class="price-amount" data-price-val="trial">0</span>
                   <span class="price-period" data-i18n="tier1_period">/ 1 Hari</span>
                 </div>
-                <p class="tier-desc" data-i18n="tier1_desc">Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya.</p>
+                <p class="tier-desc" data-i18n="tier1_desc">Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya (1x per PC/HWID).</p>
               </div>
 
               <ul class="tier-features">
@@ -556,7 +637,7 @@
               </ul>
             </div>
 
-            <button type="button" class="btn btn-secondary btn-block" data-config-link="checkoutTrialUrl" data-i18n="tier1_btn">
+            <button type="button" class="btn btn-secondary btn-block" data-checkout-tier="trial" data-i18n="tier1_btn">
               Claim Free Trial
             </button>
           </div>
@@ -567,8 +648,8 @@
               <div class="pricing-header">
                 <span class="tier-name" data-i18n="tier2_name">Paket 1 Minggu</span>
                 <div class="tier-price">
-                  <span class="price-currency">Rp</span>
-                  <span class="price-amount">28.900</span>
+                  <span class="price-currency" data-price-curr="weekly">Rp</span>
+                  <span class="price-amount" data-price-val="weekly">28.900</span>
                   <span class="price-period" data-i18n="tier2_period">/ 7 Hari</span>
                 </div>
                 <p class="tier-desc" data-i18n="tier2_desc">Cocok untuk kejar progres mingguan, event Clan Games, atau mengisi penuh storage dengan cepat.</p>
@@ -598,7 +679,7 @@
               </ul>
             </div>
 
-            <button type="button" class="btn btn-secondary btn-block" data-config-link="checkoutWeeklyUrl" data-i18n="tier2_btn">
+            <button type="button" class="btn btn-secondary btn-block" data-checkout-tier="weekly" data-i18n="tier2_btn">
               Pilih Paket 1 Minggu
             </button>
           </div>
@@ -610,11 +691,11 @@
               <div class="pricing-header">
                 <div class="tier-title-row">
                   <span class="tier-name cyan-text" data-i18n="tier3_name">Paket 1 Bulan</span>
-                  <span class="value-Savings-pill" data-i18n="tier3_pill">~Rp 3.300 / hari</span>
+                  <span class="value-Savings-pill" id="monthlyPerDayPill" data-i18n="tier3_pill">~Rp 3.300 / hari</span>
                 </div>
                 <div class="tier-price">
-                  <span class="price-currency">Rp</span>
-                  <span class="price-amount">99.000</span>
+                  <span class="price-currency" data-price-curr="monthly">Rp</span>
+                  <span class="price-amount" data-price-val="monthly">99.000</span>
                   <span class="price-period" data-i18n="tier3_period">/ 30 Hari</span>
                 </div>
                 <p class="tier-desc" data-i18n="tier3_desc">Pilihan favorit mayoritas pemain! Jauh lebih hemat dibanding beli mingguan untuk farming non-stop sebulan penuh.</p>
@@ -644,7 +725,7 @@
               </ul>
             </div>
 
-            <button type="button" class="btn btn-primary btn-block" data-config-link="checkoutMonthlyUrl" data-i18n="tier3_btn">
+            <button type="button" class="btn btn-primary btn-block" data-checkout-tier="monthly" data-i18n="tier3_btn">
               Ambil Best Monthly
             </button>
           </div>
@@ -660,8 +741,8 @@
                   <span class="value-Savings-pill gold-savings-pill" data-i18n="tier4_pill">Akses Selamanya</span>
                 </div>
                 <div class="tier-price">
-                  <span class="price-currency gold-text">Rp</span>
-                  <span class="price-amount gold-gradient-text">499.000</span>
+                  <span class="price-currency gold-text" data-price-curr="lifetime">Rp</span>
+                  <span class="price-amount gold-gradient-text" data-price-val="lifetime">499.000</span>
                   <span class="price-period" data-i18n="tier4_period">/ Selamanya</span>
                 </div>
                 <p class="tier-desc" data-i18n="tier4_desc">Investasi terbaik tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya, plus layanan kasta tertinggi VIPP Support.</p>
@@ -694,7 +775,7 @@
               </ul>
             </div>
 
-            <button type="button" class="btn btn-gold btn-block" data-config-link="checkoutLifetimeUrl" data-i18n="tier4_btn">
+            <button type="button" class="btn btn-gold btn-block" data-checkout-tier="lifetime" data-i18n="tier4_btn">
               👑 Ambil Paket Life Time Sekarang
             </button>
           </div>
@@ -709,7 +790,7 @@
           <span class="section-eyebrow">FAQ</span>
           <h2 class="section-title" data-i18n="faq_sec_title">Pertanyaan yang Sering Diajukan (FAQ)</h2>
           <p class="section-subtitle" data-i18n="faq_sec_sub">
-            Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga perbedaan tingkat Support.
+            Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga metode pembayaran lokal &amp; internasional.
           </p>
         </div>
 
@@ -739,7 +820,7 @@
             </h3>
             <div class="faq-content" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" hidden>
               <p data-i18n="faq_a2">
-                Setiap kali sesi serangan selesai dan jumlah Gold atau Elixir Anda melewati batas minimum yang Anda tentukan, bot secara cerdas akan mencari tembok (Wall) baik di desa utama maupun di Builder Base dan langsung melakukan upgrade secara otomatis.
+                Setiap kali sesi serangan selesai dan jumlah Gold atau Elixir Anda melewati batas minimum yang Anda tentukan, bot secara cerdas akan mencari tembok (Wall) sesuai harga yang disetel, meng-upgrade banyak tembok sekaligus, lalu melakukan Pinch Zoom-Out otomatis.
               </p>
             </div>
           </div>
@@ -748,13 +829,13 @@
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
-                <span data-i18n="faq_q3">Apa itu Support Multi Instances dan berapa akun yang bisa dijalankan?</span>
+                <span data-i18n="faq_q3">Apa itu Support Multi Instances dan apakah pengaturannya terpisah?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" hidden>
               <p data-i18n="faq_a3">
-                Support Multi Instances memungkinkan Anda menjalankan beberapa akun Clash of Clans di beberapa jendela emulator secara bersamaan dalam 1 PC. Jumlah instance yang dapat berjalan bergantung pada kapasitas RAM dan prosesor komputer Anda.
+                Support Multi Instances memungkinkan Anda membuka beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap jendela bot otomatis menyimpan pengaturan Set Army dan Wall/Event secara mandiri tanpa saling menimpa.
               </p>
             </div>
           </div>
@@ -778,13 +859,13 @@
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
-                <span data-i18n="faq_q5">Bagaimana sistem Anti-Ban pada COC VIPBot bekerja?</span>
+                <span data-i18n="faq_q5">Bagaimana sistem Anti-Ban &amp; Auto-Updater pada COC VIPBot bekerja?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5" hidden>
               <p data-i18n="faq_a5">
-                Sistem All Strategies with Anti-Ban kami tidak melakukan modifikasi memori game, melainkan membaca layar secara visual dan meniru ketukan jari manusia dengan titik koordinat acak, kecepatan bervariasi, serta jadwal istirahat natural.
+                Bot kami tidak memodifikasi memori game, melainkan membaca layar secara visual (OpenCV) dan mengirim sentuhan ADB layaknya jari manusia. Selain itu, aplikasi dilengkapi Auto-Updater bawaan yang otomatis memperbarui bot Anda setiap kali ada rilis versi baru.
               </p>
             </div>
           </div>
@@ -793,13 +874,13 @@
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
-                <span data-i18n="faq_q6">Bagaimana cara mengunduh dan melakukan pembayaran?</span>
+                <span data-i18n="faq_q6">Bagaimana cara melakukan pembayaran dari Indonesia maupun Luar Negeri?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6" hidden>
               <p data-i18n="faq_a6">
-                Pilih paket yang Anda inginkan pada bagian Pricing di atas atau bergabung ke komunitas resmi kami untuk mendapatkan panduan aktivasi lisensi secara instan.
+                Klik paket yang Anda inginkan di bagian Pricing. Anda dapat memilih pembayaran via QRIS Indonesia (DANA, GoPay, OVO, ShopeePay, M-Banking) atau QRIS Binance Pay (USDT) untuk pengguna internasional. Pembayaran diverifikasi cepat melalui Bot Telegram resmi kami.
               </p>
             </div>
           </div>
@@ -815,20 +896,20 @@
           <span class="section-eyebrow" data-i18n="cta_eyebrow">SIAP FARMING OTOMATIS?</span>
           <h2 class="cta-title" data-i18n="cta_title">Maksimalkan Desa Utama &amp; Builder Base Anda Sekarang</h2>
           <p class="cta-desc" data-i18n="cta_desc">
-            Jangan biarkan Builder dan Storage Anda menganggur. Mulai dengan Trial Gratis 1 Hari atau amankan lisensi Life Time VIPP Support hari ini!
+            Jangan biarkan Builder dan Storage Anda menganggur. Unduh aplikasinya sekarang, klaim Trial Gratis 1 Hari, atau amankan lisensi Life Time VIPP Support hari ini!
           </p>
 
           <div class="cta-buttons">
             <a href="#pricing" class="btn btn-gold btn-lg">
               <span data-i18n="cta_btn1">🔥 Lihat Paket &amp; Klaim Trial</span>
             </a>
+            <a href="#download" class="btn btn-primary btn-lg" data-config-link="downloadUrl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="hero_btn_download">Download Bot (.EXE)</span>
+            </a>
             <a href="#community" class="btn btn-secondary btn-lg" data-config-link="communityUrl">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>Join Community</span>
-            </a>
-            <a href="#support" class="btn btn-outline btn-lg" data-config-link="supportUrl">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-              <span>Contact VIPP Support</span>
+              <span>Join Discord / Telegram</span>
             </a>
           </div>
         </div>
@@ -836,7 +917,7 @@
     </section>
   </main>
 
-  <!-- ================= J. FOOTER (CLEANED) ================= -->
+  <!-- ================= J. FOOTER ================= -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -864,8 +945,9 @@
         <div class="footer-links-col">
           <h4 class="footer-heading">Access &amp; Support</h4>
           <ul class="footer-list">
-            <li><a href="#pricing" data-config-link="checkoutTrialUrl">Free Trial 1 Hari</a></li>
-            <li><a href="#pricing" data-config-link="checkoutLifetimeUrl">Paket Life Time VIPP</a></li>
+            <li><a href="#download" data-config-link="downloadUrl">Download COC_VIPBot.exe</a></li>
+            <li><a href="#pricing" data-checkout-tier="trial">Free Trial 1 Hari</a></li>
+            <li><a href="#pricing" data-checkout-tier="lifetime">Paket Life Time VIPP</a></li>
             <li><a href="#community" data-config-link="communityUrl">Official Community</a></li>
             <li><a href="#support" data-config-link="supportUrl">Contact Support</a></li>
           </ul>
@@ -882,6 +964,54 @@
   <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top" hidden>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
+
+  <!-- ================= K. MODAL CHECKOUT DUAL-PAYMENT (QRIS INDO & BINANCE) ================= -->
+  <div class="toast-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="chkModalTitle" hidden>
+    <div class="toast-backdrop" id="chkModalBackdrop"></div>
+    <div class="toast-card checkout-modal-card">
+      <button type="button" class="modal-close-x" id="chkCloseXBtn" aria-label="Tutup">&times;</button>
+
+      <div class="chk-badge" id="chkTierBadge">SELECTED PLAN</div>
+      <h3 id="chkModalTitle" class="toast-title">Paket 1 Bulan (30 Hari)</h3>
+      <div class="chk-price-display" id="chkPriceDisplay">Rp 99.000</div>
+
+      <!-- Pilihan Metode Pembayaran (Sembunyi otomatis jika paket Trial Gratis) -->
+      <div id="chkPaymentSelectorWrap" class="chk-pay-selector">
+        <label class="chk-pay-label" id="chkChooseMethodLbl">Pilih Metode Pembayaran:</label>
+        <div class="chk-pay-tabs">
+          <button type="button" class="chk-pay-tab active-pay-tab" id="payTabQrisIndo" data-pay-method="QRIS_INDO">
+            <span>🇮🇩 QRIS Indonesia</span>
+            <small>DANA / GoPay / OVO / Bank</small>
+          </button>
+          <button type="button" class="chk-pay-tab" id="payTabBinance" data-pay-method="BINANCE">
+            <span>🌍 Binance Pay QR</span>
+            <small>International (USDT)</small>
+          </button>
+        </div>
+
+        <!-- Preview QRIS Opsional (Muncul otomatis jika gambar qris tersedia di SITE_CONFIG) -->
+        <div id="chkQrPreviewBox" class="chk-qr-preview-box" hidden>
+          <img id="chkQrImage" src="" alt="QR Code Payment" />
+          <small id="chkQrCaption">Scan QR di atas atau lanjutkan via Bot Telegram untuk konfirmasi otomatis.</small>
+        </div>
+      </div>
+
+      <p id="chkModalDesc" class="toast-desc">
+        Klik tombol di bawah untuk terhubung langsung ke Bot Telegram resmi kami. Tagihan QRIS &amp; Serial Key akan diproses secara otomatis!
+      </p>
+
+      <div class="chk-modal-actions">
+        <a href="#" id="chkTelegramActionBtn" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          <span id="chkTelegramBtnText">Lanjutkan di Bot Telegram</span>
+        </a>
+        <a href="#download" id="chkDownloadExeBtn" class="btn btn-secondary btn-block" data-config-link="downloadUrl">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span id="chkDownloadBtnText">Download Aplikasi Bot (.EXE)</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- Honest Placeholder Modal / Toast Notification -->
   <div class="toast-modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>

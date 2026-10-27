@@ -1,0 +1,7 @@
+{
+  "version": "1.0.0",
+  "exe_url": "https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip",
+  "mandatory": false,
+  "changelog_id": "• Rilis resmi COC VIP Bot v1.0.0\n• Auto Zoom-Out MuMuPlayer & LDPlayer\n• Deteksi otomatis Ring Wall & Auto-Reload Koneksi\n• Isolasi pengaturan Multi-Emulator",
+  "changelog_en": "• Official release COC VIP Bot v1.0.0\n• Auto Zoom-Out for MuMuPlayer & LDPlayer\n• Automatic Wall Ring detection & Auto-Reload\n• Independent Multi-Emulator settings"
+}
