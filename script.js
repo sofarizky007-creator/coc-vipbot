@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * COC VIPBOT — CENTRALIZED CONFIGURATION, DUAL-PAYMENT & LIVE UI REPLICA
+ * COC VIPBOT — CENTRALIZED CONFIGURATION, 3X STRIKETHROUGH PROMO & DISCORD
  * ============================================================================
  */
 
@@ -16,37 +16,39 @@ const SITE_CONFIG = {
   showcaseVideoMp4: "",       // Contoh: "assets/images/showcase.mp4"
   showcaseYoutubeEmbed: "",   // Contoh: "https://www.youtube-nocookie.com/embed/xxxxxxx"
 
-  // Opsional: Gambar QRIS jika ingin ditampilkan langsung di pop-up Web (kosongkan jika hanya lewat Bot Telegram)
-  qrisIndoImage: "",          // Contoh: "assets/images/qris_indo.png"
-  qrisBinanceImage: "",       // Contoh: "assets/images/qris_binance.png"
+  // Gambar QRIS yang sudah ditaruh di folder assets/images/
+  qrisIndoImage: "assets/images/qris_indo.png",
+  qrisBinanceImage: "assets/images/qris_binance.png",
 
-  // Harga Paket untuk QRIS Indonesia (IDR) & International Binance Pay (USDT)
+  // Harga Paket Promo + Harga Coret 3x Lipat (IDR & International Binance USDT)
   pricing: {
     trial: {
-      idrCurr: "Rp", idrVal: "0",
-      usdtCurr: "USDT", usdtVal: "0",
+      idrCurr: "Rp", idrVal: "0", idrOld: "",
+      usdtCurr: "USDT", usdtVal: "0", usdtOld: "",
       tgCodeIdr: "TRIAL", tgCodeUsdt: "TRIAL"
     },
     weekly: {
-      idrCurr: "Rp", idrVal: "28.900",
-      usdtCurr: "$", usdtVal: "1.99 USDT",
+      idrCurr: "Rp", idrVal: "28.900", idrOld: "Rp 86.700",
+      usdtCurr: "$", usdtVal: "1.99 USDT", usdtOld: "$5.97 USDT",
       tgCodeIdr: "BUY_7_QRIS_INDO", tgCodeUsdt: "BUY_7_BINANCE"
     },
     monthly: {
-      idrCurr: "Rp", idrVal: "99.000",
-      usdtCurr: "$", usdtVal: "6.50 USDT",
+      idrCurr: "Rp", idrVal: "99.000", idrOld: "Rp 297.000",
+      usdtCurr: "$", usdtVal: "6.50 USDT", usdtOld: "$19.50 USDT",
       tgCodeIdr: "BUY_30_QRIS_INDO", tgCodeUsdt: "BUY_30_BINANCE"
     },
     lifetime: {
-      idrCurr: "Rp", idrVal: "499.000",
-      usdtCurr: "$", usdtVal: "32.00 USDT",
+      idrCurr: "Rp", idrVal: "499.000", idrOld: "Rp 1.497.000",
+      usdtCurr: "$", usdtVal: "32.00 USDT", usdtOld: "$96.00 USDT",
       tgCodeIdr: "BUY_LIFETIME_QRIS_INDO", tgCodeUsdt: "BUY_LIFETIME_BINANCE"
     }
   },
 
-  // Action & Download URLs
+  // Action, Download, Discord & Telegram URLs
   downloadUrl: "https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip",
-  communityUrl: "https://t.me/SlashQueenFarmer_bot",
+  discordUrl: "https://discord.gg/YyRhX7uPvp",
+  telegramUrl: "https://t.me/SlashQueenFarmer_bot",
+  communityUrl: "https://discord.gg/YyRhX7uPvp",
   supportUrl: "https://t.me/SlashQueenFarmer_bot"
 };
 
@@ -62,27 +64,29 @@ const I18N_DICT = {
     nav_download: "Download .EXE",
     nav_cta: "Free Trial 1 Hari",
     hero_eyebrow: "NEXT-GEN CLASH AUTOMATION ENGINE",
+    hero_promo_pill: "🔨 PROMO HAMMER JAM & TH 19 (-67%)",
     hero_title: 'Non-Stop Deadbase Loot.<br /><span class="text-gradient">Auto Max Walls Faster.</span>',
-    hero_desc: 'Dominasi progres Home Village &amp; Builder Base Anda dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> mandiri untuk banyak emulator sekaligus, serta fitur <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
+    hero_desc: 'Dominasi progres Home Village, Ranked Mode &amp; Builder Base Anda menyambut hadirnya <strong>Town Hall 19</strong> dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> mandiri, serta fitur <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
+    hero_chip_promo: "🔥 Spesial Hammer Jam & TH 19",
     hero_chip1: "⚡ Trial Gratis 1 Hari",
-    hero_chip2: "🧱 Auto Wall Main & Builder Base",
+    hero_chip2: "🏆 Auto Ranked ➔ Farming",
     hero_chip3: "🖥️ Multi-Instances Mandiri",
     hero_btn_primary: "Claim Free Trial 1 Hari",
     hero_btn_download: "Download Bot (.EXE)",
-    hero_btn_secondary: "Video Demo",
+    hero_btn_discord: "Join Discord (Testimoni & Trial)",
     mock_switch_village: "Ganti Desa",
-    mock_min_loot: "MINIMAL LOOT (0 = LANGSUNG SERANG)",
+    mock_min_loot: "MINIMAL LOOT FARMING (0 = LANGSUNG SERANG)",
     mock_malam_desc: "Pastikan layar di Desa Malam. Deploy 1 Hero + 6 Troop otomatis & Auto Up Wall.",
     trust_label1: "Kekuatan Multi-Akun",
-    trust_label2: "Otomatisasi 2 Desa",
+    trust_label2: "Otomatisasi 2 Desa + Ranked",
     trust_label3: "Pemulihan Pintar",
-    trust_label4: "Pembayaran Global",
+    trust_label4: "Pembayaran & Komunitas",
     feat_sec_title: "Fitur Unggulan COC VIPBot",
-    feat_sec_sub: "Dirancang khusus untuk memaksimalkan perolehan loot harian dan mempercepat progres Wall di semua akun Anda secara bersamaan.",
-    feat_1_desc: "Pemindaian cepat untuk menemukan base kaya (deadbase & kolektor penuh) sesuai target minimum Gold, Elixir, dan Dark Elixir yang Anda atur.",
-    feat_2_desc: "Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mendeteksi kelebihan Gold/Elixir dan langsung meng-upgrade banyak Wall sekaligus tanpa henti.",
+    feat_sec_sub: "Dirancang khusus untuk memaksimalkan perolehan loot harian selama event Hammer Jam dan mempercepat progres Wall menyambut Town Hall 19.",
+    feat_1_desc: "Jalankan jatah serangan Ranked secara otomatis lalu berpindah sendiri ke mode Farming untuk memindai deadbase kaya sesuai target Gold, Elixir, dan Dark Elixir.",
+    feat_2_desc: "Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mengenali posisi tombol Upgrade Wall secara dinamis dan meng-upgrade banyak Wall sekaligus.",
     feat_3_desc: "Dilengkapi pola deploy natural, klaim otomatis Star Bonus harian, serta fitur Auto-Reload pintar saat koneksi internet PC Anda sempat terputus.",
-    feat_4_desc: "Aplikasi .EXE dilengkapi sistem Auto-Update 1-Klik langsung dari dalam bot setiap kali ada pembaruan fitur, tanpa perlu mengunduh ulang manual.",
+    feat_4_desc: "Aplikasi .EXE dilengkapi sistem Auto-Update 1-Klik langsung dari dalam bot setiap kali ada pembaruan fitur atau update Town Hall 19, tanpa perlu unduh ulang manual.",
     feat_5_desc: "Punya banyak akun Clash of Clans? Jalankan beberapa jendela MuMuPlayer / LDPlayer sekaligus dengan penyimpanan setting Army & Wall yang terpisah mandiri!",
     feat_6_desc: "Otomatisasi penuh untuk malam hari di Builder Base! Deploy kilat 1 Hero + 6 Troop, aktifkan skill berkala, dan upgrade tembok Desa Malam otomatis.",
     show_sec_title: "Lihat UI Bot & Cara Kerjanya",
@@ -94,56 +98,65 @@ const I18N_DICT = {
     show_step3: "Upgrade Wall & Reset Kamera Otomatis!",
     how_eyebrow: "4 LANGKAH MUDAH",
     how_sec_title: "Bagaimana COC VIPBot Bekerja?",
-    how_sec_sub: "Tidak perlu pengaturan rumit. Dari klaim Trial Gratis hingga bot berjalan otomatis meng-upgrade Wall Anda hanya butuh beberapa menit.",
+    how_sec_sub: "Tidak perlu pengaturan rumit. Dari klaim Trial Gratis di Discord/Telegram hingga bot berjalan otomatis meng-upgrade Wall Anda hanya butuh beberapa menit.",
     how_1_title: "Unduh Bot (.EXE) & Klaim Key",
-    how_1_desc: "Unduh aplikasi COC_VIPBot.exe, lalu klaim Trial Gratis 1 Hari via Bot Telegram kami atau pilih paket berlangganan (QRIS Indonesia / Binance Pay).",
+    how_1_desc: "Unduh paket COC-VIPBot-Setup.zip, lalu klaim Trial Gratis 1 Hari via Server Discord / Bot Telegram kami atau pilih paket promo Hammer Jam.",
     how_2_title: "Hubungkan Emulator (1600x900)",
     how_2_desc: "Atur resolusi MuMuPlayer / LDPlayer ke 1600x900 (240 DPI). Klik tombol Scan di bot untuk memilih target emulator untuk masing-masing akun.",
     how_3_title: "Atur Set Army & More Option",
     how_3_desc: "Rekam titik slot pasukan Anda di menu Set Army, lalu aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.",
     how_4_title: "Klik Start & Biarkan Bot Bekerja",
-    how_4_desc: "Bot akan mencari lawan, menyerang, mengklaim Star Bonus, me-reload otomatis jika putus koneksi, dan meng-upgrade Wall Anda 24/7.",
-    price_eyebrow: "HARGA TRANSPARAN & FLEKSIBEL",
+    how_4_desc: "Bot akan menyelesaikan jatah Ranked, lanjut Farming, mengklaim Star Bonus, me-reload jika terputus, dan meng-upgrade Wall Anda 24/7.",
+    price_eyebrow: "🔥 SPECIAL EVENT SALE • DISKON 67%",
     price_sec_title: "Pilih Paket Terbaik Untuk Desa Anda",
     price_sec_sub: "Semua paket membuka 100% fitur utama. Mendukung pembayaran instan via QRIS Indonesia (IDR) dan Binance Pay QRIS (USDT) untuk pengguna internasional!",
+    promo_pill_1: "🔨 SPESIAL EVENT HAMMER JAM",
+    promo_pill_2: "🏰 MENYAMBUT TOWN HALL 19 AKAN HADIR",
+    promo_banner_title: "Kejar Max Wall & Storage Penuh Sebelum Update Town Hall 19 Rilis!",
+    promo_banner_sub: "Nikmati potongan harga spesial 1/3 dari harga normal (Hemat 67%) untuk seluruh paket berbayar selama periode event berlangsung!",
+    promo_stamp_sub: "HARGA CORET 3X LIPAT",
+    promo_cut_label: "🔥 HEMAT 67%",
     tier1_name: "Trial Free",
+    tier1_free_tag: "🎁 100% GRATIS 24 JAM",
     tier1_period: "/ 1 Hari",
-    tier1_desc: "Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya (1x per PC/HWID).",
-    tier1_btn: "Claim Free Trial",
+    tier1_desc: "Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya (Bisa klaim via Discord atau Telegram).",
+    tier1_btn: "Claim Free Trial (Telegram)",
+    tier1_btn_dc: "💬 Klaim Trial via Server Discord",
     tier2_name: "Paket 1 Minggu",
     tier2_period: "/ 7 Hari",
-    tier2_desc: "Cocok untuk kejar progres mingguan, event Clan Games, atau mengisi penuh storage dengan cepat.",
+    tier2_desc: "Cocok untuk kejar progres mingguan selama event Hammer Jam, Clan Games, atau mengisi penuh storage dengan cepat.",
     tier2_btn: "Pilih Paket 1 Minggu",
-    tier3_ribbon: "⚡ MOST POPULAR • HEMAT 15%",
+    tier3_ribbon: "⚡ PROMO HAMMER JAM • HEMAT 67%",
     tier3_name: "Paket 1 Bulan",
     tier3_pill: "~Rp 3.300 / hari",
     tier3_period: "/ 30 Hari",
-    tier3_desc: "Pilihan favorit mayoritas pemain! Jauh lebih hemat dibanding beli mingguan untuk farming non-stop sebulan penuh.",
-    tier3_btn: "Ambil Best Monthly",
-    tier4_ribbon: "👑 ULTIMATE BEST VALUE • SEKALI BAYAR",
+    tier3_desc: "Pilihan favorit mayoritas pemain! Siapkan seluruh Wall & Hero Anda sebulan penuh menyambut rilisnya Town Hall 19.",
+    tier3_btn: "Ambil Promo 1 Bulan",
+    tier4_ribbon: "👑 SPESIAL TH 19 • SEKALI BAYAR SELAMANYA",
     tier4_pill: "Akses Selamanya",
     tier4_period: "/ Selamanya",
-    tier4_desc: "Investasi terbaik tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya, plus layanan kasta tertinggi VIPP Support.",
-    tier4_btn: "👑 Ambil Paket Life Time Sekarang",
+    tier4_desc: "Investasi terbaik menyambut Town Hall 19 tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya + Role VIPP Discord.",
+    tier4_btn: "👑 Ambil Promo Life Time Sekarang",
     faq_sec_title: "Pertanyaan yang Sering Diajukan (FAQ)",
-    faq_sec_sub: "Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga metode pembayaran lokal & internasional.",
-    faq_q1: "Apakah Trial Free 1 Hari membuka semua fitur seperti Auto Up Wall & Multi-Instance?",
-    faq_a1: "Ya! Paket Trial Free 1 Hari memberikan akses All Fitur Unlock termasuk Best Loot Finder, Super Smart Wall Upgrade, Auto Builder Base, dan sistem Anti-Ban agar Anda bisa membuktikan sendiri performanya sebelum berlangganan.",
-    faq_q2: "Bagaimana cara kerja fitur Auto Up Wall di Home Village dan Builder Base?",
-    faq_a2: "Setiap kali sesi serangan selesai dan jumlah Gold atau Elixir Anda melewati batas minimum yang Anda tentukan, bot secara cerdas akan mencari tembok (Wall) sesuai harga yang disetel, meng-upgrade banyak tembok sekaligus, lalu melakukan Pinch Zoom-Out otomatis.",
+    faq_sec_sub: "Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga klaim Trial & Testimoni di Discord.",
+    faq_q1: "Apakah Trial Free 1 Hari bisa diklaim langsung dari Discord maupun Telegram?",
+    faq_a1: "Ya! Anda bisa mengklaim Serial Key Trial Gratis 1 Hari (All Fitur Unlock) dengan mengklik tombol di channel #🎁-claim-free-trial pada Server Discord kami atau langsung melalui Bot Telegram resmi kami.",
+    faq_q2: "Bagaimana cara kerja fitur Auto Up Wall saat event Hammer Jam?",
+    faq_a2: "Cukup masukkan harga Wall sesuai diskon Hammer Jam di menu More Option. Setiap kali Gold atau Elixir melewati batas minimum, bot otomatis memindai tombol Upgrade secara visual, meng-upgrade banyak Wall sekaligus, lalu melakukan Pinch Zoom-Out otomatis.",
     faq_q3: "Apa itu Support Multi Instances dan apakah pengaturannya terpisah?",
     faq_a3: "Support Multi Instances memungkinkan Anda membuka beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap jendela bot otomatis menyimpan pengaturan Set Army dan Wall/Event secara mandiri tanpa saling menimpa.",
-    faq_q4: "Apa perbedaan Standard Support, Priority Support, dan VIPP Support?",
-    faq_a4: "Standard Support (Trial & 1 Minggu) mencakup bantuan tiket komunitas reguler. Priority Support (Paket 1 Bulan) mendapatkan antrean respons lebih cepat. Sedangkan VIPP Support (khusus member Life Time) adalah layanan eksklusif kasta tertinggi dengan bantuan setup prioritas utama dan konsultasi multi-instance.",
-    faq_q5: "Bagaimana sistem Anti-Ban & Auto-Updater pada COC VIPBot bekerja?",
-    faq_a5: "Bot kami tidak memodifikasi memori game, melainkan membaca layar secara visual (OpenCV) dan mengirim sentuhan ADB layaknya jari manusia. Selain itu, aplikasi dilengkapi Auto-Updater bawaan yang otomatis memperbarui bot Anda setiap kali ada rilis versi baru.",
+    faq_q4: "Dimana saya bisa melihat testimoni pengguna lain yang sudah membeli?",
+    faq_a4: "Anda dapat bergabung ke Server Discord resmi kami (https://discord.gg/YyRhX7uPvp) dan membuka channel #⭐-testimoni-pembeli. Hanya pembeli terverifikasi (Verified Buyer & VIPP Lifetime) yang dapat mengirimkan ulasan dan screenshot hasil farming di ruangan tersebut.",
+    faq_q5: "Bagaimana sistem Anti-Ban & kesiapan bot menyambut Town Hall 19?",
+    faq_a5: "Bot kami tidak memodifikasi memori game, melainkan membaca layar secara visual (OpenCV) dan mengirim sentuhan ADB layaknya jari manusia. Dengan fitur Auto-Updater bawaan, setiap penyesuaian untuk Town Hall 19 akan langsung ter-update otomatis di aplikasi Anda.",
     faq_q6: "Bagaimana cara melakukan pembayaran dari Indonesia maupun Luar Negeri?",
     faq_a6: "Klik paket yang Anda inginkan di bagian Pricing. Anda dapat memilih pembayaran via QRIS Indonesia (DANA, GoPay, OVO, ShopeePay, M-Banking) atau QRIS Binance Pay (USDT) untuk pengguna internasional. Pembayaran diverifikasi cepat melalui Bot Telegram resmi kami.",
-    cta_eyebrow: "SIAP FARMING OTOMATIS?",
-    cta_title: "Maksimalkan Desa Utama & Builder Base Anda Sekarang",
-    cta_desc: "Jangan biarkan Builder dan Storage Anda menganggur. Unduh aplikasinya sekarang, klaim Trial Gratis 1 Hari, atau amankan lisensi Life Time VIPP Support hari ini!",
-    cta_btn1: "🔥 Lihat Paket & Klaim Trial",
-    footer_bio: "Platform otomatisasi farming Clash of Clans dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Builder Base, dan dukungan Multi-Instances."
+    cta_eyebrow: "GABUNG KOMUNITAS & MULAI FARMING",
+    cta_title: "Siapkan Desa Anda Menyambut Town Hall 19 Sekarang!",
+    cta_desc: "Jangan lewatkan momen emas Hammer Jam & diskon 67% hari ini. Gabung ke Server Discord kami untuk melihat testimoni pembeli asli dan klaim Trial Gratis 1 Hari!",
+    cta_btn_discord: "Join Discord (Testimoni & Free Trial)",
+    cta_btn1: "🔥 Ambil Promo Hammer Jam (-67%)",
+    footer_bio: "Platform otomatisasi farming Clash of Clans dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ➔ Farming, Auto Builder Base, dan dukungan Multi-Instances."
   },
   en: {
     nav_home: "Home",
@@ -155,27 +168,29 @@ const I18N_DICT = {
     nav_download: "Download .EXE",
     nav_cta: "1-Day Free Trial",
     hero_eyebrow: "NEXT-GEN CLASH AUTOMATION ENGINE",
+    hero_promo_pill: "🔨 HAMMER JAM & TH 19 SALE (-67%)",
     hero_title: 'Non-Stop Deadbase Loot.<br /><span class="text-gradient">Auto Max Walls Faster.</span>',
-    hero_desc: 'Dominate your Home Village &amp; Builder Base progression with <strong>COC VIPBot</strong>. Powered by <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, independent <em>Multi-Instances</em> support, plus built-in <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
+    hero_desc: 'Dominate your Home Village, Ranked Mode &amp; Builder Base progression ahead of <strong>Town Hall 19</strong> with <strong>COC VIPBot</strong>. Powered by <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, independent <em>Multi-Instances</em> support, plus built-in <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
+    hero_chip_promo: "🔥 Hammer Jam & TH 19 Promo",
     hero_chip1: "⚡ 1-Day Free Trial",
-    hero_chip2: "🧱 Auto Wall Main & Builder Base",
+    hero_chip2: "🏆 Auto Ranked ➔ Farming",
     hero_chip3: "🖥️ Independent Multi-Instances",
     hero_btn_primary: "Claim 1-Day Free Trial",
     hero_btn_download: "Download Bot (.EXE)",
-    hero_btn_secondary: "Video Demo",
+    hero_btn_discord: "Join Discord (Reviews & Trial)",
     mock_switch_village: "Switch Base",
-    mock_min_loot: "MINIMUM LOOT (0 = INSTANT ATTACK)",
+    mock_min_loot: "MINIMUM FARMING LOOT (0 = INSTANT ATTACK)",
     mock_malam_desc: "Ensure camera is in Builder Base. Rapidly deploys 1 Hero + 6 Troops & Auto Up Wall.",
     trust_label1: "Multi-Account Power",
-    trust_label2: "Dual Village Automation",
+    trust_label2: "Dual Village + Ranked",
     trust_label3: "Smart Recovery",
-    trust_label4: "Global Payment",
+    trust_label4: "Global Payment & Discord",
     feat_sec_title: "COC VIPBot Core Features",
-    feat_sec_sub: "Engineered to maximize your daily loot income and accelerate Wall upgrades across all your accounts simultaneously.",
-    feat_1_desc: "High-speed OCR scanning to locate rich deadbases matching your custom Gold, Elixir, and Dark Elixir thresholds.",
-    feat_2_desc: "Never waste overflowing loot again! The bot automatically detects surplus Gold/Elixir and upgrades multiple Walls at once non-stop.",
+    feat_sec_sub: "Engineered to maximize your daily loot income during Hammer Jam and accelerate Wall upgrades ahead of Town Hall 19.",
+    feat_1_desc: "Complete your Ranked attacks automatically and seamlessly switch to Farming Mode to locate rich deadbases matching your Gold, Elixir, and Dark thresholds.",
+    feat_2_desc: "Never waste overflowing loot again! The bot dynamically detects Upgrade buttons via Template Matching and upgrades multiple Walls at once non-stop.",
     feat_3_desc: "Equipped with humanized deployment patterns, automatic daily Star Bonus claiming, and smart Auto-Reload if your PC internet briefly drops.",
-    feat_4_desc: "Our standalone .EXE includes a 1-Click Auto-Updater right inside the app whenever new features or patches are released.",
+    feat_4_desc: "Our standalone .EXE includes a 1-Click Auto-Updater right inside the app whenever new features or Town Hall 19 patches are released.",
     feat_5_desc: "Run multiple MuMuPlayer / LDPlayer windows simultaneously on a single PC with isolated per-emulator Army & Wall configurations!",
     feat_6_desc: "Full automation for your Builder Base! Rapid 1 Hero + 6 Troops deployment, timed Hero Ability triggers, and automatic Builder Wall upgrades.",
     show_sec_title: "See Bot UI & Workflow in Action",
@@ -187,56 +202,65 @@ const I18N_DICT = {
     show_step3: "Upgrading Walls & Auto Pinch Zoom-Out!",
     how_eyebrow: "4 SIMPLE STEPS",
     how_sec_title: "How Does COC VIPBot Work?",
-    how_sec_sub: "Zero complicated setup. Going from claiming your Free Trial to automated 24/7 Wall upgrades takes just minutes.",
+    how_sec_sub: "Zero complicated setup. Going from claiming your Free Trial on Discord/Telegram to automated 24/7 Wall upgrades takes just minutes.",
     how_1_title: "Download Bot (.EXE) & Claim Key",
-    how_1_desc: "Download COC_VIPBot.exe, then claim your 1-Day Free Trial via our Telegram Bot or pick a subscription plan (QRIS Indonesia / Binance Pay USDT).",
+    how_1_desc: "Download COC-VIPBot-Setup.zip, then claim your 1-Day Free Trial via our Discord Server / Telegram Bot or pick a Hammer Jam promo plan.",
     how_2_title: "Connect Emulator (1600x900)",
     how_2_desc: "Set your MuMuPlayer / LDPlayer resolution to 1600x900 (240 DPI). Click Scan in the bot to select the target emulator for each account.",
     how_3_title: "Configure Set Army & More Option",
     how_3_desc: "Record your army bar slots in Set Army, then enable Auto Upgrade Wall and minimum Gold/Elixir thresholds in More Option.",
     how_4_title: "Click Start & Let the Bot Work",
-    how_4_desc: "The bot will search for loot, attack, claim Star Bonuses, auto-reload on disconnects, and upgrade your village walls 24/7.",
-    price_eyebrow: "TRANSPARENT & FLEXIBLE PRICING",
+    how_4_desc: "The bot will finish Ranked loops, switch to Farming, claim Star Bonuses, auto-reload on disconnects, and upgrade your village walls 24/7.",
+    price_eyebrow: "🔥 SPECIAL EVENT SALE • 67% OFF",
     price_sec_title: "Choose the Best Plan for Your Village",
     price_sec_sub: "Every plan unlocks 100% of core features. Instant checkout via Indonesian QRIS (IDR) or Binance Pay QRIS (USDT) for international users!",
+    promo_pill_1: "🔨 HAMMER JAM SPECIAL EVENT",
+    promo_pill_2: "🏰 WELCOMING UPCOMING TOWN HALL 19",
+    promo_banner_title: "Max Out Your Walls & Storages Before Town Hall 19 Drops!",
+    promo_banner_sub: "Enjoy a massive 67% discount (1/3 of regular 3x prices) across all paid plans during our Hammer Jam & Town Hall 19 celebration!",
+    promo_stamp_sub: "67% OFF NORMAL PRICE",
+    promo_cut_label: "🔥 SAVE 67%",
     tier1_name: "Trial Free",
+    tier1_free_tag: "🎁 100% FREE FOR 24H",
     tier1_period: "/ 1 Day",
-    tier1_desc: "Experience the full power of COC VIPBot on your account for a full 24 hours at zero cost (1x per PC/HWID).",
-    tier1_btn: "Claim Free Trial",
+    tier1_desc: "Experience the full power of COC VIPBot on your account for a full 24 hours at zero cost (Claim via Discord or Telegram).",
+    tier1_btn: "Claim Free Trial (Telegram)",
+    tier1_btn_dc: "💬 Claim Trial on Discord Server",
     tier2_name: "1 Week Plan",
     tier2_period: "/ 7 Days",
-    tier2_desc: "Great for weekly progression boosts, Clan Games events, or quickly maxing out your resource storages.",
+    tier2_desc: "Great for weekly Hammer Jam progression boosts, Clan Games events, or quickly maxing out your resource storages.",
     tier2_btn: "Choose 1 Week Plan",
-    tier3_ribbon: "⚡ MOST POPULAR • SAVE 15%",
+    tier3_ribbon: "⚡ HAMMER JAM PROMO • SAVE 67%",
     tier3_name: "1 Month Plan",
     tier3_pill: "~$0.21 / day",
     tier3_period: "/ 30 Days",
-    tier3_desc: "Player favorite! Much more economical than weekly renewals for non-stop full-month farming.",
-    tier3_btn: "Get Best Monthly",
-    tier4_ribbon: "👑 ULTIMATE BEST VALUE • PAY ONCE",
+    tier3_desc: "Player favorite! Prepare all your Walls & Heroes for a full month ahead of the upcoming Town Hall 19 release.",
+    tier3_btn: "Get 1 Month Promo",
+    tier4_ribbon: "👑 TH 19 SPECIAL • PAY ONCE FOREVER",
     tier4_pill: "Forever Access",
     tier4_period: "/ Lifetime",
-    tier4_desc: "The ultimate investment with zero monthly fees! Pay once for permanent access, free lifetime updates, plus top-tier VIPP Support.",
-    tier4_btn: "👑 Get Life Time Access Now",
+    tier4_desc: "The ultimate investment for Town Hall 19 with zero monthly fees! Pay once for permanent access, free lifetime updates + VIPP Discord Role.",
+    tier4_btn: "👑 Get Life Time Promo Now",
     faq_sec_title: "Frequently Asked Questions (FAQ)",
-    faq_sec_sub: "Everything you need to know about COC VIPBot, Anti-Ban safety, Multi-Instances, and global payment options.",
-    faq_q1: "Does the 1-Day Free Trial unlock all features like Auto Up Wall & Multi-Instance?",
-    faq_a1: "Yes! The 1-Day Free Trial gives you All Fitur Unlock access including Best Loot Finder, Super Smart Wall Upgrade, Auto Builder Base, and Anti-Ban so you can test everything before subscribing.",
-    faq_q2: "How does Auto Up Wall work in Home Village and Builder Base?",
-    faq_a2: "After each attack session, whenever your Gold or Elixir exceeds your configured threshold, the bot locates upgradeable Walls matching your configured cost, upgrades multiple walls at once, and performs an automatic Pinch Zoom-Out.",
+    faq_sec_sub: "Everything you need to know about COC VIPBot, Anti-Ban safety, Multi-Instances, and claiming trials on Discord.",
+    faq_q1: "Can I claim the 1-Day Free Trial from both Discord and Telegram?",
+    faq_a1: "Yes! You can claim your 24-Hour Free Trial Serial Key with 1 click in the #🎁-claim-free-trial channel on our Discord Server or via our official Telegram Bot.",
+    faq_q2: "How does Auto Up Wall work during the Hammer Jam event?",
+    faq_a2: "Simply set your discounted Hammer Jam wall price in More Option. Whenever your Gold or Elixir exceeds your threshold, the bot visually scans the Upgrade buttons, upgrades multiple walls at once, and performs an automatic Pinch Zoom-Out.",
     faq_q3: "What is Support Multi Instances and are settings isolated per emulator?",
     faq_a3: "Support Multi Instances lets you run multiple Bot windows for multiple emulators (MuMuPlayer / LDPlayer) simultaneously on 1 PC. Each bot window automatically saves its own Set Army and Wall/Event settings independently.",
-    faq_q4: "What is the difference between Standard, Priority, and VIPP Support?",
-    faq_a4: "Standard Support (Trial & 1 Week) covers regular community ticket assistance. Priority Support (1 Month) gives you faster response queues. VIPP Support (exclusive to Life Time members) is our highest royal tier with top-priority setup assistance and multi-instance optimization.",
-    faq_q5: "How do the Anti-Ban & Auto-Updater systems work in COC VIPBot?",
-    faq_a5: "Our engine never modifies game memory; it uses visual OpenCV screen recognition and human-like ADB touch inputs. It also includes a built-in Auto-Updater that updates your .EXE automatically whenever a new version is released.",
+    faq_q4: "Where can I see testimonials and reviews from verified buyers?",
+    faq_a4: "Join our official Discord Server (https://discord.gg/YyRhX7uPvp) and check the #⭐-testimoni-pembeli channel. Only verified buyers with active FULL keys can post reviews and farming screenshots there.",
+    faq_q5: "How do Anti-Ban & Town Hall 19 readiness work in COC VIPBot?",
+    faq_a5: "Our engine never modifies game memory; it uses visual OpenCV screen recognition and human-like ADB touch inputs. With the built-in Auto-Updater, all Town Hall 19 updates are delivered automatically to your app.",
     faq_q6: "How do I complete payment from Indonesia or Internationally?",
     faq_a6: "Click your desired plan in the Pricing section. You can choose QRIS Indonesia (IDR) or Binance Pay QRIS (USDT) for international users. Orders and Serial Keys are processed seamlessly via our official Telegram Bot.",
-    cta_eyebrow: "READY FOR AUTOMATED FARMING?",
-    cta_title: "Maximize Your Home Village & Builder Base Today",
-    cta_desc: "Stop leaving your Builders and Storages idle. Download the app now, start with a 1-Day Free Trial, or secure your Life Time VIPP Support license!",
-    cta_btn1: "🔥 View Plans & Claim Trial",
-    footer_bio: "Clash of Clans farming automation platform featuring Best Loot Finder, Super Smart Auto Up Wall, Auto Builder Base, and Multi-Instances."
+    cta_eyebrow: "JOIN OUR COMMUNITY & START FARMING",
+    cta_title: "Prepare Your Village for Town Hall 19 Today!",
+    cta_desc: "Don't miss the Hammer Jam event & 67% discount. Join our Discord Server to view real buyer testimonials and claim your 1-Day Free Trial!",
+    cta_btn_discord: "Join Discord (Reviews & Free Trial)",
+    cta_btn1: "🔥 Grab Hammer Jam Promo (-67%)",
+    footer_bio: "Clash of Clans farming automation platform featuring Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ➔ Farming, Auto Builder Base, and Multi-Instances."
   }
 };
 
@@ -300,7 +324,6 @@ function initLanguageSwitcher() {
   if (langBtn) {
     langBtn.addEventListener("click", () => {
       const nextLang = currentLang === "id" ? "en" : "id";
-      // Otomatis arahkan tampilan mata uang ke USDT saat pilih ENG, atau IDR saat pilih ID
       currentPaymentRegion = nextLang === "en" ? "usdt" : "idr";
       localStorage.setItem("coc_vipbot_region", currentPaymentRegion);
       applyLanguage(nextLang);
@@ -345,8 +368,10 @@ function updatePricingDisplay() {
     const cfg = SITE_CONFIG.pricing[tierKey];
     const currEl = document.querySelector(`[data-price-curr="${tierKey}"]`);
     const valEl = document.querySelector(`[data-price-val="${tierKey}"]`);
+    const oldEl = document.querySelector(`[data-price-old="${tierKey}"]`);
     if (currEl) currEl.textContent = isUsdt ? cfg.usdtCurr : cfg.idrCurr;
     if (valEl) valEl.textContent = isUsdt ? cfg.usdtVal : cfg.idrVal;
+    if (oldEl) oldEl.textContent = isUsdt ? cfg.usdtOld : cfg.idrOld;
   });
 
   if (monthlyPill) {
@@ -368,7 +393,7 @@ function initHeroBotUiReplica() {
   const remBadge = document.getElementById("mockRemLoop");
 
   let isMalam = false;
-  let remCount = 12;
+  let remCount = 8;
 
   if (switchBtn && badge && panelAsal && panelMalam) {
     switchBtn.addEventListener("click", () => {
@@ -393,11 +418,10 @@ function initHeroBotUiReplica() {
     });
   }
 
-  // Simulasi Log Berjalan & Hitung Mundur Sisa Loop
   const sampleLogs = [
-    "[09:15:10] [WALL-SUCCESS] Upgrade 5 Wall menggunakan GOLD selesai!",
+    "[09:15:10] [WALL-SUCCESS] Upgrade 8 Wall menggunakan GOLD selesai!",
     "[09:15:12] [ZOOM] Mereset kamera (Pinch Zoom Out via /dev/input/event2)...",
-    "[09:15:14] [REWARD-SIANG] Daily Star Bonus terdeteksi! Klik 'Okay' (795, 767)...",
+    "[09:15:14] [AUTO-SWITCH] Ranked selesai! Otomatis pindah ke Mode Farming...",
     "[09:15:18] [LOOT] Gold: 1,120,000/500,000 (OK) | Elixir: 980,500 (OK)",
     "[09:15:20] [FAST-DEPLOY] Menurunkan pasukan Desa Siang dalam 2.45 detik!"
   ];
@@ -409,9 +433,9 @@ function initHeroBotUiReplica() {
       dynamicLog.textContent = sampleLogs[logIdx];
     }
     if (logIdx === 0 && remBadge) {
-      remCount = remCount > 1 ? remCount - 1 : 15;
+      remCount = remCount > 1 ? remCount - 1 : 8;
       const prefix = currentLang === "en" ? "Left:" : "Sisa:";
-      remBadge.textContent = `${prefix} ${remCount}`;
+      remBadge.textContent = `${prefix} R:${remCount}➔15`;
     }
   }, 3200);
 }
@@ -539,13 +563,14 @@ function initVideoShowcase() {
   }
 }
 
-/* 7. Dual-Payment Checkout Modal (QRIS Indonesia & Binance Pay QRIS) */
+/* 7. Dual-Payment Checkout Modal (QRIS Indonesia, Binance Pay & Discord Server) */
 function initCheckoutModalAndLinks() {
   const chkModal = document.getElementById("checkoutModal");
   const chkBackdrop = document.getElementById("chkModalBackdrop");
   const chkCloseX = document.getElementById("chkCloseXBtn");
   const chkBadge = document.getElementById("chkTierBadge");
   const chkTitle = document.getElementById("chkModalTitle");
+  const chkOldPrice = document.getElementById("chkOldPriceDisplay");
   const chkPrice = document.getElementById("chkPriceDisplay");
   const chkPaySelectorWrap = document.getElementById("chkPaymentSelectorWrap");
   const payTabIndo = document.getElementById("payTabQrisIndo");
@@ -555,19 +580,20 @@ function initCheckoutModalAndLinks() {
   const chkDesc = document.getElementById("chkModalDesc");
   const tgActionBtn = document.getElementById("chkTelegramActionBtn");
   const tgBtnText = document.getElementById("chkTelegramBtnText");
+  const dcBtnText = document.getElementById("chkDiscordBtnText");
 
   const tierTitles = {
     id: {
       trial: "Trial Gratis 1 Hari (All Fitur Unlock)",
-      weekly: "Paket 1 Minggu (7 Hari)",
-      monthly: "⚡ Paket Best Monthly (30 Hari)",
-      lifetime: "👑 Paket Life Time + VIPP Support"
+      weekly: "Paket 1 Minggu (Promo Hammer Jam)",
+      monthly: "⚡ Paket 1 Bulan (Promo Hammer Jam)",
+      lifetime: "👑 Paket Life Time VIPP (Spesial TH 19)"
     },
     en: {
       trial: "1-Day Free Trial (All Features Unlocked)",
-      weekly: "1 Week Plan (7 Days)",
-      monthly: "⚡ Best Monthly Plan (30 Days)",
-      lifetime: "👑 Life Time Plan + VIPP Support"
+      weekly: "1 Week Plan (Hammer Jam Promo)",
+      monthly: "⚡ 1 Month Plan (Hammer Jam Promo)",
+      lifetime: "👑 Life Time VIPP (TH 19 Special)"
     }
   };
 
@@ -578,12 +604,22 @@ function initCheckoutModalAndLinks() {
 
     if (chkBadge) {
       chkBadge.textContent = activeCheckoutTier === "trial"
-        ? (isEn ? "FREE TRIAL ACCESS" : "AKSES TRIAL GRATIS")
-        : (isUsdt ? "INTERNATIONAL CHECKOUT (BINANCE PAY)" : "CHECKOUT QRIS INDONESIA");
+        ? (isEn ? "FREE TRIAL ACCESS (24 HOURS)" : "AKSES TRIAL GRATIS (24 JAM)")
+        : (isUsdt ? "🔥 HAMMER JAM & TH 19 SALE (-67%)" : "🔥 PROMO HAMMER JAM & TH 19 (-67%)");
     }
 
     if (chkTitle) {
       chkTitle.textContent = (tierTitles[currentLang] || tierTitles.id)[activeCheckoutTier];
+    }
+
+    if (chkOldPrice) {
+      const oldTxt = isUsdt ? cfg.usdtOld : cfg.idrOld;
+      if (oldTxt && oldTxt !== "") {
+        chkOldPrice.textContent = oldTxt;
+        chkOldPrice.hidden = false;
+      } else {
+        chkOldPrice.hidden = true;
+      }
     }
 
     if (chkPrice) {
@@ -599,7 +635,6 @@ function initCheckoutModalAndLinks() {
     if (payTabIndo) payTabIndo.classList.toggle("active-pay-tab", !isUsdt);
     if (payTabBinance) payTabBinance.classList.toggle("active-pay-tab", isUsdt);
 
-    // Tampilkan gambar QR langsung di modal jika disediakan di SITE_CONFIG
     const qrSrc = isUsdt ? SITE_CONFIG.qrisBinanceImage : SITE_CONFIG.qrisIndoImage;
     if (qrPreviewBox && qrImage) {
       if (activeCheckoutTier !== "trial" && qrSrc && qrSrc.trim() !== "") {
@@ -619,28 +654,38 @@ function initCheckoutModalAndLinks() {
     if (activeCheckoutTier === "trial") {
       if (chkDesc) {
         chkDesc.textContent = isEn
-          ? "Download the Bot (.EXE) below, or click the Telegram button to claim your 24-hour Free Trial Serial Key instantly!"
-          : "Unduh aplikasi Bot (.EXE) di bawah, atau klik tombol Telegram untuk mengklaim Serial Key Trial 24 Jam secara instan!";
+          ? "Claim your 24-hour Free Trial Serial Key instantly via our Telegram Bot or click the Discord button to claim via the #🎁-claim-free-trial channel!"
+          : "Klaim Serial Key Trial 24 Jam Anda secara instan melalui Bot Telegram, atau klik tombol Discord untuk klaim langsung di channel #🎁-claim-free-trial!";
       }
       if (tgBtnText) {
         tgBtnText.textContent = isEn
-          ? "🎁 Claim Free Trial Key in Telegram"
-          : "🎁 Klaim Key Trial Gratis di Telegram";
+          ? "🤖 Claim Free Trial Key in Telegram"
+          : "🤖 Klaim Key Trial Gratis di Telegram";
+      }
+      if (dcBtnText) {
+        dcBtnText.textContent = isEn
+          ? "💬 Claim 1-Day Trial on Discord Server"
+          : "💬 Klaim Key Trial 1 Hari di Server Discord";
       }
     } else {
       if (chkDesc) {
         chkDesc.textContent = isUsdt
           ? (isEn
-              ? "Click the button below to open our official Telegram Bot with your selected plan and receive the Binance Pay QRIS (USDT) invoice."
-              : "Klik tombol di bawah untuk membuka Bot Telegram resmi kami dan menerima tagihan QRIS Binance Pay (USDT) secara otomatis.")
+              ? "Scan the Binance QR above or click the Telegram button to receive your automated Order ID & Serial Key. After buying, claim your Buyer Role on Discord!"
+              : "Scan QRIS Binance di atas atau klik tombol Telegram untuk memproses Order ID & Serial Key otomatis. Setelah beli, klaim Role Buyer di Discord!")
           : (isEn
-              ? "Click the button below to open our official Telegram Bot and receive your Indonesian QRIS invoice."
-              : "Klik tombol di bawah untuk membuka Bot Telegram resmi kami dan menampilkan kode pembayaran QRIS Indonesia secara otomatis.");
+              ? "Scan the Indonesian QRIS above or click the Telegram button to receive your invoice & Serial Key. After buying, claim your Buyer Role on Discord!"
+              : "Scan QRIS Indonesia di atas atau klik tombol Telegram untuk konfirmasi & terima Serial Key otomatis. Setelah beli, klaim Role Buyer Anda di Discord!");
       }
       if (tgBtnText) {
         tgBtnText.textContent = isUsdt
-          ? (isEn ? "🌍 Pay via Binance QR in Telegram Bot" : "🌍 Bayar via QRIS Binance di Telegram")
-          : (isEn ? "🇮🇩 Pay via QRIS Indonesia in Telegram" : "🇮🇩 Bayar via QRIS Indonesia di Telegram");
+          ? (isEn ? "🌍 Confirm & Get Key via Telegram Bot" : "🌍 Konfirmasi & Ambil Key di Bot Telegram")
+          : (isEn ? "🇮🇩 Confirm & Get Key via Telegram Bot" : "🇮🇩 Konfirmasi & Ambil Key di Bot Telegram");
+      }
+      if (dcBtnText) {
+        dcBtnText.textContent = isEn
+          ? "💬 View Buyer Testimonials on Discord"
+          : "💬 Cek Testimoni Pembeli di Server Discord";
       }
     }
   };
@@ -684,7 +729,7 @@ function initCheckoutModalAndLinks() {
     });
   });
 
-  // Hubungkan link downloadUrl, communityUrl, supportUrl
+  // Hubungkan link downloadUrl, discordUrl, telegramUrl, communityUrl, supportUrl
   document.querySelectorAll("[data-config-link]").forEach((el) => {
     const key = el.getAttribute("data-config-link");
     const targetUrl = SITE_CONFIG[key];

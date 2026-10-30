@@ -1,5 +1,5 @@
 /* ==========================================================================
-   COC VIPBOT — FUTURISTIC BLUE + TRI-AURA EDITION + REAL BOT UI REPLICA
+   COC VIPBOT — FUTURISTIC BLUE + TRI-AURA EDITION + HAMMER JAM & TH19 PROMO
    Pure CSS3 | Mobile-First | Zero External Dependencies
    ========================================================================== */
 
@@ -17,7 +17,13 @@
   --border-subtle: rgba(148, 163, 184, 0.16);
   --border-highlight: rgba(34, 211, 238, 0.45);
 
-  /* AURA #1: Molten Gold & Fire (Auto Up Wall & Lifetime Tier) */
+  /* Discord Brand Palette */
+  --discord-blurple: #5865F2;
+  --discord-hover: #4752C4;
+  --grad-discord: linear-gradient(135deg, #5865F2 0%, #4752C4 55%, #7289DA 100%);
+  --glow-discord: 0 0 28px rgba(88, 101, 242, 0.45);
+
+  /* AURA #1: Molten Gold & Fire (Auto Up Wall, Hammer Jam & Lifetime Tier) */
   --gold-bright: #FDE047;
   --gold-main: #F59E0B;
   --fire-orange: #EA580C;
@@ -195,8 +201,8 @@ input {
 
 .section-header {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 48px;
+  max-width: 760px;
+  margin: 0 auto 42px;
 }
 
 .section-eyebrow {
@@ -278,13 +284,13 @@ input {
 }
 
 .btn-sm {
-  padding: 9px 15px;
-  font-size: 0.86rem;
+  padding: 9px 14px;
+  font-size: 0.84rem;
 }
 
 .btn-lg {
-  padding: 13px 22px;
-  font-size: 0.96rem;
+  padding: 13px 20px;
+  font-size: 0.94rem;
 }
 
 .btn-block {
@@ -301,6 +307,19 @@ input {
 
 .btn-primary:hover {
   box-shadow: 0 0 34px rgba(34, 211, 238, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-discord {
+  background: var(--grad-discord);
+  color: #FFFFFF;
+  border: 1px solid rgba(114, 137, 218, 0.55);
+  box-shadow: var(--glow-discord);
+}
+
+.btn-discord:hover {
+  background: linear-gradient(135deg, #6773F5 0%, #5865F2 60%, #8EA1E1 100%);
+  box-shadow: 0 0 38px rgba(88, 101, 242, 0.75);
   transform: translateY(-2px);
 }
 
@@ -453,11 +472,11 @@ input {
 
 .nav-link {
   display: block;
-  padding: 10px 14px;
+  padding: 10px 12px;
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
 }
 
 .nav-link:hover,
@@ -555,8 +574,14 @@ input {
   background: rgba(17, 29, 49, 0.85);
   border: 1px solid var(--border-subtle);
   padding: 6px 12px;
-  border-radius: var(--radius-sm);
+  border-radius: 999px;
   color: var(--text-primary);
+}
+
+.hero-chip.promo-chip {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(253, 224, 71, 0.5);
+  color: var(--gold-bright);
 }
 
 .hero-actions {
@@ -620,7 +645,6 @@ input {
   color: #EDF2FF;
 }
 
-/* HeaderBar (#101A30) */
 .bot-header-bar {
   background: #101A30;
   border: 1px solid #263653;
@@ -714,7 +738,6 @@ input {
   white-space: nowrap;
 }
 
-/* Nav Row */
 .bot-nav-row {
   display: flex;
   align-items: center;
@@ -773,13 +796,18 @@ input {
 .bot-row-card {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 
 .bot-field-lbl {
-  font-size: 0.74rem;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: #EDF2FF;
+  white-space: nowrap;
+}
+
+.bot-field-lbl.gold-lbl {
+  color: #F5CB82;
 }
 
 .bot-spinbox {
@@ -787,10 +815,11 @@ input {
   background: #0A1427;
   border: 1px solid #34496E;
   border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 0.72rem;
+  padding: 4px 6px;
+  font-size: 0.7rem;
   font-weight: 700;
   color: #F8FAFF;
+  text-align: center;
 }
 
 .bot-card-caption {
@@ -867,7 +896,6 @@ input {
   white-space: nowrap;
 }
 
-/* Control Row: [ ▶ Start ] [ Sisa: 12 ] [ ⏹ Stop ] [ ▲ ] */
 .bot-ctrl-row {
   display: flex;
   align-items: center;
@@ -888,12 +916,12 @@ input {
 
 .bot-rem-badge {
   height: 34px;
-  min-width: 78px;
+  min-width: 82px;
   background: #132038;
   border: 1px solid #34496E;
   border-radius: 8px;
   color: #F5CB82;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -1580,7 +1608,110 @@ input {
   color: var(--text-secondary);
 }
 
-/* ================= G. PRICING SECTION & DUAL-PAYMENT SWITCHER ================= */
+/* ================= G. PRICING SECTION, HAMMER JAM BANNER & STRIKETHROUGH ================= */
+.promo-event-banner {
+  max-width: 980px;
+  margin: 0 auto 34px;
+  background: linear-gradient(135deg, rgba(35, 22, 12, 0.96) 0%, rgba(18, 27, 46, 0.96) 50%, rgba(38, 17, 15, 0.96) 100%);
+  border: 1.5px solid rgba(253, 224, 71, 0.78);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: center;
+  box-shadow: 0 0 36px rgba(245, 158, 11, 0.3), inset 0 0 24px rgba(234, 88, 12, 0.14);
+  position: relative;
+  overflow: hidden;
+  animation: pulseGoldFireAura 3.2s infinite ease-in-out;
+}
+
+.promo-event-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad-gold-fire);
+}
+
+.promo-banner-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.promo-event-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.event-tag-pill {
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+}
+
+.hammerjam-pill {
+  background: var(--grad-gold-fire);
+  color: #080D18;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.55);
+}
+
+.th19-pill {
+  background: rgba(34, 211, 238, 0.16);
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  color: var(--cyan-bright);
+}
+
+.promo-banner-title {
+  font-size: clamp(1.12rem, 2.5vw, 1.42rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.3;
+}
+
+.promo-banner-sub {
+  font-size: 0.88rem;
+  color: #FDE68A;
+  max-width: 680px;
+}
+
+.promo-discount-stamp {
+  background: linear-gradient(135deg, #DC2626 0%, #EA580C 100%);
+  border: 1.5px solid #FDE047;
+  color: #FFFFFF;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 900;
+  text-align: center;
+  box-shadow: 0 0 24px rgba(220, 38, 38, 0.5);
+  flex-shrink: 0;
+}
+
+.promo-discount-stamp strong {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  color: var(--gold-bright);
+}
+
+.promo-discount-stamp span {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .payment-region-switcher {
   display: inline-grid;
   grid-template-columns: 1fr;
@@ -1676,10 +1807,10 @@ input {
   top: -13px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  padding: 5px 14px;
+  letter-spacing: 0.05em;
+  padding: 5px 13px;
   border-radius: 999px;
   white-space: nowrap;
   z-index: 3;
@@ -1702,7 +1833,7 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .tier-name {
@@ -1720,7 +1851,7 @@ input {
 }
 
 .value-Savings-pill {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   background: rgba(34, 211, 238, 0.15);
   color: var(--cyan);
@@ -1733,6 +1864,42 @@ input {
   background: rgba(245, 158, 11, 0.2);
   color: var(--gold-bright);
   border-color: rgba(253, 224, 71, 0.45);
+}
+
+/* Strikethrough Original Price (3x Normal Price) */
+.tier-price-original {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+  min-height: 24px;
+}
+
+.old-price-strike {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-decoration: line-through;
+  text-decoration-color: #EF4444;
+  text-decoration-thickness: 2px;
+  opacity: 0.88;
+}
+
+.discount-cut-badge {
+  font-size: 0.65rem;
+  font-weight: 900;
+  background: rgba(239, 68, 68, 0.2);
+  color: #FCA5A5;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  padding: 1px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.gold-cut-badge {
+  background: linear-gradient(135deg, #DC2626, #EA580C);
+  color: #FEF08A;
+  border-color: #FDE047;
 }
 
 .tier-price {
@@ -1772,7 +1939,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 11px;
-  margin-bottom: 26px;
+  margin-bottom: 22px;
 }
 
 .tier-features li {
@@ -1836,6 +2003,26 @@ input {
   font-size: 0.72rem;
   color: #FDE68A;
   margin-top: 2px;
+}
+
+.tier-btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-sub-discord {
+  font-size: 0.78rem;
+  padding: 8px 12px;
+  background: rgba(88, 101, 242, 0.16);
+  border: 1px solid rgba(88, 101, 242, 0.45);
+  color: #C7D2FE;
+  border-radius: var(--radius-sm);
+}
+
+.btn-sub-discord:hover {
+  background: var(--discord-blurple);
+  color: #FFFFFF;
 }
 
 /* ================= H. FAQ SECTION ================= */
@@ -1947,7 +2134,7 @@ input {
 
 .cta-desc {
   color: var(--text-secondary);
-  max-width: 620px;
+  max-width: 640px;
   margin: 0 auto 28px;
 }
 
@@ -2080,7 +2267,7 @@ input {
 }
 
 .checkout-modal-card {
-  max-width: 460px;
+  max-width: 470px;
 }
 
 .modal-close-x {
@@ -2112,11 +2299,31 @@ input {
   margin-bottom: 8px;
 }
 
+.chk-price-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.chk-old-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #94A3B8;
+  text-decoration: line-through;
+  text-decoration-color: #EF4444;
+  text-decoration-thickness: 2px;
+}
+
+.chk-old-price[hidden] {
+  display: none;
+}
+
 .chk-price-display {
   font-size: 1.85rem;
   font-weight: 900;
   color: var(--gold-bright);
-  margin-bottom: 16px;
 }
 
 .chk-pay-selector {
@@ -2201,7 +2408,7 @@ input {
 .chk-modal-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 9px;
 }
 
 .toast-icon {
@@ -2253,6 +2460,7 @@ input {
   .cyan-plasma-card,
   .emerald-venom-card,
   .best-lifetime-card,
+  .promo-event-banner,
   .fire-aura-glow,
   .cyan-aura-glow,
   .emerald-aura-glow {
@@ -2270,6 +2478,20 @@ input {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+  }
+
+  .promo-event-banner {
+    flex-direction: row;
+    text-align: left;
+    padding: 22px 30px;
+  }
+
+  .promo-banner-left {
+    align-items: flex-start;
+  }
+
+  .promo-event-pills {
+    justify-content: flex-start;
   }
 
   .payment-region-switcher {
@@ -2321,13 +2543,13 @@ input {
     border: none;
     padding: 0;
     box-shadow: none;
-    gap: 18px;
+    gap: 14px;
   }
 
   .nav-list {
     flex-direction: row;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
   }
 
   .nav-cta-wrapper {
