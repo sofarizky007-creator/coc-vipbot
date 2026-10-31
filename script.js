@@ -13,7 +13,7 @@ const SITE_CONFIG = {
   telegramBotUsername: "SlashQueenFarmer_bot",
 
   // Video Showcase Configuration (Isi salah satu jika video sudah siap)
-  showcaseVideoMp4: "",       // Contoh: "assets/images/showcase.mp4"
+  showcaseVideoMp4: "https://dl.coc-vipbot.web.id/showcase.mp4",       // Contoh: "assets/images/showcase.mp4"
   showcaseYoutubeEmbed: "",   // Contoh: "https://www.youtube-nocookie.com/embed/xxxxxxx"
 
   // Gambar QRIS yang sudah ditaruh di folder assets/images/
