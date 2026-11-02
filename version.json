@@ -1,7 +1,8 @@
 {
-  "version": "1.0.1",
-  "mandatory": true,
-  "exe_url": "https://dl.coc-vipbot.web.id/COC_VIPBot.exe",
-  "changelog_id": "• Perbaikan akurasi Smart Auto Upgrade Wall (Gold & Elixir + Add Wall).\n• Penambahan fitur Auto Ranked lanjut otomatis ke Mode Farming.\n• Peningkatan stabilitas Multi-Instance.",
-  "changelog_en": "• Fixed Smart Auto Upgrade Wall accuracy (Gold & Elixir + Add Wall).\n• Added Auto Ranked to Farming Mode transition.\n• Improved Multi-Instance stability."
+  "version": "1.0.2",
+  "mandatory": false,
+  "zip_url": "https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip",
+  "exe_url": "https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip",
+  "changelog_id": "• Perbaikan presisi Smart Auto Upgrade Wall (Gold & Elixir + Add Wall).\n• Penambahan gambar template otomatis & perbaikan Auto-Restart.\n• Jendela update kini dapat dibatalkan/ditutup kapan saja.",
+  "changelog_en": "• Fixed Smart Auto Upgrade Wall precision (Gold & Elixir + Add Wall).\n• Automatic template image extraction & Auto-Restart fix.\n• Update dialog can now be cancelled/closed anytime."
 }
