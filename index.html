@@ -3,94 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>COC VIPBot — Auto Loot, Smart Wall Upgrade & Multi-Instance Bot</title>
-  <meta name="description" content="Otomatisasi farming Clash of Clans terbaik dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ke Farming, Auto Builder Base, dan Promo Spesial Hammer Jam & Town Hall 19." />
+  <title>COC VIPBot — Desktop Automation for Clash of Clans</title>
+  <meta name="description" content="Otomatisasi Clash of Clans berbasis desktop untuk Home Village, Ranked Mode, dan Builder Base. Mendukung Loot Finder, Auto Upgrade Wall, dan Multi-Instance." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://coc-vipbot.web.id/" />
 
-  <!-- Open Graph / Social Meta -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://coc-vipbot.web.id/" />
-  <meta property="og:title" content="COC VIPBot — Promo Hammer Jam & Menyambut Town Hall 19!" />
-  <meta property="og:description" content="Tingkatkan progres desa utama, Ranked Mode & Builder Base secara otomatis dengan Best Loot Finder, Smart Auto Up Wall, dan Multi-Instance." />
+  <meta property="og:title" content="COC VIPBot — Desktop Automation for Clash of Clans" />
+  <meta property="og:description" content="Otomatisasi progres Home Village, Ranked Mode, dan Builder Base dengan Loot Finder, Auto Upgrade Wall, dan Multi-Instance." />
   <meta property="og:site_name" content="COC VIPBot" />
-  <meta name="theme-color" content="#080D18" />
+  <meta name="theme-color" content="#090D16" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-  <!-- Main Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Skip to Content for Accessibility -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Lewati ke konten utama</a>
 
-  <!-- Background Ambient Glows -->
-  <div class="ambient-bg" aria-hidden="true">
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-gold"></div>
-    <div class="grid-overlay"></div>
-  </div>
-
-  <!-- ================= A. NAVBAR ================= -->
   <header class="site-header" id="top">
     <div class="container nav-container">
-      <a href="#home" class="brand-logo" aria-label="COC VIPBot Home">
-        <img src="assets/logo.svg" alt="COC VIPBot Logo" width="180" height="36" />
+      <a href="#home" class="brand-logo" aria-label="COC VIPBot Beranda">
+        <img src="assets/logo.svg" alt="COC VIPBot" width="172" height="34" />
       </a>
 
       <button
+        type="button"
         class="mobile-nav-toggle"
         id="mobileNavToggle"
         aria-controls="primaryNavigation"
         aria-expanded="false"
-        aria-label="Toggle navigation menu"
+        aria-label="Buka menu navigasi"
       >
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
       </button>
 
-      <nav class="primary-nav" id="primaryNavigation" aria-label="Primary Navigation">
+      <nav class="primary-nav" id="primaryNavigation" aria-label="Navigasi Utama">
         <ul class="nav-list">
           <li><a href="#home" class="nav-link active" data-i18n="nav_home">Home</a></li>
           <li><a href="#features" class="nav-link" data-i18n="nav_features">Features</a></li>
-          <li><a href="#showcase" class="nav-link" data-i18n="nav_showcase">Video Showcase</a></li>
-          <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how">How It Works</a></li>
+          <li><a href="#showcase" class="nav-link" data-i18n="nav_showcase">Showcase</a></li>
+          <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how">Setup</a></li>
           <li><a href="#pricing" class="nav-link" data-i18n="nav_pricing">Pricing</a></li>
           <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
         </ul>
         <div class="nav-cta-wrapper">
-          <!-- Tombol Bahasa (ID / ENG) -->
-          <button type="button" class="btn btn-lang btn-sm" id="langSwitchBtn" aria-label="Switch Language ID or ENG">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
+          <button type="button" class="btn btn-lang btn-sm" id="langSwitchBtn" aria-label="Ganti Bahasa ID atau EN">
             <span class="lang-option active-lang" data-lang-ind="id">ID</span>
             <span class="lang-divider">/</span>
-            <span class="lang-option" data-lang-ind="en">ENG</span>
+            <span class="lang-option" data-lang-ind="en">EN</span>
           </button>
 
-          <!-- Tombol Join Discord di Navbar -->
+          <button type="button" class="btn btn-secondary btn-sm" id="openPortalBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/>
+            </svg>
+            <span data-i18n="nav_portal">Portal Key / Login</span>
+          </button>
+
           <a href="https://discord.gg/YyRhX7uPvp" class="btn btn-discord btn-sm" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
             </svg>
             <span>Discord</span>
           </a>
 
-          <!-- Tombol Download EXE di Navbar -->
-          <a href="#download" class="btn btn-secondary btn-sm" data-config-link="downloadUrl">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span data-i18n="nav_download">Download .EXE</span>
-          </a>
-
-          <!-- Tombol CTA Utama -->
           <a href="#pricing" class="btn btn-primary btn-sm">
-            <span data-i18n="nav_cta">Free Trial 1 Hari</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <span data-i18n="nav_cta">Trial 24 Jam</span>
           </a>
         </div>
       </nav>
@@ -98,176 +79,170 @@
   </header>
 
   <main id="main-content">
-    <!-- ================= B. HERO SECTION ================= -->
     <section class="hero-section" id="home">
       <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <div class="eyebrow-badge">
-            <span class="status-dot"></span>
-            <span data-i18n="hero_eyebrow">NEXT-GEN CLASH AUTOMATION ENGINE</span>
-            <span class="badge-pill gold-pill" data-i18n="hero_promo_pill">🔨 PROMO HAMMER JAM &amp; TH 19 (-67%)</span>
+        <div class="hero-content">
+          <div class="release-meta">
+            <span class="meta-version">v1.0.0</span>
+            <span class="meta-sep">·</span>
+            <span data-i18n="hero_meta_tech">Windows Desktop (.EXE) · OpenCV &amp; ADB</span>
+            <span class="meta-sep">·</span>
+            <a href="#pricing" class="meta-promo-link" data-i18n="hero_promo_pill">Hammer Time Deal: Rp 30.000 (14 Hari) / $2 (20 Days)</a>
           </div>
 
           <h1 class="hero-title" data-i18n="hero_title">
-            Non-Stop Deadbase Loot.<br />
-            <span class="text-gradient">Auto Max Walls Faster.</span>
+            Otomatisasi Farming, Ranked Loop, dan Upgrade Wall Clash of Clans.
           </h1>
 
           <p class="hero-description" data-i18n="hero_desc">
-            Dominasi progres Home Village, Ranked Mode &amp; Builder Base Anda menyambut hadirnya <strong>Town Hall 19</strong> dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> mandiri, serta fitur <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.
+            Jalankan rotasi serangan Ranked ke Farming, pemindaian deadbase, dan upgrade Wall otomatis di Home Village maupun Builder Base. Bekerja secara visual melalui ADB di LDPlayer dan MuMuPlayer dengan konfigurasi terpisah untuk setiap akun.
           </p>
 
-          <div class="hero-highlights">
-            <span class="hero-chip promo-chip" data-i18n="hero_chip_promo">🔥 Spesial Hammer Jam &amp; TH 19</span>
-            <span class="hero-chip" data-i18n="hero_chip1">⚡ Trial Gratis 1 Hari</span>
-            <span class="hero-chip" data-i18n="hero_chip2">🏆 Auto Ranked ➔ Farming</span>
-            <span class="hero-chip" data-i18n="hero_chip3">🖥️ Multi-Instances Mandiri</span>
-          </div>
+          <dl class="hero-specs">
+            <div class="spec-pair">
+              <dt data-i18n="spec_1_k">Target Resolusi</dt>
+              <dd>1600×900 (240 DPI)</dd>
+            </div>
+            <div class="spec-pair">
+              <dt data-i18n="spec_2_k">Mode Desa</dt>
+              <dd>Home Village &amp; Builder Base</dd>
+            </div>
+            <div class="spec-pair">
+              <dt data-i18n="spec_3_k">Multi-Akun</dt>
+              <dd data-i18n="spec_3_v">Profil Mandiri per Emulator</dd>
+            </div>
+          </dl>
 
           <div class="hero-actions">
-            <a href="#pricing" class="btn btn-primary btn-lg">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span data-i18n="hero_btn_primary">Claim Free Trial 1 Hari</span>
+            <button type="button" class="btn btn-primary btn-lg" data-checkout-tier="trial">
+              <span data-i18n="hero_btn_primary">Klaim Trial Gratis 1 Hari</span>
+            </button>
+            <a href="https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip" class="btn btn-secondary btn-lg" data-config-link="downloadUrl">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="hero_btn_download">Download Installer (.ZIP)</span>
             </a>
-            <a href="#download" class="btn btn-gold btn-lg" data-config-link="downloadUrl">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span data-i18n="hero_btn_download">Download Bot (.EXE)</span>
-            </a>
-            <a href="https://discord.gg/YyRhX7uPvp" class="btn btn-discord btn-lg" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
-              </svg>
-              <span data-i18n="hero_btn_discord">Join Discord (Testimoni &amp; Trial)</span>
+            <a href="https://discord.gg/YyRhX7uPvp" class="btn btn-outline btn-lg" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="hero_btn_discord">Gabung Discord &amp; Testimoni</span>
             </a>
           </div>
         </div>
 
-        <!-- REPLIKA IDENTIK UI APLIKASI COC VIPBOT (PYSIDE6) -->
-        <div class="hero-visual reveal">
-          <div class="bot-app-window" aria-label="Interactive COC VIPBot Desktop UI Preview">
+        <div class="hero-visual">
+          <div class="bot-app-window" role="region" aria-label="Simulasi Antarmuka Desktop COC VIPBot">
             <div class="bot-win-titlebar">
               <div class="bot-win-title">
-                <span class="bot-win-icon">⚔️</span>
-                <span>COC Bot v1.0.0 — [LDPlayer / MuMu | 127.0.0.1:5555]</span>
+                <span class="win-dot-active"></span>
+                <span>COC VIPBot v1.0.0 — [127.0.0.1:5555]</span>
               </div>
-              <div class="bot-win-controls">
-                <span>─</span><span>□</span><span class="win-close">✕</span>
+              <div class="bot-win-controls" aria-hidden="true">
+                <span>─</span><span>□</span><span>✕</span>
               </div>
             </div>
 
             <div class="bot-central-widget">
-              <!-- TOP HEADER BAR (#101A30) -->
               <div class="bot-header-bar">
                 <div class="bot-header-top">
-                  <span class="bot-brand-title">⚔  CLASH OF CLANS</span>
+                  <span class="bot-brand-title">CLASH OF CLANS CONTROLLER</span>
                   <div class="bot-header-btns">
-                    <span class="bot-mini-combo">🌐 ID ▾</span>
-                    <span class="bot-mini-btn tutorial-btn">📋 Tutorial</span>
-                    <span class="bot-mini-btn scan-btn">↻ Scan</span>
+                    <span class="bot-mini-combo">ID</span>
+                    <span class="bot-mini-btn tutorial-btn">Tutorial</span>
+                    <span class="bot-mini-btn scan-btn">Scan ADB</span>
                   </div>
                 </div>
                 <div class="bot-header-emu">
-                  <span class="bot-emu-label">🎯 Emulator:</span>
+                  <span class="bot-emu-label">Emulator:</span>
                   <div class="bot-emu-select">LDPlayer #1 (127.0.0.1:5555) [1600x900]</div>
-                  <span class="bot-emu-status">● READY</span>
+                  <span class="bot-emu-status" id="mockEmuStatus">READY</span>
                 </div>
               </div>
 
-              <!-- NAVIGATION & MODE SWITCHER BAR -->
               <div class="bot-nav-row">
-                <button type="button" class="bot-back-btn" id="mockSwitchModeBtn" title="Klik untuk ganti tampilan Desa Asal / Desa Malam">
-                  🔄 <span data-i18n="mock_switch_village">Ganti Desa</span>
+                <button type="button" class="bot-back-btn" id="mockSwitchModeBtn">
+                  <span data-i18n="mock_switch_village">Ganti Desa (Asal / Malam)</span>
                 </button>
-                <span class="bot-village-badge" id="mockVillageBadge">☀️ DESA ASAL</span>
+                <span class="bot-village-badge" id="mockVillageBadge">DESA ASAL</span>
               </div>
 
-              <!-- PANEL DESA ASAL (HOME VILLAGE) -->
               <div id="mockPanelAsal" class="bot-mode-panel">
-                <!-- Card 1: Ranked + Farming + Timer -->
                 <div class="bot-ui-card bot-row-card">
-                  <span class="bot-field-lbl gold-lbl">🏆 Ranked:</span>
+                  <span class="bot-field-lbl gold-lbl">Ranked:</span>
                   <div class="bot-spinbox">8</div>
-                  <span class="bot-field-lbl">🌾 Farming:</span>
+                  <span class="bot-field-lbl">Farming:</span>
                   <div class="bot-spinbox">15</div>
-                  <span class="bot-field-lbl">⏱️ Timer:</span>
+                  <span class="bot-field-lbl">Timer:</span>
                   <div class="bot-spinbox">60 s</div>
                 </div>
 
-                <!-- Card 2: Minimal Loot -->
                 <div class="bot-ui-card">
                   <div class="bot-card-caption" data-i18n="mock_min_loot">MINIMAL LOOT FARMING (0 = LANGSUNG SERANG)</div>
                   <div class="bot-loot-grid">
                     <div class="bot-loot-col">
-                      <span class="bot-loot-lbl">🟡 Gold</span>
+                      <span class="bot-loot-lbl">Gold</span>
                       <div class="bot-spinbox">500,000</div>
                     </div>
                     <div class="bot-loot-col">
-                      <span class="bot-loot-lbl">🟣 Elixir</span>
+                      <span class="bot-loot-lbl">Elixir</span>
                       <div class="bot-spinbox">500,000</div>
                     </div>
                     <div class="bot-loot-col">
-                      <span class="bot-loot-lbl">⚫ Dark</span>
+                      <span class="bot-loot-lbl">Dark Elixir</span>
                       <div class="bot-spinbox">5,000</div>
                     </div>
                   </div>
                 </div>
 
-                <!-- Card 3: More Option & Set Army -->
                 <div class="bot-ui-card bot-tools-card">
                   <div class="bot-tool-row">
-                    <span class="bot-tool-btn">⚙️ More Option</span>
-                    <span class="bot-summary-gold">Wall:ON | Card:ON | Cake:ON</span>
+                    <span class="bot-tool-btn">More Option</span>
+                    <span class="bot-summary-gold">Wall: ON · Event: ON</span>
                   </div>
                   <div class="bot-tool-row">
-                    <span class="bot-tool-btn primary-tool">🎯 Set Army</span>
+                    <span class="bot-tool-btn primary-tool">Set Army</span>
                     <span class="bot-summary-cyan">5 Slot (T:18 S:7 H:4 M:1)</span>
                   </div>
                 </div>
               </div>
 
-              <!-- PANEL DESA MALAM (BUILDER BASE) -->
               <div id="mockPanelMalam" class="bot-mode-panel" hidden>
                 <div class="bot-ui-card">
-                  <div class="bot-card-caption">🌙 DESA MALAM (FAST DEPLOY)</div>
+                  <div class="bot-card-caption">DESA MALAM (BUILDER BASE)</div>
                   <div class="bot-malam-desc" data-i18n="mock_malam_desc">
-                    Pastikan layar di Desa Malam. Deploy 1 Hero + 6 Troop otomatis &amp; Auto Up Wall.
+                    Deploy 1 Hero + 6 Troop otomatis, aktivasi skill berkala, dan Auto Upgrade Wall Desa Malam.
                   </div>
                 </div>
 
                 <div class="bot-ui-card bot-row-card">
                   <span class="bot-field-lbl">Loop:</span>
                   <div class="bot-spinbox">20</div>
-                  <span class="bot-field-lbl">⏱️ Timer:</span>
+                  <span class="bot-field-lbl">Timer:</span>
                   <div class="bot-spinbox">45 s</div>
                 </div>
 
                 <div class="bot-ui-card bot-tools-card">
                   <div class="bot-tool-row">
-                    <span class="bot-tool-btn">⚙️ More Option</span>
-                    <span class="bot-summary-gold">Wall:ON | Skill:11s</span>
+                    <span class="bot-tool-btn">More Option</span>
+                    <span class="bot-summary-gold">Wall: ON · Skill: 11s</span>
                   </div>
                   <div class="bot-tool-row">
-                    <span class="bot-tool-btn primary-tool">🌙 Set Army</span>
+                    <span class="bot-tool-btn primary-tool">Set Army</span>
                     <span class="bot-summary-cyan">1 Hero + 6 Troop</span>
                   </div>
                 </div>
               </div>
 
-              <!-- BARIS TOMBOL START | SISA LOOP | STOP | HIDE LOG -->
               <div class="bot-ctrl-row">
-                <button type="button" class="bot-btn-start" id="mockBtnStart">▶ Start</button>
-                <div class="bot-rem-badge" id="mockRemLoop">Sisa: R:8➔15</div>
-                <button type="button" class="bot-btn-stop" id="mockBtnStop">⏹ Stop</button>
-                <button type="button" class="bot-btn-toggle" id="mockBtnToggleLog" title="Sembunyikan / Tampilkan Log">▲</button>
+                <button type="button" class="bot-btn-start" id="mockBtnStart">Start</button>
+                <div class="bot-rem-badge" id="mockRemLoop">Sisa: R:8→15</div>
+                <button type="button" class="bot-btn-stop" id="mockBtnStop">Stop</button>
+                <button type="button" class="bot-btn-toggle" id="mockBtnToggleLog" aria-label="Tampilkan atau sembunyikan log">▲</button>
               </div>
 
-              <!-- KOTAK LOG AKTIVITAS REAL-TIME -->
-              <div class="bot-log-box" id="mockLogContainer">
-                <div class="bot-log-line">[09:14:20] [TARGET] LDPlayer (127.0.0.1:5555) | Res: 1600x900</div>
-                <div class="bot-log-line">[09:14:22] [READY] Base musuh terdeteksi via End Battle!</div>
-                <div class="bot-log-line log-ok">[09:14:23] [LOOT] Gold: 850,400/500,000 (OK) | Elixir: 920,100 (OK)</div>
-                <div class="bot-log-line">[09:14:25] [FAST-DEPLOY] Menurunkan Troop, Spell, Hero &amp; Machine...</div>
-                <div class="bot-log-line log-gold" id="mockDynamicLog">[09:15:10] [WALL-SUCCESS] Upgrade 8 Wall menggunakan GOLD selesai!</div>
+              <div class="bot-log-box" id="mockLogContainer" aria-live="polite">
+                <div class="bot-log-line">[09:14:20] [TARGET] LDPlayer (127.0.0.1:5555) | 1600x900</div>
+                <div class="bot-log-line">[09:14:22] [SCAN] Layar pertempuran terdeteksi via OpenCV.</div>
+                <div class="bot-log-line log-ok">[09:14:23] [LOOT] Gold: 850,400 | Elixir: 920,100 (Memenuhi syarat)</div>
+                <div class="bot-log-line">[09:14:25] [DEPLOY] Menurunkan Troop, Spell, Hero &amp; Siege Machine.</div>
+                <div class="bot-log-line log-gold" id="mockDynamicLog">[09:15:10] [WALL] Upgrade 8 segmen Wall menggunakan Gold selesai.</div>
               </div>
             </div>
           </div>
@@ -275,185 +250,150 @@
       </div>
     </section>
 
-    <!-- ================= C. TRUST / CORE ADVANTAGES BAR ================= -->
-    <section class="trust-section" aria-label="Core System Advantages">
+    <section class="spec-strip-section" aria-label="Ringkasan Teknis Sistem">
       <div class="container">
-        <div class="trust-grid reveal">
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <div>
-              <span class="trust-label" data-i18n="trust_label1">Multi-Account Power</span>
-              <strong class="trust-value">Support Multi Instances</strong>
-            </div>
+        <div class="spec-strip-grid">
+          <div class="spec-strip-item">
+            <span class="spec-strip-label" data-i18n="trust_label1">Arsitektur Multi-Akun</span>
+            <strong class="spec-strip-val">Multi-Instance ADB Terisolasi</strong>
           </div>
-
-          <div class="trust-item">
-            <div class="trust-icon emerald-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-            </div>
-            <div>
-              <span class="trust-label" data-i18n="trust_label2">Dual Village + Ranked</span>
-              <strong class="trust-value">Ranked ➔ Farming + Builder Base</strong>
-            </div>
+          <div class="spec-strip-item">
+            <span class="spec-strip-label" data-i18n="trust_label2">Siklus Pertempuran</span>
+            <strong class="spec-strip-val">Ranked Loop → Farming + Builder Base</strong>
           </div>
-
-          <div class="trust-item">
-            <div class="trust-icon gold-icon-box">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div>
-              <span class="trust-label" data-i18n="trust_label3">Smart Recovery</span>
-              <strong class="trust-value">Auto-Reload &amp; Auto Zoom-Out</strong>
-            </div>
+          <div class="spec-strip-item">
+            <span class="spec-strip-label" data-i18n="trust_label3">Pemulihan Otomatis</span>
+            <strong class="spec-strip-val">Auto-Reconnect &amp; Pinch Zoom-Out</strong>
           </div>
-
-          <div class="trust-item">
-            <div class="trust-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <div>
-              <span class="trust-label" data-i18n="trust_label4">Global Payment &amp; Community</span>
-              <strong class="trust-value">QRIS, Binance &amp; Discord Server</strong>
-            </div>
+          <div class="spec-strip-item">
+            <span class="spec-strip-label" data-i18n="trust_label4">Metode Transaksi</span>
+            <strong class="spec-strip-val">QRIS Indonesia (IDR) &amp; Binance (USDT)</strong>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= D. FEATURES SECTION (3 DISTINCT AURA COLORS) ================= -->
     <section class="features-section section-padding" id="features">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">POWERFUL AUTOMATION MODULES</span>
-          <h2 class="section-title" data-i18n="feat_sec_title">Fitur Unggulan COC VIPBot</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">CORE MODULES</span>
+          <h2 class="section-title" data-i18n="feat_sec_title">Modul Otomatisasi COC VIPBot</h2>
           <p class="section-subtitle" data-i18n="feat_sec_sub">
-            Dirancang khusus untuk memaksimalkan perolehan loot harian selama event Hammer Jam dan mempercepat progres Wall menyambut Town Hall 19.
+            Enam modul inti untuk menjaga perolehan resource tetap berjalan dan mengalokasikannya langsung ke peningkatan Wall selama event Hammer Jam menuju Town Hall 19.
           </p>
         </div>
 
         <div class="features-grid">
-          <!-- Card 1: Best Loot Finder & Auto Ranked -->
-          <article class="feature-card reveal">
-            <div class="feature-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
-              </svg>
+          <article class="feature-card">
+            <div class="card-top-row">
+              <div class="feature-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                </svg>
+              </div>
+              <span class="feature-badge">Ranked → Farming</span>
             </div>
-            <span class="feature-badge">Ranked ➔ Farming Mode</span>
             <h3 class="feature-title">Best Loot Finder &amp; Auto Ranked</h3>
             <p class="feature-desc" data-i18n="feat_1_desc">
-              Jalankan jatah serangan Ranked secara otomatis lalu berpindah sendiri ke mode Farming untuk memindai deadbase kaya sesuai target Gold, Elixir, dan Dark Elixir.
+              Menyelesaikan kuota serangan Ranked terlebih dahulu, kemudian berpindah otomatis ke mode Farming untuk memfilter base berdasarkan batas minimal Gold, Elixir, dan Dark Elixir.
             </p>
           </article>
 
-          <!-- Card 2: Auto Up Wall (AURA #1: MOLTEN GOLD & FIRE) -->
-          <article class="feature-card gold-fire-card reveal">
-            <div class="fire-aura-glow" aria-hidden="true"></div>
+          <article class="feature-card accent-card-amber">
             <div class="card-top-row">
-              <div class="feature-icon-wrap gold-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <div class="feature-icon-wrap amber-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v6"/><path d="M15 9v6"/><path d="M9 15v6"/>
                 </svg>
               </div>
-              <span class="hot-hook-badge">🔥 HAMMER JAM READY</span>
+              <span class="feature-tag-amber">CORE HIGHLIGHT · HAMMER JAM</span>
             </div>
-            <span class="feature-badge gold-badge">Template Matching System</span>
-            <h3 class="feature-title gold-gradient-text">Auto Up Wall</h3>
+            <h3 class="feature-title">Auto Up Wall</h3>
             <p class="feature-desc" data-i18n="feat_2_desc">
-              Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mengenali posisi tombol Upgrade Wall secara dinamis dan meng-upgrade banyak Wall sekaligus.
+              Mencegah resource meluap di storage. Saat saldo melewati ambang batas, bot mendeteksi tombol upgrade secara visual dan menaikkan level beberapa Wall sekaligus.
             </p>
           </article>
 
-          <!-- Card 3: Anti Ban & Auto Reload -->
-          <article class="feature-card reveal">
-            <div class="feature-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
-              </svg>
+          <article class="feature-card">
+            <div class="card-top-row">
+              <div class="feature-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+                </svg>
+              </div>
+              <span class="feature-badge">Visual OpenCV + ADB</span>
             </div>
-            <span class="feature-badge">Humanized &amp; Auto-Reload</span>
-            <h3 class="feature-title">Anti Ban &amp; Auto-Reconnect</h3>
+            <h3 class="feature-title">Anti-Ban &amp; Auto-Reconnect</h3>
             <p class="feature-desc" data-i18n="feat_3_desc">
-              Dilengkapi pola deploy natural, klaim otomatis Star Bonus harian, serta fitur Auto-Reload pintar saat koneksi internet PC Anda sempat terputus.
+              Bekerja tanpa menyuntikkan kode ke memori game. Dilengkapi variasi koordinat sentuhan, klaim Star Bonus harian, dan masuk ulang otomatis saat koneksi terputus.
             </p>
           </article>
 
-          <!-- Card 4: Full Support & Auto-Updater -->
-          <article class="feature-card reveal">
-            <div class="feature-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-              </svg>
+          <article class="feature-card">
+            <div class="card-top-row">
+              <div class="feature-icon-wrap">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+              </div>
+              <span class="feature-badge">In-App Updater</span>
             </div>
-            <span class="feature-badge">1-Click Auto Update</span>
             <h3 class="feature-title">Full Support &amp; Auto-Updater</h3>
             <p class="feature-desc" data-i18n="feat_4_desc">
-              Aplikasi .EXE dilengkapi sistem Auto-Update 1-Klik langsung dari dalam bot setiap kali ada pembaruan fitur atau update Town Hall 19, tanpa perlu unduh ulang manual.
+              Aplikasi dilengkapi pembaru otomatis 1-klik langsung dari antarmuka bot setiap kali ada pembaruan fitur atau penyesuaian aset Town Hall 19.
             </p>
           </article>
 
-          <!-- Card 5: Support Multi Instances (AURA #2: NEON CYBER CYAN) -->
-          <article class="feature-card cyan-plasma-card reveal">
-            <div class="cyan-aura-glow" aria-hidden="true"></div>
+          <article class="feature-card accent-card-cyan">
             <div class="card-top-row">
               <div class="feature-icon-wrap cyan-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h4v4H7z"/><path d="M13 8h4v4h-4z"/>
                 </svg>
               </div>
-              <span class="cyan-hook-badge">⚡ MULTI-ACCOUNT</span>
+              <span class="feature-tag-cyan">MULTI-INSTANCE ENGINE</span>
             </div>
-            <span class="feature-badge cyan-badge">Isolated Configs</span>
-            <h3 class="feature-title cyan-gradient-text">Support Multi Instances</h3>
+            <h3 class="feature-title">Support Multi Instances</h3>
             <p class="feature-desc" data-i18n="feat_5_desc">
-              Punya banyak akun Clash of Clans? Jalankan beberapa jendela MuMuPlayer / LDPlayer sekaligus dengan penyimpanan setting Army &amp; Wall yang terpisah mandiri!
+              Jalankan beberapa jendela MuMuPlayer atau LDPlayer secara bersamaan di satu PC. Setiap instance menyimpan profil Army dan konfigurasi Wall secara terpisah.
             </p>
           </article>
 
-          <!-- Card 6: Auto Builder Base Loot & Wall (AURA #3: MATRIX EMERALD GREEN) -->
-          <article class="feature-card emerald-venom-card reveal">
-            <div class="emerald-aura-glow" aria-hidden="true"></div>
+          <article class="feature-card accent-card-emerald">
             <div class="card-top-row">
               <div class="feature-icon-wrap emerald-icon">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                 </svg>
               </div>
-              <span class="emerald-hook-badge">🟢 6TH BUILDER RUSHER</span>
+              <span class="feature-tag-emerald">BUILDER BASE MODULE</span>
             </div>
-            <span class="feature-badge emerald-badge">Dual Base Automation</span>
-            <h3 class="feature-title emerald-gradient-text">Auto Builder Base Loot &amp; Wall</h3>
+            <h3 class="feature-title">Auto Builder Base Loot &amp; Wall</h3>
             <p class="feature-desc" data-i18n="feat_6_desc">
-              Otomatisasi penuh untuk malam hari di Builder Base! Deploy kilat 1 Hero + 6 Troop, aktifkan skill berkala, dan upgrade tembok Desa Malam otomatis.
+              Otomatisasi penuh untuk Desa Malam: menurunkan 1 Hero dan 6 Troop dengan cepat, memicu skill berkala, serta menaikkan level Wall Builder Base secara mandiri.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ================= E. VIDEO SHOWCASE SECTION ================= -->
     <section class="showcase-section section-padding" id="showcase">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">OFFICIAL VIDEO SHOWCASE</span>
-          <h2 class="section-title" data-i18n="show_sec_title">Lihat UI Bot &amp; Cara Kerjanya</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">DEMONSTRATION</span>
+          <h2 class="section-title" data-i18n="show_sec_title">Rekaman Alur Kerja Bot</h2>
           <p class="section-subtitle" data-i18n="show_sec_sub">
-            Tonton demonstrasi singkat (30–60 detik) bagaimana COC VIPBot memindai deadbase, menurunkan pasukan dengan cepat, dan meng-upgrade Wall secara otomatis.
+            Cuplikan langsung bagaimana COC VIPBot memindai nilai loot, menurunkan pasukan, mereset kamera (Pinch Zoom-Out), dan meng-upgrade Wall.
           </p>
         </div>
 
-        <div class="video-showcase-wrapper reveal">
+        <div class="video-showcase-wrapper">
           <div class="video-frame-header">
-            <div class="window-dots">
-              <span></span><span></span><span></span>
-            </div>
             <div class="video-frame-title">
               <span class="live-rec-dot"></span>
-              <span>COC_VIPBot_Gameplay_Showcase.mp4 (1080p 60FPS)</span>
+              <span>showcase.mp4 — 1600×900 ADB Capture</span>
             </div>
-            <span class="video-duration-badge">LIVE DEMO</span>
+            <span class="video-duration-badge">1080p 60FPS</span>
           </div>
 
           <div class="video-stage" id="videoStage">
@@ -463,6 +403,8 @@
               controls
               playsinline
               preload="metadata"
+              width="960"
+              height="540"
               hidden
             >
               Browser Anda tidak mendukung pemutaran video HTML5.
@@ -472,42 +414,23 @@
               id="showcaseYoutubeIframe"
               class="showcase-video-element"
               title="COC VIPBot Video Showcase"
+              width="960"
+              height="540"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
               hidden
             ></iframe>
 
             <div class="video-poster-overlay" id="videoPosterOverlay">
-              <div class="simulated-bot-screen" id="simulatedScreen">
-                <div class="sim-hud-top">
-                  <span class="sim-chip">🎯 Target: Gold &gt; 500K | Elixir &gt; 500K</span>
-                  <span class="sim-chip gold-chip">🧱 Auto Wall: ON (Template Match)</span>
-                  <span class="sim-chip">🔍 Auto Zoom-Out: ON</span>
-                </div>
-
+              <div class="simulated-bot-screen">
                 <div class="sim-center-play">
-                  <button type="button" class="play-pulse-btn" id="triggerDemoVideoBtn" aria-label="Putar Preview Cara Kerja Bot">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <button type="button" class="play-pulse-btn" id="triggerDemoVideoBtn" aria-label="Putar pratinjau alur kerja">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                   </button>
-                  <h3 class="sim-Overlay-title" id="simTitleText" data-i18n="show_sim_title">Klik untuk Simulasi Alur Kerja COC VIPBot</h3>
+                  <h3 class="sim-Overlay-title" id="simTitleText" data-i18n="show_sim_title">Putar Pratinjau Alur Kerja</h3>
                   <p class="sim-overlay-sub" id="simSubText" data-i18n="show_sim_sub">
-                    (Pemutar ini otomatis menampilkan video rekaman asli Anda begitu file MP4 ditaruh di folder assets/images/)
+                    Menghubungkan ke stream video dari dl.coc-vipbot.web.id/showcase.mp4
                   </p>
-                </div>
-
-                <div class="sim-live-console" id="simLiveConsole">
-                  <div class="sim-step active-step" data-step="1">
-                    <strong>1. Scanning Loot &amp; Cloud</strong>
-                    <span data-i18n="show_step1">Best Loot Finder memfilter base mati...</span>
-                  </div>
-                  <div class="sim-step" data-step="2">
-                    <strong>2. Balanced-Fast Deploy</strong>
-                    <span data-i18n="show_step2">Menurunkan Troop, Spell, Hero &amp; Ability...</span>
-                  </div>
-                  <div class="sim-step" data-step="3">
-                    <strong>3. Auto Wall &amp; Zoom-Out</strong>
-                    <span data-i18n="show_step3">Upgrade Wall &amp; Reset Kamera Otomatis!</span>
-                  </div>
                 </div>
               </div>
             </div>
@@ -515,154 +438,149 @@
 
           <div class="video-caption-bar">
             <div class="vc-item">
-              <span class="vc-dot"></span>
-              <span><strong>00:00 - 00:15</strong> Scan Emulator &amp; Set Army</span>
+              <span class="vc-time">00:00</span>
+              <span data-i18n="vc_label_1">Scan ADB &amp; Konfigurasi Set Army</span>
             </div>
             <div class="vc-item">
-              <span class="vc-dot"></span>
-              <span><strong>00:15 - 00:30</strong> Filter Loot &amp; Fast Deploy</span>
+              <span class="vc-time">00:15</span>
+              <span data-i18n="vc_label_2">Filter Deadbase &amp; Penurunan Pasukan</span>
             </div>
             <div class="vc-item">
-              <span class="vc-dot gold-dot"></span>
-              <span><strong>00:30 - 00:45</strong> Auto Up Wall &amp; Pinch Zoom-Out</span>
+              <span class="vc-time">00:30</span>
+              <span data-i18n="vc_label_3">Auto Upgrade Wall &amp; Pinch Zoom-Out</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= F. HOW IT WORKS ================= -->
     <section class="steps-section section-padding" id="how-it-works">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow" data-i18n="how_eyebrow">4 LANGKAH MUDAH</span>
-          <h2 class="section-title" data-i18n="how_sec_title">Bagaimana COC VIPBot Bekerja?</h2>
+        <div class="section-header">
+          <span class="section-eyebrow" data-i18n="how_eyebrow">PROSEDUR KONFIGURASI</span>
+          <h2 class="section-title" data-i18n="how_sec_title">Empat Langkah Menjalankan Bot</h2>
           <p class="section-subtitle" data-i18n="how_sec_sub">
-            Tidak perlu pengaturan rumit. Dari klaim Trial Gratis di Discord/Telegram hingga bot berjalan otomatis meng-upgrade Wall Anda hanya butuh beberapa menit.
+            Dari mengunduh paket aplikasi hingga rotasi farming berjalan mandiri hanya membutuhkan waktu beberapa menit.
           </p>
         </div>
 
-        <div class="steps-grid">
-          <div class="step-card reveal">
-            <div class="step-number">01</div>
-            <h3 class="step-title" data-i18n="how_1_title">Unduh Bot (.EXE) &amp; Klaim Key</h3>
+        <ol class="steps-matrix">
+          <li class="step-item">
+            <span class="step-index">01</span>
+            <h3 class="step-title" data-i18n="how_1_title">Unduh .EXE &amp; Aktifkan Lisensi</h3>
             <p class="step-desc" data-i18n="how_1_desc">
-              Unduh paket COC-VIPBot-Setup.zip, lalu klaim Trial Gratis 1 Hari via Server Discord / Bot Telegram kami atau pilih paket promo Hammer Jam.
+              Unduh paket COC-VIPBot-Setup.zip, lalu klaim Serial Key Trial Gratis 24 Jam melalui Server Discord atau Bot Telegram resmi kami.
             </p>
-          </div>
+          </li>
 
-          <div class="step-card reveal">
-            <div class="step-number">02</div>
-            <h3 class="step-title" data-i18n="how_2_title">Hubungkan Emulator (1600x900)</h3>
+          <li class="step-item">
+            <span class="step-index">02</span>
+            <h3 class="step-title" data-i18n="how_2_title">Atur Emulator ke 1600×900</h3>
             <p class="step-desc" data-i18n="how_2_desc">
-              Atur resolusi MuMuPlayer / LDPlayer ke 1600x900 (240 DPI). Klik tombol Scan di bot untuk memilih target emulator untuk masing-masing akun.
+              Setel resolusi LDPlayer atau MuMuPlayer ke 1600×900 (240 DPI). Klik tombol Scan di aplikasi bot untuk mengunci port ADB masing-masing emulator.
             </p>
-          </div>
+          </li>
 
-          <div class="step-card reveal">
-            <div class="step-number">03</div>
-            <h3 class="step-title" data-i18n="how_3_title">Atur Set Army &amp; More Option</h3>
+          <li class="step-item">
+            <span class="step-index">03</span>
+            <h3 class="step-title" data-i18n="how_3_title">Konfigurasi Army &amp; Ambang Wall</h3>
             <p class="step-desc" data-i18n="how_3_desc">
-              Rekam titik slot pasukan Anda di menu Set Army, lalu aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.
+              Tentukan jumlah slot pasukan pada menu Set Army, kemudian aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.
             </p>
-          </div>
+          </li>
 
-          <div class="step-card reveal">
-            <div class="step-number">04</div>
-            <h3 class="step-title" data-i18n="how_4_title">Klik Start &amp; Biarkan Bot Bekerja</h3>
+          <li class="step-item">
+            <span class="step-index">04</span>
+            <h3 class="step-title" data-i18n="how_4_title">Mulai Rotasi Otomatis</h3>
             <p class="step-desc" data-i18n="how_4_desc">
-              Bot akan menyelesaikan jatah Ranked, lanjut Farming, mengklaim Star Bonus, me-reload jika terputus, dan meng-upgrade Wall Anda 24/7.
+              Tekan Start. Bot akan menuntaskan jatah Ranked, beralih ke Farming, mengklaim Star Bonus, dan meng-upgrade Wall secara berkelanjutan.
             </p>
-          </div>
-        </div>
+          </li>
+        </ol>
       </div>
     </section>
 
-    <!-- ================= G. PRICING SECTION (PROMO HAMMER JAM & TH 19 + HARGA CORET 3X) ================= -->
     <section class="pricing-section section-padding" id="pricing">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow" data-i18n="price_eyebrow">🔥 SPECIAL EVENT SALE • DISKON 67%</span>
-          <h2 class="section-title" data-i18n="price_sec_title">Pilih Paket Terbaik Untuk Desa Anda</h2>
+        <div class="section-header">
+          <span class="section-eyebrow" data-i18n="price_eyebrow">LISENSI &amp; HAMMER TIME SPECIAL PROMO</span>
+          <h2 class="section-title" data-i18n="price_sec_title">Pilih Durasi Lisensi</h2>
           <p class="section-subtitle" data-i18n="price_sec_sub">
-            Semua paket membuka 100% fitur utama. Mendukung pembayaran instan via <strong>QRIS Indonesia (IDR)</strong> dan <strong>Binance Pay QRIS (USDT)</strong> untuk pengguna internasional!
+            Seluruh paket membuka 100% fitur aplikasi tanpa batasan modul. Mendukung pembayaran via QRIS Indonesia (IDR) dan Binance Pay (USDT).
           </p>
 
-          <!-- SAKLAR PEMILIHAN METODE PEMBAYARAN / REGION -->
-          <div class="payment-region-switcher" role="group" aria-label="Pilih Mata Uang & Metode Pembayaran">
+          <div class="payment-region-switcher" role="group" aria-label="Pilih Mata Uang Pembayaran">
             <button type="button" class="region-btn active-region" id="regionBtnIdr" data-region="idr">
-              <span class="region-flag">🇮🇩</span>
+              <span class="region-code">IDR</span>
               <div class="region-txt">
-                <strong>QRIS Indonesia (IDR)</strong>
-                <small>DANA, GoPay, OVO, ShopeePay, Bank</small>
+                <strong>QRIS Indonesia</strong>
+                <small>Promo Rp 30.000 = 14 Hari Penuh (7+7 Hari)</small>
               </div>
             </button>
             <button type="button" class="region-btn" id="regionBtnUsdt" data-region="usdt">
-              <span class="region-flag">🌍</span>
+              <span class="region-code">USDT</span>
               <div class="region-txt">
                 <strong>International (Binance QR)</strong>
-                <small>USDT / Crypto via Binance Pay</small>
+                <small>Special Deal $2 USDT = 20 Days Access</small>
               </div>
             </button>
           </div>
         </div>
 
-        <!-- BANNER PROMO SPESIAL HAMMER JAM & MENYAMBUT TOWN HALL 19 -->
-        <div class="promo-event-banner reveal">
+        <div class="promo-event-banner">
           <div class="promo-banner-left">
             <div class="promo-event-pills">
-              <span class="event-tag-pill hammerjam-pill" data-i18n="promo_pill_1">🔨 SPESIAL EVENT HAMMER JAM</span>
-              <span class="event-tag-pill th19-pill" data-i18n="promo_pill_2">🏰 MENYAMBUT TOWN HALL 19 AKAN HADIR</span>
+              <span class="event-tag-pill hammerjam-pill" data-i18n="promo_pill_1">HAMMER TIME SPECIAL DEAL</span>
+              <span class="event-tag-pill th19-pill" data-i18n="promo_pill_2">BONUS DURASI &amp; KODE PROMO</span>
             </div>
             <h3 class="promo-banner-title" data-i18n="promo_banner_title">
-              Kejar Max Wall &amp; Storage Penuh Sebelum Update Town Hall 19 Rilis!
+              Indonesia: Rp 30.000 Dapat 14 Hari Penuh · International: $2 USDT Dapat 20 Days Access
             </h3>
             <p class="promo-banner-sub" data-i18n="promo_banner_sub">
-              Nikmati potongan harga spesial <strong>1/3 dari harga normal (Hemat 67%)</strong> untuk seluruh paket berbayar selama periode event berlangsung!
+              Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari untuk QRIS Indonesia) atau 20 hari penuh untuk pembayaran Binance USDT. Punya kode voucher? Masukkan saat checkout.
             </p>
           </div>
           <div class="promo-discount-stamp">
-            <strong>DISKON 67%</strong>
-            <span data-i18n="promo_stamp_sub">HARGA CORET 3X LIPAT</span>
+            <strong id="promoBannerStampMain">BONUS 2X DURASI</strong>
+            <span data-i18n="promo_stamp_sub">LIMITED TIME OFFER</span>
           </div>
         </div>
 
         <div class="pricing-grid-4">
-          <!-- TIER 1: TRIAL FREE 1 HARI -->
-          <div class="pricing-card reveal">
+          <div class="pricing-card">
             <div>
               <div class="pricing-header">
                 <span class="tier-name" data-i18n="tier1_name">Trial Free</span>
                 <div class="tier-price-original">
-                  <span class="discount-cut-badge" style="background: rgba(16, 185, 129, 0.16); color: #6EE7B7; border-color: rgba(16, 185, 129, 0.45);" data-i18n="tier1_free_tag">🎁 100% GRATIS 24 JAM</span>
+                  <span class="discount-cut-badge free-cut-badge" data-i18n="tier1_free_tag">AKSES PENUH 24 JAM</span>
                 </div>
                 <div class="tier-price">
                   <span class="price-currency" data-price-curr="trial">Rp</span>
                   <span class="price-amount" data-price-val="trial">0</span>
                   <span class="price-period" data-i18n="tier1_period">/ 1 Hari</span>
                 </div>
-                <p class="tier-desc" data-i18n="tier1_desc">Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya (Bisa klaim via Discord atau Telegram).</p>
+                <p class="tier-desc" data-i18n="tier1_desc">Uji coba langsung seluruh fitur bot di PC Anda selama 24 jam penuh tanpa biaya via Discord atau Telegram.</p>
               </div>
 
               <ul class="tier-features">
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur Unlock (Ranked &amp; Farming)</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>All Strategies System with Anti Ban</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti-Ban</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Super Smart Wall Upgrade</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur For Builder Base</span>
                 </li>
                 <li class="support-tier-row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span><strong>Standard Support</strong></span>
                 </li>
               </ul>
@@ -670,63 +588,62 @@
 
             <div class="tier-btn-stack">
               <button type="button" class="btn btn-secondary btn-block" data-checkout-tier="trial" data-i18n="tier1_btn">
-                Claim Free Trial (Telegram)
+                Klaim Trial (Telegram)
               </button>
               <a href="https://discord.gg/YyRhX7uPvp" class="btn btn-sub-discord btn-block" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer" data-i18n="tier1_btn_dc">
-                💬 Klaim Trial via Server Discord
+                Klaim Trial via Discord
               </a>
             </div>
           </div>
 
-          <!-- TIER 2: 1 MINGGU (NORMAL 86.700 -> PROMO 28.900) -->
-          <div class="pricing-card reveal">
+          <div class="pricing-card best-weekly-promo-card">
+            <div class="popular-ribbon emerald-ribbon" id="weeklyRibbon" data-i18n="tier2_ribbon">HAMMER TIME · 7+7 HARI PENUH</div>
             <div>
               <div class="pricing-header">
-                <span class="tier-name" data-i18n="tier2_name">Paket 1 Minggu</span>
+                <span class="tier-name emerald-text" id="weeklyTierTitle" data-i18n="tier2_name">Hammer Time Promo</span>
                 <div class="tier-price-original">
-                  <span class="old-price-strike" data-price-old="weekly">Rp 86.700</span>
-                  <span class="discount-cut-badge" data-i18n="promo_cut_label">🔥 HEMAT 67%</span>
+                  <span class="old-price-strike" data-price-old="weekly">Rp 90.000</span>
+                  <span class="discount-cut-badge" id="weeklyBonusBadge" data-i18n="tier2_bonus_tag">14 HARI AKSES</span>
                 </div>
                 <div class="tier-price">
                   <span class="price-currency" data-price-curr="weekly">Rp</span>
-                  <span class="price-amount" data-price-val="weekly">28.900</span>
-                  <span class="price-period" data-i18n="tier2_period">/ 7 Hari</span>
+                  <span class="price-amount" data-price-val="weekly">30.000</span>
+                  <span class="price-period" id="weeklyPeriodLabel" data-price-period="weekly">/ 14 Hari</span>
                 </div>
-                <p class="tier-desc" data-i18n="tier2_desc">Cocok untuk kejar progres mingguan selama event Hammer Jam, Clan Games, atau mengisi penuh storage dengan cepat.</p>
+                <p class="tier-desc" data-i18n="tier2_desc">Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari penuh untuk IDR, atau $2 untuk 20 hari akses internasional).</p>
               </div>
 
               <ul class="tier-features">
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur Unlock (Ranked &amp; Farming)</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>All Strategies System with Anti Ban</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti-Ban</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Super Smart Wall Upgrade</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur For Builder Base</span>
                 </li>
                 <li class="support-tier-row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span><strong>Standard Support + Role Testimoni</strong></span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span><strong>Standard Support + Role Buyer</strong></span>
                 </li>
               </ul>
             </div>
 
-            <button type="button" class="btn btn-secondary btn-block" data-checkout-tier="weekly" data-i18n="tier2_btn">
-              Pilih Paket 1 Minggu
+            <button type="button" class="btn btn-primary btn-block" data-checkout-tier="weekly" data-i18n="tier2_btn">
+              Ambil Promo Hammer Time
             </button>
           </div>
 
-          <!-- TIER 3: 1 BULAN (NORMAL 297.000 -> PROMO 99.000 — BEST VALUE #1: ELECTRIC CYAN) -->
-          <div class="pricing-card best-monthly-card reveal">
-            <div class="popular-ribbon cyan-ribbon" data-i18n="tier3_ribbon">⚡ PROMO HAMMER JAM • HEMAT 67%</div>
+          <div class="pricing-card best-monthly-card">
+            <div class="popular-ribbon cyan-ribbon" data-i18n="tier3_ribbon">BEST MONTHLY · HEMAT 67%</div>
             <div>
               <div class="pricing-header">
                 <div class="tier-title-row">
@@ -735,115 +652,111 @@
                 </div>
                 <div class="tier-price-original">
                   <span class="old-price-strike" data-price-old="monthly">Rp 297.000</span>
-                  <span class="discount-cut-badge" data-i18n="promo_cut_label">🔥 HEMAT 67%</span>
+                  <span class="discount-cut-badge" data-i18n="promo_cut_label">HEMAT 67%</span>
                 </div>
                 <div class="tier-price">
                   <span class="price-currency" data-price-curr="monthly">Rp</span>
                   <span class="price-amount" data-price-val="monthly">99.000</span>
-                  <span class="price-period" data-i18n="tier3_period">/ 30 Hari</span>
+                  <span class="price-period" data-price-period="monthly" data-i18n="tier3_period">/ 30 Hari</span>
                 </div>
-                <p class="tier-desc" data-i18n="tier3_desc">Pilihan favorit mayoritas pemain! Siapkan seluruh Wall &amp; Hero Anda sebulan penuh menyambut rilisnya Town Hall 19.</p>
+                <p class="tier-desc" data-i18n="tier3_desc">Pilihan paling efisien untuk farming bulanan. Siapkan seluruh Wall dan Hero Anda menyambut rilisnya Town Hall 19.</p>
               </div>
 
               <ul class="tier-features">
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur Unlock (Ranked &amp; Farming)</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>All Strategies System with Anti Ban</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti-Ban</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Super Smart Wall Upgrade</span>
                 </li>
                 <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur For Builder Base</span>
                 </li>
                 <li class="support-tier-row priority-support-row">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                  <span><strong>Priority Support</strong> <small class="tier-upgrade-tag">UPGRADED</small></span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                  <span><strong>Priority Support</strong> <small class="tier-upgrade-tag">PRIORITY</small></span>
                 </li>
               </ul>
             </div>
 
-            <button type="button" class="btn btn-primary btn-block" data-checkout-tier="monthly" data-i18n="tier3_btn">
+            <button type="button" class="btn btn-secondary btn-block" data-checkout-tier="monthly" data-i18n="tier3_btn">
               Ambil Promo 1 Bulan
             </button>
           </div>
 
-          <!-- TIER 4: LIFE TIME (NORMAL 1.497.000 -> PROMO 499.000 — ROYAL GOLD & FIRE KING) -->
-          <div class="pricing-card best-lifetime-card reveal">
-            <div class="fire-aura-glow" aria-hidden="true"></div>
-            <div class="popular-ribbon gold-ribbon" data-i18n="tier4_ribbon">👑 SPESIAL TH 19 • SEKALI BAYAR SELAMANYA</div>
+          <div class="pricing-card best-lifetime-card">
+            <div class="popular-ribbon gold-ribbon" data-i18n="tier4_ribbon">BEST VALUE · SEKALI BAYAR SELAMANYA</div>
             <div>
               <div class="pricing-header">
                 <div class="tier-title-row">
-                  <span class="tier-name gold-gradient-text">Life Time VIPP</span>
-                  <span class="value-Savings-pill gold-savings-pill" data-i18n="tier4_pill">Akses Selamanya</span>
+                  <span class="tier-name gold-text">Life Time VIPP</span>
+                  <span class="value-Savings-pill gold-savings-pill" data-i18n="tier4_pill">Permanen</span>
                 </div>
                 <div class="tier-price-original">
                   <span class="old-price-strike" data-price-old="lifetime">Rp 1.497.000</span>
-                  <span class="discount-cut-badge gold-cut-badge" data-i18n="promo_cut_label">🔥 HEMAT 67%</span>
+                  <span class="discount-cut-badge gold-cut-badge" data-i18n="promo_cut_label">HEMAT 67%</span>
                 </div>
                 <div class="tier-price">
                   <span class="price-currency gold-text" data-price-curr="lifetime">Rp</span>
-                  <span class="price-amount gold-gradient-text" data-price-val="lifetime">499.000</span>
+                  <span class="price-amount gold-text" data-price-val="lifetime">499.000</span>
                   <span class="price-period" data-i18n="tier4_period">/ Selamanya</span>
                 </div>
-                <p class="tier-desc" data-i18n="tier4_desc">Investasi terbaik menyambut Town Hall 19 tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya + Role VIPP Discord.</p>
+                <p class="tier-desc" data-i18n="tier4_desc">Satu kali pembayaran untuk akses permanen tanpa biaya bulanan, termasuk seluruh update Town Hall 19 dan Role VIPP Discord.</p>
               </div>
 
               <ul class="tier-features">
                 <li>
-                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg class="gold-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span><strong>All Fitur Unlock + Free TH 19 Updates</strong></span>
                 </li>
                 <li>
-                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                  <span>All Strategies System with Anti Ban</span>
+                  <svg class="gold-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>All Strategies System with Anti-Ban</span>
                 </li>
                 <li>
-                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg class="gold-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>Super Smart Wall Upgrade</span>
                 </li>
                 <li>
-                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg class="gold-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
                   <span>All Fitur For Builder Base</span>
                 </li>
                 <li class="support-tier-row vipp-support-row">
-                  <svg class="gold-check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
+                  <svg class="gold-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></svg>
                   <div>
-                    <span class="vipp-badge-text">🔥 VIPP Support + Discord Role</span>
-                    <small class="vipp-subtext">Standard ➔ Priority ➔ <strong>VIPP Exclusive</strong></small>
+                    <span class="vipp-badge-text">VIPP Support + Discord Role</span>
+                    <small class="vipp-subtext">Standard → Priority → <strong>VIPP Exclusive</strong></small>
                   </div>
                 </li>
               </ul>
             </div>
 
             <button type="button" class="btn btn-gold btn-block" data-checkout-tier="lifetime" data-i18n="tier4_btn">
-              👑 Ambil Promo Life Time Sekarang
+              Ambil Paket Life Time
             </button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= H. FAQ SECTION ================= -->
     <section class="faq-section section-padding" id="faq">
       <div class="container faq-container">
-        <div class="section-header reveal">
-          <span class="section-eyebrow">FAQ</span>
-          <h2 class="section-title" data-i18n="faq_sec_title">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+        <div class="section-header">
+          <span class="section-eyebrow">DOKUMENTASI &amp; BANTUAN</span>
+          <h2 class="section-title" data-i18n="faq_sec_title">Pertanyaan Umum (FAQ)</h2>
           <p class="section-subtitle" data-i18n="faq_sec_sub">
-            Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga klaim Trial &amp; Testimoni di Discord.
+            Penjelasan teknis seputar klaim Trial, cara kerja deteksi visual OpenCV, Multi-Instances, dan metode pembayaran.
           </p>
         </div>
 
-        <div class="faq-list reveal" id="faqAccordion">
-          <!-- FAQ 1 -->
+        <div class="faq-list" id="faqAccordion">
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-1" id="faq-btn-1">
@@ -853,27 +766,25 @@
             </h3>
             <div class="faq-content" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1" hidden>
               <p data-i18n="faq_a1">
-                Ya! Anda bisa mengklaim Serial Key Trial Gratis 1 Hari (All Fitur Unlock) dengan mengklik tombol di channel #🎁-claim-free-trial pada Server Discord kami atau langsung melalui Bot Telegram resmi kami.
+                Ya. Anda dapat mengklaim Serial Key Trial Gratis 1 Hari (membuka seluruh fitur) melalui ruang #claim-free-trial di Server Discord kami atau langsung melalui Bot Telegram resmi kami.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 2 -->
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-2" id="faq-btn-2">
-                <span data-i18n="faq_q2">Bagaimana cara kerja fitur Auto Up Wall saat event Hammer Jam?</span>
+                <span data-i18n="faq_q2">Bagaimana cara mengecek masa aktif Serial Key saya di website ini?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2" hidden>
               <p data-i18n="faq_a2">
-                Cukup masukkan harga Wall sesuai diskon Hammer Jam di menu More Option. Setiap kali Gold atau Elixir melewati batas minimum, bot otomatis memindai tombol Upgrade secara visual, meng-upgrade banyak Wall sekaligus, lalu melakukan Pinch Zoom-Out otomatis.
+                Klik tombol Portal Key / Login di pojok kanan atas halaman, lalu masukkan Serial Key Anda tanpa perlu password. Sistem akan langsung menampilkan status lisensi, sisa waktu aktif, dan status perangkat HWID Anda.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 3 -->
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-3" id="faq-btn-3">
@@ -883,52 +794,49 @@
             </h3>
             <div class="faq-content" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3" hidden>
               <p data-i18n="faq_a3">
-                Support Multi Instances memungkinkan Anda membuka beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap jendela bot otomatis menyimpan pengaturan Set Army dan Wall/Event secara mandiri tanpa saling menimpa.
+                Support Multi Instances memungkinkan Anda menjalankan beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap instance menyimpan profil Set Army dan pengaturan Wall masing-masing tanpa saling menimpa.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 4 -->
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-4" id="faq-btn-4">
-                <span data-i18n="faq_q4">Dimana saya bisa melihat testimoni pengguna lain yang sudah membeli?</span>
+                <span data-i18n="faq_q4">Di mana saya bisa melihat testimoni pengguna yang sudah membeli?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4" hidden>
               <p data-i18n="faq_a4">
-                Anda dapat bergabung ke Server Discord resmi kami (https://discord.gg/YyRhX7uPvp) dan membuka channel #⭐-testimoni-pembeli. Hanya pembeli terverifikasi (Verified Buyer &amp; VIPP Lifetime) yang dapat mengirimkan ulasan dan screenshot hasil farming di ruangan tersebut.
+                Silakan bergabung ke Server Discord resmi kami (https://discord.gg/YyRhX7uPvp) dan buka kanal testimoni pembeli. Hanya pengguna dengan lisensi aktif terverifikasi yang memiliki akses untuk mengirimkan ulasan dan tangkapan layar hasil farming di sana.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 5 -->
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-5" id="faq-btn-5">
-                <span data-i18n="faq_q5">Bagaimana sistem Anti-Ban &amp; kesiapan bot menyambut Town Hall 19?</span>
+                <span data-i18n="faq_q5">Bagaimana jika saya ingin pindah PC (Reset HWID)?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5" hidden>
               <p data-i18n="faq_a5">
-                Bot kami tidak memodifikasi memori game, melainkan membaca layar secara visual (OpenCV) dan mengirim sentuhan ADB layaknya jari manusia. Dengan fitur Auto-Updater bawaan, setiap penyesuaian untuk Town Hall 19 akan langsung ter-update otomatis di aplikasi Anda.
+                Demi keamanan lisensi, pelepasan perangkat lama (Reset HWID) diverifikasi oleh Admin. Anda dapat mengajukan permintaan Reset HWID melalui menu Key Saya di Bot Telegram resmi kami atau menghubungi Admin melalui Portal Key.
               </p>
             </div>
           </div>
 
-          <!-- FAQ 6 -->
           <div class="faq-item">
             <h3 class="faq-heading">
               <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-ans-6" id="faq-btn-6">
-                <span data-i18n="faq_q6">Bagaimana cara melakukan pembayaran dari Indonesia maupun Luar Negeri?</span>
+                <span data-i18n="faq_q6">Bagaimana cara menggunakan Kode Promo saat membeli paket?</span>
                 <span class="faq-icon" aria-hidden="true"></span>
               </button>
             </h3>
             <div class="faq-content" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6" hidden>
               <p data-i18n="faq_a6">
-                Klik paket yang Anda inginkan di bagian Pricing. Anda dapat memilih pembayaran via QRIS Indonesia (DANA, GoPay, OVO, ShopeePay, M-Banking) atau QRIS Binance Pay (USDT) untuk pengguna internasional. Pembayaran diverifikasi cepat melalui Bot Telegram resmi kami.
+                Pilih paket lisensi yang Anda inginkan di bagian Pricing, masukkan kode voucher pada kolom Kode Promo di jendela pembayaran, lalu klik Terapkan. Harga tagihan di web maupun di Bot Telegram akan otomatis terpotong sesuai diskon.
               </p>
             </div>
           </div>
@@ -936,34 +844,32 @@
       </div>
     </section>
 
-    <!-- ================= I. COMMUNITY / CTA SECTION ================= -->
     <section class="cta-section section-padding" id="community">
       <div class="container">
-        <div class="cta-box reveal">
-          <div class="cta-glow" aria-hidden="true"></div>
-          <span class="section-eyebrow" data-i18n="cta_eyebrow">GABUNG KOMUNITAS &amp; MULAI FARMING</span>
-          <h2 class="cta-title" data-i18n="cta_title">Siapkan Desa Anda Menyambut Town Hall 19 Sekarang!</h2>
+        <div class="cta-box">
+          <span class="section-eyebrow" data-i18n="cta_eyebrow">MULAI OTOMATISASI DESA ANDA</span>
+          <h2 class="cta-title" data-i18n="cta_title">Siapkan Progres Wall dan Hero Menuju Town Hall 19</h2>
           <p class="cta-desc" data-i18n="cta_desc">
-            Jangan lewatkan momen emas Hammer Jam &amp; diskon 67% hari ini. Gabung ke Server Discord kami untuk melihat testimoni pembeli asli dan klaim Trial Gratis 1 Hari!
+            Unduh installer aplikasi sekarang, lihat ulasan komunitas di Discord, atau langsung klaim lisensi Trial 24 Jam tanpa biaya.
           </p>
 
           <div class="cta-buttons">
             <a href="https://discord.gg/YyRhX7uPvp" class="btn btn-discord btn-lg" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
               </svg>
-              <span data-i18n="cta_btn_discord">Join Discord (Testimoni &amp; Free Trial)</span>
+              <span data-i18n="cta_btn_discord">Gabung Discord (Testimoni &amp; Trial)</span>
             </a>
             <a href="#pricing" class="btn btn-gold btn-lg">
-              <span data-i18n="cta_btn1">🔥 Ambil Promo Hammer Jam (-67%)</span>
+              <span data-i18n="cta_btn1">Lihat Promo Hammer Time</span>
             </a>
-            <a href="#download" class="btn btn-primary btn-lg" data-config-link="downloadUrl">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span data-i18n="hero_btn_download">Download Bot (.EXE)</span>
+            <a href="https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip" class="btn btn-primary btn-lg" data-config-link="downloadUrl">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span data-i18n="hero_btn_download">Download Installer (.ZIP)</span>
             </a>
             <a href="https://t.me/SlashQueenFarmer_bot" class="btn btn-secondary btn-lg" data-config-link="telegramUrl" target="_blank" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              <span>Order via Bot Telegram</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <span>Bot Telegram Resmi</span>
             </a>
           </div>
         </div>
@@ -971,39 +877,38 @@
     </section>
   </main>
 
-  <!-- ================= J. FOOTER ================= -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand-col">
-          <a href="#home" class="brand-logo" aria-label="COC VIPBot Home">
-            <img src="assets/logo.svg" alt="COC VIPBot Logo" width="165" height="33" />
+          <a href="#home" class="brand-logo" aria-label="COC VIPBot Beranda">
+            <img src="assets/logo.svg" alt="COC VIPBot" width="160" height="32" />
           </a>
           <p class="footer-bio" data-i18n="footer_bio">
-            Platform otomatisasi farming Clash of Clans dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ➔ Farming, Auto Builder Base, dan dukungan Multi-Instances.
+            Utilitas otomatisasi desktop untuk Clash of Clans dengan dukungan Loot Finder, Auto Upgrade Wall, rotasi Ranked ke Farming, Builder Base, dan Multi-Instance.
           </p>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-heading">Navigation</h4>
+          <h4 class="footer-heading">Navigasi</h4>
           <ul class="footer-list">
             <li><a href="#home" data-i18n="nav_home">Home</a></li>
             <li><a href="#features" data-i18n="nav_features">Features</a></li>
-            <li><a href="#showcase" data-i18n="nav_showcase">Video Showcase</a></li>
-            <li><a href="#how-it-works" data-i18n="nav_how">How It Works</a></li>
+            <li><a href="#showcase" data-i18n="nav_showcase">Showcase</a></li>
+            <li><a href="#how-it-works" data-i18n="nav_how">Setup</a></li>
             <li><a href="#pricing" data-i18n="nav_pricing">Pricing</a></li>
             <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
           </ul>
         </div>
 
         <div class="footer-links-col">
-          <h4 class="footer-heading">Community &amp; Store</h4>
+          <h4 class="footer-heading">Akses &amp; Lisensi</h4>
           <ul class="footer-list">
-            <li><a href="https://discord.gg/YyRhX7uPvp" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">💬 Join Discord Server (Testimoni)</a></li>
-            <li><a href="https://t.me/SlashQueenFarmer_bot" data-config-link="telegramUrl" target="_blank" rel="noopener noreferrer">🤖 Official Telegram Store Bot</a></li>
-            <li><a href="#download" data-config-link="downloadUrl">📥 Download COC_VIPBot.exe</a></li>
-            <li><a href="#pricing" data-checkout-tier="trial">🎁 Free Trial 1 Hari</a></li>
-            <li><a href="#pricing" data-checkout-tier="lifetime">👑 Paket Life Time VIPP (-67%)</a></li>
+            <li><button type="button" class="footer-link-btn" id="footerPortalBtn">Portal Key / Login Admin</button></li>
+            <li><a href="https://discord.gg/YyRhX7uPvp" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">Discord Server &amp; Testimoni</a></li>
+            <li><a href="https://t.me/SlashQueenFarmer_bot" data-config-link="telegramUrl" target="_blank" rel="noopener noreferrer">Official Telegram Bot</a></li>
+            <li><a href="https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip" data-config-link="downloadUrl">Download COC-VIPBot-Setup.zip</a></li>
+            <li><button type="button" class="footer-link-btn" data-checkout-tier="trial">Klaim Free Trial 1 Hari</button></li>
           </ul>
         </div>
       </div>
@@ -1014,84 +919,350 @@
     </div>
   </footer>
 
-  <!-- Back to Top Button -->
-  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Scroll back to top" hidden>
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Kembali ke atas" hidden>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
   </button>
 
-  <!-- ================= K. MODAL CHECKOUT DUAL-PAYMENT (QRIS INDO & BINANCE + DISCORD) ================= -->
   <div class="toast-modal" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="chkModalTitle" hidden>
     <div class="toast-backdrop" id="chkModalBackdrop"></div>
     <div class="toast-card checkout-modal-card">
-      <button type="button" class="modal-close-x" id="chkCloseXBtn" aria-label="Tutup">&times;</button>
+      <button type="button" class="modal-close-x" id="chkCloseXBtn" aria-label="Tutup jendela">&times;</button>
 
-      <div class="chk-badge" id="chkTierBadge">PROMO HAMMER JAM &amp; TH 19</div>
+      <div class="chk-badge" id="chkTierBadge">HAMMER TIME SPECIAL PROMO</div>
       <h3 id="chkModalTitle" class="toast-title">Paket 1 Bulan (30 Hari)</h3>
       <div class="chk-price-wrap">
         <span class="chk-old-price" id="chkOldPriceDisplay">Rp 297.000</span>
         <div class="chk-price-display" id="chkPriceDisplay">Rp 99.000</div>
       </div>
 
-      <!-- Pilihan Metode Pembayaran (Sembunyi otomatis jika paket Trial Gratis) -->
       <div id="chkPaymentSelectorWrap" class="chk-pay-selector">
-        <label class="chk-pay-label" id="chkChooseMethodLbl">Pilih Metode Pembayaran:</label>
+        <span class="chk-pay-label" id="chkChooseMethodLbl" data-i18n="chk_method_lbl">Pilih Metode Pembayaran:</span>
         <div class="chk-pay-tabs">
           <button type="button" class="chk-pay-tab active-pay-tab" id="payTabQrisIndo" data-pay-method="QRIS_INDO">
-            <span>🇮🇩 QRIS Indonesia</span>
+            <span>QRIS Indonesia (IDR)</span>
             <small>DANA / GoPay / OVO / Bank</small>
           </button>
           <button type="button" class="chk-pay-tab" id="payTabBinance" data-pay-method="BINANCE">
-            <span>🌍 Binance Pay QR</span>
-            <small>International (USDT)</small>
+            <span>Binance Pay QR (USDT)</span>
+            <small>International Crypto</small>
           </button>
         </div>
 
-        <!-- Preview QRIS Otomatis -->
+        <div class="chk-promo-box" id="chkPromoBox">
+          <label for="chkPromoInput" class="chk-pay-label" data-i18n="chk_promo_lbl">Punya Kode Promo?</label>
+          <div class="chk-promo-input-row">
+            <input
+              type="text"
+              id="chkPromoInput"
+              class="portal-input"
+              placeholder="Ketik kode voucher (mis. HAMMERTIME)"
+              autocomplete="off"
+            />
+            <button type="button" class="btn btn-secondary btn-sm" id="chkApplyPromoBtn" data-i18n="chk_promo_btn">
+              Terapkan
+            </button>
+          </div>
+          <p class="chk-promo-feedback" id="chkPromoFeedback" hidden></p>
+        </div>
+
         <div id="chkQrPreviewBox" class="chk-qr-preview-box" hidden>
-          <img id="chkQrImage" src="" alt="QR Code Payment" />
-          <small id="chkQrCaption">Scan QR di atas atau klik tombol Bot Telegram di bawah untuk memproses Serial Key otomatis.</small>
+          <img id="chkQrImage" src="assets/images/qris_indo.png" alt="Kode QR Pembayaran" width="184" height="184" />
+          <small id="chkQrCaption">Scan kode QR di atas, lalu klik tombol Bot Telegram di bawah untuk verifikasi dan penerbitan Serial Key otomatis.</small>
         </div>
       </div>
 
       <p id="chkModalDesc" class="toast-desc">
-        Klik tombol di bawah untuk terhubung langsung ke Bot Telegram resmi kami. Tagihan QRIS &amp; Serial Key akan diproses secara otomatis!
+        Lanjutkan ke Bot Telegram resmi kami untuk konfirmasi pesanan dan menerima Serial Key secara otomatis.
       </p>
 
       <div class="chk-modal-actions">
-        <a href="#" id="chkTelegramActionBtn" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-          <span id="chkTelegramBtnText">Lanjutkan di Bot Telegram</span>
+        <a href="https://t.me/SlashQueenFarmer_bot" id="chkTelegramActionBtn" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+          <span id="chkTelegramBtnText">Konfirmasi &amp; Ambil Key di Telegram</span>
         </a>
         <a href="https://discord.gg/YyRhX7uPvp" id="chkDiscordActionBtn" class="btn btn-discord btn-block" data-config-link="discordUrl" target="_blank" rel="noopener noreferrer">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
-          </svg>
-          <span id="chkDiscordBtnText">Cek Testimoni &amp; Klaim Trial di Discord</span>
+          <span id="chkDiscordBtnText">Cek Testimoni &amp; Klaim di Discord</span>
         </a>
-        <a href="#download" id="chkDownloadExeBtn" class="btn btn-secondary btn-block" data-config-link="downloadUrl">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span id="chkDownloadBtnText">Download Aplikasi Bot (.EXE)</span>
+        <a href="https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip" id="chkDownloadExeBtn" class="btn btn-secondary btn-block" data-config-link="downloadUrl">
+          <span id="chkDownloadBtnText">Download Installer Bot (.ZIP)</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Honest Placeholder Modal / Toast Notification -->
-  <div class="toast-modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
-    <div class="toast-backdrop" id="modalBackdrop"></div>
-    <div class="toast-card">
-      <div class="toast-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+  <div class="toast-modal" id="portalModal" role="dialog" aria-modal="true" aria-labelledby="portalModalTitle" hidden>
+    <div class="toast-backdrop" id="portalModalBackdrop"></div>
+    <div class="toast-card portal-modal-card">
+      <button type="button" class="modal-close-x" id="portalCloseXBtn" aria-label="Tutup jendela">&times;</button>
+
+      <div class="portal-header">
+        <span class="chk-badge" data-i18n="portal_badge">LICENSE &amp; ADMIN PORTAL</span>
+        <h3 id="portalModalTitle" class="toast-title" data-i18n="portal_title">Portal Akses COC VIPBot</h3>
+        <p class="portal-sub" data-i18n="portal_sub">
+          Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengelola harga dan kode promo.
+        </p>
       </div>
-      <h3 id="modalTitle" class="toast-title">Link Segera Aktif</h3>
-      <p id="modalMessage" class="toast-desc">
-        Tautan ini sedang disiapkan dan akan langsung aktif begitu URL resmi dimasukkan ke dalam konfigurasi website.
-      </p>
-      <button type="button" class="btn btn-primary btn-sm" id="closeModalBtn">OK</button>
+
+      <div class="portal-mode-tabs" role="tablist">
+        <button type="button" class="portal-tab active-portal-tab" id="tabBtnUserLogin" role="tab" aria-selected="true">
+          <span data-i18n="portal_tab_user">Cek Serial Key (User)</span>
+        </button>
+        <button type="button" class="portal-tab" id="tabBtnAdminLogin" role="tab" aria-selected="false">
+          <span data-i18n="portal_tab_admin">Login Admin</span>
+        </button>
+      </div>
+
+      <div id="portalUserSection" class="portal-section">
+        <form id="userKeyLoginForm" class="portal-form">
+          <label for="userSerialKeyInput" class="chk-pay-label" data-i18n="portal_key_lbl">Masukkan Kode Serial Key Anda:</label>
+          <div class="chk-promo-input-row">
+            <input
+              type="text"
+              id="userSerialKeyInput"
+              class="portal-input mono-input"
+              placeholder="Contoh: FULL-ABCD-1234 atau TRIAL-XXXX-1234"
+              required
+              autocomplete="off"
+            />
+            <button type="submit" class="btn btn-primary btn-sm" id="userLoginSubmitBtn" data-i18n="portal_key_btn">
+              Cek Status
+            </button>
+          </div>
+          <p class="portal-msg" id="userLoginFeedback" hidden></p>
+        </form>
+
+        <div id="userDashboardCard" class="user-dashboard-card" hidden>
+          <div class="ud-top-bar">
+            <div>
+              <span class="ud-label">SERIAL KEY</span>
+              <strong class="ud-key-code" id="udSerialKey">FULL-XXXX-0000</strong>
+            </div>
+            <span class="ud-status-pill" id="udStatusPill">ACTIVE</span>
+          </div>
+
+          <dl class="ud-info-grid">
+            <div class="ud-info-item">
+              <dt>Tipe Paket</dt>
+              <dd id="udTypeAndDur">FULL (14 Hari)</dd>
+            </div>
+            <div class="ud-info-item">
+              <dt>Sisa Waktu</dt>
+              <dd id="udRemaining">14 Hari Tersisa</dd>
+            </div>
+            <div class="ud-info-item">
+              <dt>Berlaku Sampai</dt>
+              <dd id="udExpiresAt">-</dd>
+            </div>
+            <div class="ud-info-item">
+              <dt>Perangkat (HWID)</dt>
+              <dd id="udHwid" class="mono-text">BELUM TERIKAT KE PC</dd>
+            </div>
+          </dl>
+
+          <div class="ud-hwid-notice">
+            <strong>Catatan Perangkat (HWID):</strong>
+            <span>Pelepasan perangkat lama untuk pindah PC dilakukan secara manual oleh Admin. Gunakan menu Key Saya di Bot Telegram atau hubungi Admin jika ingin mengganti PC.</span>
+          </div>
+
+          <div class="ud-actions">
+            <a href="https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip" class="btn btn-primary btn-block" data-config-link="downloadUrl">
+              Download Installer Bot (.ZIP)
+            </a>
+            <a href="https://t.me/SlashQueenFarmer_bot" class="btn btn-secondary btn-block" target="_blank" rel="noopener noreferrer">
+              Hubungi Admin / Request Reset HWID di Telegram
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div id="portalAdminSection" class="portal-section" hidden>
+        <form id="adminLoginForm" class="portal-form">
+          <label for="adminPasswordInput" class="chk-pay-label">Password Khusus Admin:</label>
+          <div class="chk-promo-input-row">
+            <input
+              type="password"
+              id="adminPasswordInput"
+              class="portal-input"
+              placeholder="Masukkan Password Admin"
+              required
+              autocomplete="current-password"
+            />
+            <button type="submit" class="btn btn-gold btn-sm" id="adminLoginSubmitBtn">
+              Buka Panel Admin
+            </button>
+          </div>
+          <p class="portal-msg" id="adminLoginFeedback" hidden></p>
+        </form>
+
+        <div id="adminDashboardPanel" class="admin-dashboard-panel" hidden>
+          <div class="adm-block">
+            <div class="adm-block-head">
+              <h4>1. Pengaturan Harga Promo, Harga Coret &amp; Durasi</h4>
+              <p>Perubahan yang disimpan di sini akan langsung memperbarui tampilan Website dan harga di Bot Telegram.</p>
+            </div>
+
+            <div class="adm-tier-editor-list">
+              <div class="adm-tier-box">
+                <strong class="adm-tier-title">Paket 1 (Hammer Time / Mingguan)</strong>
+                <div class="adm-input-grid">
+                  <div>
+                    <label>Durasi IDR (Hari)</label>
+                    <input type="number" id="adm_weekly_daysIdr" class="portal-input" value="14" />
+                  </div>
+                  <div>
+                    <label>Harga Promo IDR (Rp)</label>
+                    <input type="number" id="adm_weekly_idrRaw" class="portal-input" value="30000" />
+                  </div>
+                  <div>
+                    <label>Harga Coret IDR (Rp)</label>
+                    <input type="number" id="adm_weekly_idrOldRaw" class="portal-input" value="90000" />
+                  </div>
+                  <div>
+                    <label>Durasi USDT (Days)</label>
+                    <input type="number" id="adm_weekly_daysUsdt" class="portal-input" value="20" />
+                  </div>
+                  <div>
+                    <label>Harga Promo USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_weekly_usdtRaw" class="portal-input" value="2" />
+                  </div>
+                  <div>
+                    <label>Harga Coret USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_weekly_usdtOldRaw" class="portal-input" value="6" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="adm-tier-box">
+                <strong class="adm-tier-title">Paket 2 (Bulanan / 30 Hari)</strong>
+                <div class="adm-input-grid">
+                  <div>
+                    <label>Durasi IDR (Hari)</label>
+                    <input type="number" id="adm_monthly_daysIdr" class="portal-input" value="30" />
+                  </div>
+                  <div>
+                    <label>Harga Promo IDR (Rp)</label>
+                    <input type="number" id="adm_monthly_idrRaw" class="portal-input" value="99000" />
+                  </div>
+                  <div>
+                    <label>Harga Coret IDR (Rp)</label>
+                    <input type="number" id="adm_monthly_idrOldRaw" class="portal-input" value="297000" />
+                  </div>
+                  <div>
+                    <label>Durasi USDT (Days)</label>
+                    <input type="number" id="adm_monthly_daysUsdt" class="portal-input" value="30" />
+                  </div>
+                  <div>
+                    <label>Harga Promo USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_monthly_usdtRaw" class="portal-input" value="6.5" />
+                  </div>
+                  <div>
+                    <label>Harga Coret USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_monthly_usdtOldRaw" class="portal-input" value="19.5" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="adm-tier-box">
+                <strong class="adm-tier-title">Paket 3 (Life Time VIPP)</strong>
+                <div class="adm-input-grid">
+                  <div>
+                    <label>Durasi IDR (Hari)</label>
+                    <input type="number" id="adm_lifetime_daysIdr" class="portal-input" value="36500" />
+                  </div>
+                  <div>
+                    <label>Harga Promo IDR (Rp)</label>
+                    <input type="number" id="adm_lifetime_idrRaw" class="portal-input" value="499000" />
+                  </div>
+                  <div>
+                    <label>Harga Coret IDR (Rp)</label>
+                    <input type="number" id="adm_lifetime_idrOldRaw" class="portal-input" value="1497000" />
+                  </div>
+                  <div>
+                    <label>Durasi USDT (Days)</label>
+                    <input type="number" id="adm_lifetime_daysUsdt" class="portal-input" value="36500" />
+                  </div>
+                  <div>
+                    <label>Harga Promo USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_lifetime_usdtRaw" class="portal-input" value="32" />
+                  </div>
+                  <div>
+                    <label>Harga Coret USDT ($)</label>
+                    <input type="number" step="0.01" id="adm_lifetime_usdtOldRaw" class="portal-input" value="96" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="admSavePricingBtn">
+              Simpan Perubahan Harga ke Server
+            </button>
+            <p class="portal-msg" id="admPricingFeedback" hidden></p>
+          </div>
+
+          <div class="adm-block">
+            <div class="adm-block-head">
+              <h4>2. Manajemen Kode Promo (Voucher Diskon)</h4>
+              <p>Buat kode promo baru atau perbarui kode yang sudah ada untuk potongan harga saat checkout.</p>
+            </div>
+
+            <div class="adm-promo-form-grid">
+              <div>
+                <label>Kode Promo</label>
+                <input type="text" id="admPromoCode" class="portal-input mono-input" placeholder="CONTOH: TH19GO" />
+              </div>
+              <div>
+                <label>Tipe Diskon</label>
+                <select id="admPromoType" class="portal-input">
+                  <option value="PERCENT">Persentase (%)</option>
+                  <option value="FIXED">Nominal Tetap (Rp / $)</option>
+                </select>
+              </div>
+              <div>
+                <label>Nilai Potongan IDR (% atau Rp)</label>
+                <input type="number" id="admPromoIdr" class="portal-input" placeholder="Misal: 10 atau 15000" value="10" />
+              </div>
+              <div>
+                <label>Nilai Potongan USDT (% atau $)</label>
+                <input type="number" step="0.1" id="admPromoUsdt" class="portal-input" placeholder="Misal: 10 atau 1" value="10" />
+              </div>
+              <div>
+                <label>Batas Kuota Pakai (0 = Bebas)</label>
+                <input type="number" id="admPromoMax" class="portal-input" value="100" />
+              </div>
+              <div>
+                <label>Catatan</label>
+                <input type="text" id="admPromoNote" class="portal-input" placeholder="Keterangan promo" />
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-gold btn-block" id="admSavePromoBtn">
+              Tambah / Simpan Kode Promo
+            </button>
+
+            <div class="adm-promo-table-wrap">
+              <table class="adm-promo-table">
+                <thead>
+                  <tr>
+                    <th>Kode</th>
+                    <th>Tipe</th>
+                    <th>Potongan</th>
+                    <th>Terpakai</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="admPromoTableBody">
+                  <tr>
+                    <td colspan="5">Memuat daftar kode promo...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Main Script -->
   <script src="script.js"></script>
 </body>
 </html>

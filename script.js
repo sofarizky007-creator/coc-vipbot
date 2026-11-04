@@ -1,26 +1,18 @@
-/**
- * ============================================================================
- * COC VIPBOT — CENTRALIZED CONFIGURATION, 3X STRIKETHROUGH PROMO & DISCORD
- * ============================================================================
- */
+/* COC VIPBot Frontend Controller & Dynamic Backend Integration */
 
 const SITE_CONFIG = {
   brandName: "COC VIPBot",
   domain: "https://coc-vipbot.web.id",
-  defaultLang: "id", // "id" atau "en"
-
-  // Username Bot Telegram Anda (tanpa @) untuk Deep-Link Otomatis Pembelian & Trial
+  defaultLang: "id",
   telegramBotUsername: "SlashQueenFarmer_bot",
+  gasWebAppUrl: "https://script.google.com/macros/s/AKfycbx-YGtUIh9_6_ArE-pbDUrSW4QpmHq6et2nECg2jKsuTm_G17AUPtMnisitozmYjg0F/exec",
 
-  // Video Showcase Configuration (Isi salah satu jika video sudah siap)
-  showcaseVideoMp4: "https://dl.coc-vipbot.web.id/showcase.mp4",       // Contoh: "assets/images/showcase.mp4"
-  showcaseYoutubeEmbed: "",   // Contoh: "https://www.youtube-nocookie.com/embed/xxxxxxx"
-
-  // Gambar QRIS yang sudah ditaruh di folder assets/images/
+  showcaseVideoMp4: "https://dl.coc-vipbot.web.id/showcase.mp4",
+  showcaseYoutubeEmbed: "",
   qrisIndoImage: "assets/images/qris_indo.png",
   qrisBinanceImage: "assets/images/qris_binance.png",
 
-  // Harga Paket Promo + Harga Coret 3x Lipat (IDR & International Binance USDT)
+  // Fallback pricing jika fetch ke Google Sheets tertunda
   pricing: {
     trial: {
       idrCurr: "Rp", idrVal: "0", idrOld: "",
@@ -28,8 +20,8 @@ const SITE_CONFIG = {
       tgCodeIdr: "TRIAL", tgCodeUsdt: "TRIAL"
     },
     weekly: {
-      idrCurr: "Rp", idrVal: "28.900", idrOld: "Rp 86.700",
-      usdtCurr: "$", usdtVal: "1.99 USDT", usdtOld: "$5.97 USDT",
+      idrCurr: "Rp", idrVal: "30.000", idrOld: "Rp 90.000",
+      usdtCurr: "$", usdtVal: "2 USDT", usdtOld: "$6 USDT",
       tgCodeIdr: "BUY_7_QRIS_INDO", tgCodeUsdt: "BUY_7_BINANCE"
     },
     monthly: {
@@ -44,7 +36,6 @@ const SITE_CONFIG = {
     }
   },
 
-  // Action, Download, Discord & Telegram URLs
   downloadUrl: "https://dl.coc-vipbot.web.id/COC-VIPBot-Setup.zip",
   discordUrl: "https://discord.gg/YyRhX7uPvp",
   telegramUrl: "https://t.me/SlashQueenFarmer_bot",
@@ -52,247 +43,283 @@ const SITE_CONFIG = {
   supportUrl: "https://t.me/SlashQueenFarmer_bot"
 };
 
-/* Kamus Bahasa (ID & ENG) */
 const I18N_DICT = {
   id: {
     nav_home: "Home",
     nav_features: "Features",
-    nav_showcase: "Video Showcase",
-    nav_how: "How It Works",
+    nav_showcase: "Showcase",
+    nav_how: "Setup",
     nav_pricing: "Pricing",
     nav_faq: "FAQ",
     nav_download: "Download .EXE",
-    nav_cta: "Free Trial 1 Hari",
-    hero_eyebrow: "NEXT-GEN CLASH AUTOMATION ENGINE",
-    hero_promo_pill: "🔨 PROMO HAMMER JAM & TH 19 (-67%)",
-    hero_title: 'Non-Stop Deadbase Loot.<br /><span class="text-gradient">Auto Max Walls Faster.</span>',
-    hero_desc: 'Dominasi progres Home Village, Ranked Mode &amp; Builder Base Anda menyambut hadirnya <strong>Town Hall 19</strong> dengan <strong>COC VIPBot</strong>. Dilengkapi <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, dukungan <em>Multi-Instances</em> mandiri, serta fitur <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
-    hero_chip_promo: "🔥 Spesial Hammer Jam & TH 19",
-    hero_chip1: "⚡ Trial Gratis 1 Hari",
-    hero_chip2: "🏆 Auto Ranked ➔ Farming",
-    hero_chip3: "🖥️ Multi-Instances Mandiri",
-    hero_btn_primary: "Claim Free Trial 1 Hari",
-    hero_btn_download: "Download Bot (.EXE)",
-    hero_btn_discord: "Join Discord (Testimoni & Trial)",
-    mock_switch_village: "Ganti Desa",
+    nav_cta: "Trial 24 Jam",
+    nav_portal: "Portal Key / Login",
+    hero_meta_tech: "Windows Desktop (.EXE) · OpenCV & ADB",
+    hero_promo_pill: "Hammer Time Deal: Rp 30.000 (14 Hari) / $2 (20 Days)",
+    hero_title: "Otomatisasi Farming, Ranked Loop, dan Upgrade Wall Clash of Clans.",
+    hero_desc: "Jalankan rotasi serangan Ranked ke Farming, pemindaian deadbase, dan upgrade Wall otomatis di Home Village maupun Builder Base. Bekerja secara visual melalui ADB di LDPlayer dan MuMuPlayer dengan konfigurasi terpisah untuk setiap akun.",
+    spec_1_k: "Target Resolusi",
+    spec_2_k: "Mode Desa",
+    spec_3_k: "Multi-Akun",
+    spec_3_v: "Profil Mandiri per Emulator",
+    hero_btn_primary: "Klaim Trial Gratis 1 Hari",
+    hero_btn_download: "Download Installer (.ZIP)",
+    hero_btn_discord: "Gabung Discord & Testimoni",
+    mock_switch_village: "Ganti Desa (Asal / Malam)",
     mock_min_loot: "MINIMAL LOOT FARMING (0 = LANGSUNG SERANG)",
-    mock_malam_desc: "Pastikan layar di Desa Malam. Deploy 1 Hero + 6 Troop otomatis & Auto Up Wall.",
-    trust_label1: "Kekuatan Multi-Akun",
-    trust_label2: "Otomatisasi 2 Desa + Ranked",
-    trust_label3: "Pemulihan Pintar",
-    trust_label4: "Pembayaran & Komunitas",
-    feat_sec_title: "Fitur Unggulan COC VIPBot",
-    feat_sec_sub: "Dirancang khusus untuk memaksimalkan perolehan loot harian selama event Hammer Jam dan mempercepat progres Wall menyambut Town Hall 19.",
-    feat_1_desc: "Jalankan jatah serangan Ranked secara otomatis lalu berpindah sendiri ke mode Farming untuk memindai deadbase kaya sesuai target Gold, Elixir, dan Dark Elixir.",
-    feat_2_desc: "Tidak ada lagi loot yang terbuang karena storage penuh! Bot otomatis mengenali posisi tombol Upgrade Wall secara dinamis dan meng-upgrade banyak Wall sekaligus.",
-    feat_3_desc: "Dilengkapi pola deploy natural, klaim otomatis Star Bonus harian, serta fitur Auto-Reload pintar saat koneksi internet PC Anda sempat terputus.",
-    feat_4_desc: "Aplikasi .EXE dilengkapi sistem Auto-Update 1-Klik langsung dari dalam bot setiap kali ada pembaruan fitur atau update Town Hall 19, tanpa perlu unduh ulang manual.",
-    feat_5_desc: "Punya banyak akun Clash of Clans? Jalankan beberapa jendela MuMuPlayer / LDPlayer sekaligus dengan penyimpanan setting Army & Wall yang terpisah mandiri!",
-    feat_6_desc: "Otomatisasi penuh untuk malam hari di Builder Base! Deploy kilat 1 Hero + 6 Troop, aktifkan skill berkala, dan upgrade tembok Desa Malam otomatis.",
-    show_sec_title: "Lihat UI Bot & Cara Kerjanya",
-    show_sec_sub: "Tonton demonstrasi singkat (30–60 detik) bagaimana COC VIPBot memindai deadbase, menurunkan pasukan dengan cepat, dan meng-upgrade Wall secara otomatis.",
-    show_sim_title: "Klik untuk Simulasi Alur Kerja COC VIPBot",
-    show_sim_sub: "(Pemutar ini otomatis menampilkan video rekaman asli Anda begitu file MP4 ditaruh di folder assets/images/)",
-    show_step1: "Best Loot Finder memfilter base mati...",
-    show_step2: "Menurunkan Troop, Spell, Hero & Ability...",
-    show_step3: "Upgrade Wall & Reset Kamera Otomatis!",
-    how_eyebrow: "4 LANGKAH MUDAH",
-    how_sec_title: "Bagaimana COC VIPBot Bekerja?",
-    how_sec_sub: "Tidak perlu pengaturan rumit. Dari klaim Trial Gratis di Discord/Telegram hingga bot berjalan otomatis meng-upgrade Wall Anda hanya butuh beberapa menit.",
-    how_1_title: "Unduh Bot (.EXE) & Klaim Key",
-    how_1_desc: "Unduh paket COC-VIPBot-Setup.zip, lalu klaim Trial Gratis 1 Hari via Server Discord / Bot Telegram kami atau pilih paket promo Hammer Jam.",
-    how_2_title: "Hubungkan Emulator (1600x900)",
-    how_2_desc: "Atur resolusi MuMuPlayer / LDPlayer ke 1600x900 (240 DPI). Klik tombol Scan di bot untuk memilih target emulator untuk masing-masing akun.",
-    how_3_title: "Atur Set Army & More Option",
-    how_3_desc: "Rekam titik slot pasukan Anda di menu Set Army, lalu aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.",
-    how_4_title: "Klik Start & Biarkan Bot Bekerja",
-    how_4_desc: "Bot akan menyelesaikan jatah Ranked, lanjut Farming, mengklaim Star Bonus, me-reload jika terputus, dan meng-upgrade Wall Anda 24/7.",
-    price_eyebrow: "🔥 SPECIAL EVENT SALE • DISKON 67%",
-    price_sec_title: "Pilih Paket Terbaik Untuk Desa Anda",
-    price_sec_sub: "Semua paket membuka 100% fitur utama. Mendukung pembayaran instan via QRIS Indonesia (IDR) dan Binance Pay QRIS (USDT) untuk pengguna internasional!",
-    promo_pill_1: "🔨 SPESIAL EVENT HAMMER JAM",
-    promo_pill_2: "🏰 MENYAMBUT TOWN HALL 19 AKAN HADIR",
-    promo_banner_title: "Kejar Max Wall & Storage Penuh Sebelum Update Town Hall 19 Rilis!",
-    promo_banner_sub: "Nikmati potongan harga spesial 1/3 dari harga normal (Hemat 67%) untuk seluruh paket berbayar selama periode event berlangsung!",
-    promo_stamp_sub: "HARGA CORET 3X LIPAT",
-    promo_cut_label: "🔥 HEMAT 67%",
+    mock_malam_desc: "Deploy 1 Hero + 6 Troop otomatis, aktivasi skill berkala, dan Auto Upgrade Wall Desa Malam.",
+    trust_label1: "Arsitektur Multi-Akun",
+    trust_label2: "Siklus Pertempuran",
+    trust_label3: "Pemulihan Otomatis",
+    trust_label4: "Metode Transaksi",
+    feat_sec_title: "Modul Otomatisasi COC VIPBot",
+    feat_sec_sub: "Enam modul inti untuk menjaga perolehan resource tetap berjalan dan mengalokasikannya langsung ke peningkatan Wall selama event Hammer Jam menuju Town Hall 19.",
+    feat_1_desc: "Menyelesaikan kuota serangan Ranked terlebih dahulu, kemudian berpindah otomatis ke mode Farming untuk memfilter base berdasarkan batas minimal Gold, Elixir, dan Dark Elixir.",
+    feat_2_desc: "Mencegah resource meluap di storage. Saat saldo melewati ambang batas, bot mendeteksi tombol upgrade secara visual dan menaikkan level beberapa Wall sekaligus.",
+    feat_3_desc: "Bekerja tanpa menyuntikkan kode ke memori game. Dilengkapi variasi koordinat sentuhan, klaim Star Bonus harian, dan masuk ulang otomatis saat koneksi terputus.",
+    feat_4_desc: "Aplikasi dilengkapi pembaru otomatis 1-klik langsung dari antarmuka bot setiap kali ada pembaruan fitur atau penyesuaian aset Town Hall 19.",
+    feat_5_desc: "Jalankan beberapa jendela MuMuPlayer atau LDPlayer secara bersamaan di satu PC. Setiap instance menyimpan profil Army dan konfigurasi Wall secara terpisah.",
+    feat_6_desc: "Otomatisasi penuh untuk Desa Malam: menurunkan 1 Hero dan 6 Troop dengan cepat, memicu skill berkala, serta menaikkan level Wall Builder Base secara mandiri.",
+    show_sec_title: "Rekaman Alur Kerja Bot",
+    show_sec_sub: "Cuplikan langsung bagaimana COC VIPBot memindai nilai loot, menurunkan pasukan, mereset kamera (Pinch Zoom-Out), dan meng-upgrade Wall.",
+    show_sim_title: "Putar Pratinjau Alur Kerja",
+    show_sim_sub: "Menghubungkan ke stream video dari dl.coc-vipbot.web.id/showcase.mp4",
+    vc_label_1: "Scan ADB & Konfigurasi Set Army",
+    vc_label_2: "Filter Deadbase & Penurunan Pasukan",
+    vc_label_3: "Auto Upgrade Wall & Pinch Zoom-Out",
+    how_eyebrow: "PROSEDUR KONFIGURASI",
+    how_sec_title: "Empat Langkah Menjalankan Bot",
+    how_sec_sub: "Dari mengunduh paket aplikasi hingga rotasi farming berjalan mandiri hanya membutuhkan waktu beberapa menit.",
+    how_1_title: "Unduh .EXE & Aktifkan Lisensi",
+    how_1_desc: "Unduh paket COC-VIPBot-Setup.zip, lalu klaim Serial Key Trial Gratis 24 Jam melalui Server Discord atau Bot Telegram resmi kami.",
+    how_2_title: "Atur Emulator ke 1600×900",
+    how_2_desc: "Setel resolusi LDPlayer atau MuMuPlayer ke 1600×900 (240 DPI). Klik tombol Scan di aplikasi bot untuk mengunci port ADB masing-masing emulator.",
+    how_3_title: "Konfigurasi Army & Ambang Wall",
+    how_3_desc: "Tentukan jumlah slot pasukan pada menu Set Army, kemudian aktifkan Auto Upgrade Wall beserta batas minimal Gold/Elixir di More Option.",
+    how_4_title: "Mulai Rotasi Otomatis",
+    how_4_desc: "Tekan Start. Bot akan menuntaskan jatah Ranked, beralih ke Farming, mengklaim Star Bonus, dan meng-upgrade Wall secara berkelanjutan.",
+    price_eyebrow: "LISENSI & HAMMER TIME SPECIAL PROMO",
+    price_sec_title: "Pilih Durasi Lisensi",
+    price_sec_sub: "Seluruh paket membuka 100% fitur aplikasi tanpa batasan modul. Mendukung pembayaran via QRIS Indonesia (IDR) dan Binance Pay (USDT).",
+    promo_pill_1: "HAMMER TIME SPECIAL DEAL",
+    promo_pill_2: "BONUS DURASI & KODE PROMO",
+    promo_banner_title: "Indonesia: Rp 30.000 Dapat 14 Hari Penuh · International: $2 USDT Dapat 20 Days Access",
+    promo_banner_sub: "Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari untuk QRIS Indonesia) atau 20 hari penuh untuk pembayaran Binance USDT. Punya kode voucher? Masukkan saat checkout.",
+    promo_stamp_sub: "LIMITED TIME OFFER",
+    promo_cut_label: "HEMAT 67%",
     tier1_name: "Trial Free",
-    tier1_free_tag: "🎁 100% GRATIS 24 JAM",
+    tier1_free_tag: "AKSES PENUH 24 JAM",
     tier1_period: "/ 1 Hari",
-    tier1_desc: "Uji coba langsung seluruh kehebatan bot di akun Anda selama 24 jam penuh tanpa biaya (Bisa klaim via Discord atau Telegram).",
-    tier1_btn: "Claim Free Trial (Telegram)",
-    tier1_btn_dc: "💬 Klaim Trial via Server Discord",
-    tier2_name: "Paket 1 Minggu",
-    tier2_period: "/ 7 Hari",
-    tier2_desc: "Cocok untuk kejar progres mingguan selama event Hammer Jam, Clan Games, atau mengisi penuh storage dengan cepat.",
-    tier2_btn: "Pilih Paket 1 Minggu",
-    tier3_ribbon: "⚡ PROMO HAMMER JAM • HEMAT 67%",
+    tier1_desc: "Uji coba langsung seluruh fitur bot di PC Anda selama 24 jam penuh tanpa biaya via Discord atau Telegram.",
+    tier1_btn: "Klaim Trial (Telegram)",
+    tier1_btn_dc: "Klaim Trial via Discord",
+    tier2_name: "Hammer Time Promo",
+    tier2_bonus_tag: "14 HARI AKSES",
+    tier2_desc: "Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari penuh untuk IDR, atau $2 untuk 20 hari akses internasional).",
+    tier2_btn: "Ambil Promo Hammer Time",
+    tier3_ribbon: "BEST MONTHLY · HEMAT 67%",
     tier3_name: "Paket 1 Bulan",
     tier3_pill: "~Rp 3.300 / hari",
     tier3_period: "/ 30 Hari",
-    tier3_desc: "Pilihan favorit mayoritas pemain! Siapkan seluruh Wall & Hero Anda sebulan penuh menyambut rilisnya Town Hall 19.",
+    tier3_desc: "Pilihan paling efisien untuk farming bulanan. Siapkan seluruh Wall dan Hero Anda menyambut rilisnya Town Hall 19.",
     tier3_btn: "Ambil Promo 1 Bulan",
-    tier4_ribbon: "👑 SPESIAL TH 19 • SEKALI BAYAR SELAMANYA",
-    tier4_pill: "Akses Selamanya",
+    tier4_ribbon: "BEST VALUE · SEKALI BAYAR SELAMANYA",
+    tier4_pill: "Permanen",
     tier4_period: "/ Selamanya",
-    tier4_desc: "Investasi terbaik menyambut Town Hall 19 tanpa biaya bulanan lagi! Bayar 1x untuk akses permanen, bebas update selamanya + Role VIPP Discord.",
-    tier4_btn: "👑 Ambil Promo Life Time Sekarang",
-    faq_sec_title: "Pertanyaan yang Sering Diajukan (FAQ)",
-    faq_sec_sub: "Informasi lengkap seputar penggunaan COC VIPBot, keamanan Anti-Ban, Multi-Instances, hingga klaim Trial & Testimoni di Discord.",
+    tier4_desc: "Satu kali pembayaran untuk akses permanen tanpa biaya bulanan, termasuk seluruh update Town Hall 19 dan Role VIPP Discord.",
+    tier4_btn: "Ambil Paket Life Time",
+    faq_sec_title: "Pertanyaan Umum (FAQ)",
+    faq_sec_sub: "Penjelasan teknis seputar klaim Trial, cara kerja deteksi visual OpenCV, Multi-Instances, dan metode pembayaran.",
     faq_q1: "Apakah Trial Free 1 Hari bisa diklaim langsung dari Discord maupun Telegram?",
-    faq_a1: "Ya! Anda bisa mengklaim Serial Key Trial Gratis 1 Hari (All Fitur Unlock) dengan mengklik tombol di channel #🎁-claim-free-trial pada Server Discord kami atau langsung melalui Bot Telegram resmi kami.",
-    faq_q2: "Bagaimana cara kerja fitur Auto Up Wall saat event Hammer Jam?",
-    faq_a2: "Cukup masukkan harga Wall sesuai diskon Hammer Jam di menu More Option. Setiap kali Gold atau Elixir melewati batas minimum, bot otomatis memindai tombol Upgrade secara visual, meng-upgrade banyak Wall sekaligus, lalu melakukan Pinch Zoom-Out otomatis.",
+    faq_a1: "Ya. Anda dapat mengklaim Serial Key Trial Gratis 1 Hari (membuka seluruh fitur) melalui ruang #claim-free-trial di Server Discord kami atau langsung melalui Bot Telegram resmi kami.",
+    faq_q2: "Bagaimana cara mengecek masa aktif Serial Key saya di website ini?",
+    faq_a2: "Klik tombol Portal Key / Login di pojok kanan atas halaman, lalu masukkan Serial Key Anda tanpa perlu password. Sistem akan langsung menampilkan status lisensi, sisa waktu aktif, dan status perangkat HWID Anda.",
     faq_q3: "Apa itu Support Multi Instances dan apakah pengaturannya terpisah?",
-    faq_a3: "Support Multi Instances memungkinkan Anda membuka beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap jendela bot otomatis menyimpan pengaturan Set Army dan Wall/Event secara mandiri tanpa saling menimpa.",
-    faq_q4: "Dimana saya bisa melihat testimoni pengguna lain yang sudah membeli?",
-    faq_a4: "Anda dapat bergabung ke Server Discord resmi kami (https://discord.gg/YyRhX7uPvp) dan membuka channel #⭐-testimoni-pembeli. Hanya pembeli terverifikasi (Verified Buyer & VIPP Lifetime) yang dapat mengirimkan ulasan dan screenshot hasil farming di ruangan tersebut.",
-    faq_q5: "Bagaimana sistem Anti-Ban & kesiapan bot menyambut Town Hall 19?",
-    faq_a5: "Bot kami tidak memodifikasi memori game, melainkan membaca layar secara visual (OpenCV) dan mengirim sentuhan ADB layaknya jari manusia. Dengan fitur Auto-Updater bawaan, setiap penyesuaian untuk Town Hall 19 akan langsung ter-update otomatis di aplikasi Anda.",
-    faq_q6: "Bagaimana cara melakukan pembayaran dari Indonesia maupun Luar Negeri?",
-    faq_a6: "Klik paket yang Anda inginkan di bagian Pricing. Anda dapat memilih pembayaran via QRIS Indonesia (DANA, GoPay, OVO, ShopeePay, M-Banking) atau QRIS Binance Pay (USDT) untuk pengguna internasional. Pembayaran diverifikasi cepat melalui Bot Telegram resmi kami.",
-    cta_eyebrow: "GABUNG KOMUNITAS & MULAI FARMING",
-    cta_title: "Siapkan Desa Anda Menyambut Town Hall 19 Sekarang!",
-    cta_desc: "Jangan lewatkan momen emas Hammer Jam & diskon 67% hari ini. Gabung ke Server Discord kami untuk melihat testimoni pembeli asli dan klaim Trial Gratis 1 Hari!",
-    cta_btn_discord: "Join Discord (Testimoni & Free Trial)",
-    cta_btn1: "🔥 Ambil Promo Hammer Jam (-67%)",
-    footer_bio: "Platform otomatisasi farming Clash of Clans dengan Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ➔ Farming, Auto Builder Base, dan dukungan Multi-Instances."
+    faq_a3: "Support Multi Instances memungkinkan Anda menjalankan beberapa jendela Bot untuk beberapa emulator (MuMuPlayer / LDPlayer) secara bersamaan di 1 PC. Setiap instance menyimpan profil Set Army dan pengaturan Wall masing-masing tanpa saling menimpa.",
+    faq_q4: "Di mana saya bisa melihat testimoni pengguna yang sudah membeli?",
+    faq_a4: "Silakan bergabung ke Server Discord resmi kami (https://discord.gg/YyRhX7uPvp) dan buka kanal testimoni pembeli. Hanya pengguna dengan lisensi aktif terverifikasi yang memiliki akses untuk mengirimkan ulasan dan tangkapan layar hasil farming di sana.",
+    faq_q5: "Bagaimana jika saya ingin pindah PC (Reset HWID)?",
+    faq_a5: "Demi keamanan lisensi, pelepasan perangkat lama (Reset HWID) diverifikasi oleh Admin. Anda dapat mengajukan permintaan Reset HWID melalui menu Key Saya di Bot Telegram resmi kami atau menghubungi Admin melalui Portal Key.",
+    faq_q6: "Bagaimana cara menggunakan Kode Promo saat membeli paket?",
+    faq_a6: "Pilih paket lisensi yang Anda inginkan di bagian Pricing, masukkan kode voucher pada kolom Kode Promo di jendela pembayaran, lalu klik Terapkan. Harga tagihan di web maupun di Bot Telegram akan otomatis terpotong sesuai diskon.",
+    cta_eyebrow: "MULAI OTOMATISASI DESA ANDA",
+    cta_title: "Siapkan Progres Wall dan Hero Menuju Town Hall 19",
+    cta_desc: "Unduh installer aplikasi sekarang, lihat ulasan komunitas di Discord, atau langsung klaim lisensi Trial 24 Jam tanpa biaya.",
+    cta_btn_discord: "Gabung Discord (Testimoni & Trial)",
+    cta_btn1: "Lihat Promo Hammer Time",
+    footer_bio: "Utilitas otomatisasi desktop untuk Clash of Clans dengan dukungan Loot Finder, Auto Upgrade Wall, rotasi Ranked ke Farming, Builder Base, dan Multi-Instance.",
+    chk_method_lbl: "Pilih Metode Pembayaran:",
+    chk_promo_lbl: "Punya Kode Promo?",
+    chk_promo_btn: "Terapkan",
+    portal_badge: "LICENSE & ADMIN PORTAL",
+    portal_title: "Portal Akses COC VIPBot",
+    portal_sub: "Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengelola harga dan kode promo.",
+    portal_tab_user: "Cek Serial Key (User)",
+    portal_tab_admin: "Login Admin",
+    portal_key_lbl: "Masukkan Kode Serial Key Anda:",
+    portal_key_btn: "Cek Status"
   },
   en: {
     nav_home: "Home",
     nav_features: "Features",
-    nav_showcase: "Video Showcase",
-    nav_how: "How It Works",
+    nav_showcase: "Showcase",
+    nav_how: "Setup",
     nav_pricing: "Pricing",
     nav_faq: "FAQ",
     nav_download: "Download .EXE",
-    nav_cta: "1-Day Free Trial",
-    hero_eyebrow: "NEXT-GEN CLASH AUTOMATION ENGINE",
-    hero_promo_pill: "🔨 HAMMER JAM & TH 19 SALE (-67%)",
-    hero_title: 'Non-Stop Deadbase Loot.<br /><span class="text-gradient">Auto Max Walls Faster.</span>',
-    hero_desc: 'Dominate your Home Village, Ranked Mode &amp; Builder Base progression ahead of <strong>Town Hall 19</strong> with <strong>COC VIPBot</strong>. Powered by <em>Best Loot Finder</em>, <em>Super Smart Auto Up Wall</em>, independent <em>Multi-Instances</em> support, plus built-in <em>Auto-Reload</em> &amp; <em>Auto Zoom-Out</em>.',
-    hero_chip_promo: "🔥 Hammer Jam & TH 19 Promo",
-    hero_chip1: "⚡ 1-Day Free Trial",
-    hero_chip2: "🏆 Auto Ranked ➔ Farming",
-    hero_chip3: "🖥️ Independent Multi-Instances",
+    nav_cta: "24h Free Trial",
+    nav_portal: "Portal / Login",
+    hero_meta_tech: "Windows Desktop (.EXE) · OpenCV & ADB",
+    hero_promo_pill: "Hammer Time Deal: Rp 30.000 (14 Days) / $2 (20 Days)",
+    hero_title: "Automated Farming, Ranked Loops, and Wall Upgrades for Clash of Clans.",
+    hero_desc: "Run automated Ranked-to-Farming attack rotations, deadbase scanning, and continuous Wall upgrades across Home Village and Builder Base. Operates visually via ADB on LDPlayer and MuMuPlayer with isolated profiles per account.",
+    spec_1_k: "Target Resolution",
+    spec_2_k: "Village Modes",
+    spec_3_k: "Multi-Account",
+    spec_3_v: "Isolated Profile per Emulator",
     hero_btn_primary: "Claim 1-Day Free Trial",
-    hero_btn_download: "Download Bot (.EXE)",
-    hero_btn_discord: "Join Discord (Reviews & Trial)",
-    mock_switch_village: "Switch Base",
+    hero_btn_download: "Download Installer (.ZIP)",
+    hero_btn_discord: "Join Discord & Reviews",
+    mock_switch_village: "Switch Base (Home / Builder)",
     mock_min_loot: "MINIMUM FARMING LOOT (0 = INSTANT ATTACK)",
-    mock_malam_desc: "Ensure camera is in Builder Base. Rapidly deploys 1 Hero + 6 Troops & Auto Up Wall.",
-    trust_label1: "Multi-Account Power",
-    trust_label2: "Dual Village + Ranked",
-    trust_label3: "Smart Recovery",
-    trust_label4: "Global Payment & Discord",
-    feat_sec_title: "COC VIPBot Core Features",
-    feat_sec_sub: "Engineered to maximize your daily loot income during Hammer Jam and accelerate Wall upgrades ahead of Town Hall 19.",
-    feat_1_desc: "Complete your Ranked attacks automatically and seamlessly switch to Farming Mode to locate rich deadbases matching your Gold, Elixir, and Dark thresholds.",
-    feat_2_desc: "Never waste overflowing loot again! The bot dynamically detects Upgrade buttons via Template Matching and upgrades multiple Walls at once non-stop.",
-    feat_3_desc: "Equipped with humanized deployment patterns, automatic daily Star Bonus claiming, and smart Auto-Reload if your PC internet briefly drops.",
-    feat_4_desc: "Our standalone .EXE includes a 1-Click Auto-Updater right inside the app whenever new features or Town Hall 19 patches are released.",
-    feat_5_desc: "Run multiple MuMuPlayer / LDPlayer windows simultaneously on a single PC with isolated per-emulator Army & Wall configurations!",
-    feat_6_desc: "Full automation for your Builder Base! Rapid 1 Hero + 6 Troops deployment, timed Hero Ability triggers, and automatic Builder Wall upgrades.",
-    show_sec_title: "See Bot UI & Workflow in Action",
-    show_sec_sub: "Watch a quick demonstration (30–60s) of how COC VIPBot scans deadbases, deploys troops rapidly, and upgrades Walls automatically.",
-    show_sim_title: "Click to Simulate COC VIPBot Workflow",
-    show_sim_sub: "(This player frame will automatically play your 30–60s MP4 video once placed in the assets/images/ folder)",
-    show_step1: "Best Loot Finder filtering rich deadbases...",
-    show_step2: "Deploying Troops, Spells, Heroes & Abilities...",
-    show_step3: "Upgrading Walls & Auto Pinch Zoom-Out!",
-    how_eyebrow: "4 SIMPLE STEPS",
-    how_sec_title: "How Does COC VIPBot Work?",
-    how_sec_sub: "Zero complicated setup. Going from claiming your Free Trial on Discord/Telegram to automated 24/7 Wall upgrades takes just minutes.",
-    how_1_title: "Download Bot (.EXE) & Claim Key",
-    how_1_desc: "Download COC-VIPBot-Setup.zip, then claim your 1-Day Free Trial via our Discord Server / Telegram Bot or pick a Hammer Jam promo plan.",
-    how_2_title: "Connect Emulator (1600x900)",
-    how_2_desc: "Set your MuMuPlayer / LDPlayer resolution to 1600x900 (240 DPI). Click Scan in the bot to select the target emulator for each account.",
-    how_3_title: "Configure Set Army & More Option",
-    how_3_desc: "Record your army bar slots in Set Army, then enable Auto Upgrade Wall and minimum Gold/Elixir thresholds in More Option.",
-    how_4_title: "Click Start & Let the Bot Work",
-    how_4_desc: "The bot will finish Ranked loops, switch to Farming, claim Star Bonuses, auto-reload on disconnects, and upgrade your village walls 24/7.",
-    price_eyebrow: "🔥 SPECIAL EVENT SALE • 67% OFF",
-    price_sec_title: "Choose the Best Plan for Your Village",
-    price_sec_sub: "Every plan unlocks 100% of core features. Instant checkout via Indonesian QRIS (IDR) or Binance Pay QRIS (USDT) for international users!",
-    promo_pill_1: "🔨 HAMMER JAM SPECIAL EVENT",
-    promo_pill_2: "🏰 WELCOMING UPCOMING TOWN HALL 19",
-    promo_banner_title: "Max Out Your Walls & Storages Before Town Hall 19 Drops!",
-    promo_banner_sub: "Enjoy a massive 67% discount (1/3 of regular 3x prices) across all paid plans during our Hammer Jam & Town Hall 19 celebration!",
-    promo_stamp_sub: "67% OFF NORMAL PRICE",
-    promo_cut_label: "🔥 SAVE 67%",
+    mock_malam_desc: "Deploys 1 Hero + 6 Troops automatically, triggers timed abilities, and upgrades Builder Base Walls.",
+    trust_label1: "Multi-Account Architecture",
+    trust_label2: "Battle Rotation",
+    trust_label3: "Automated Recovery",
+    trust_label4: "Payment Gateways",
+    feat_sec_title: "COC VIPBot Core Modules",
+    feat_sec_sub: "Six automation modules engineered to keep resource income flowing and allocate surplus loot directly into Wall upgrades ahead of Town Hall 19.",
+    feat_1_desc: "Completes your Ranked attack quota first, then transitions automatically into Farming mode to filter deadbases by minimum Gold, Elixir, and Dark Elixir.",
+    feat_2_desc: "Prevents overflowing storages. Whenever balances exceed your threshold, the bot visually locates upgrade buttons and upgrades multiple Wall segments at once.",
+    feat_3_desc: "Operates without modifying game memory. Uses randomized tap offsets, claims daily Star Bonuses, and reconnects automatically after network drops.",
+    feat_4_desc: "Includes a built-in 1-click Auto-Updater directly inside the desktop client whenever new features or Town Hall 19 templates are released.",
+    feat_5_desc: "Run multiple MuMuPlayer or LDPlayer windows concurrently on a single PC. Each instance saves its own Army and Wall configuration independently.",
+    feat_6_desc: "Full Builder Base automation: rapid 1 Hero + 6 Troops deployment, timed Hero Ability activation, and automatic Builder Base Wall upgrades.",
+    show_sec_title: "Bot Workflow Recording",
+    show_sec_sub: "Direct capture showing how COC VIPBot scans loot values, deploys troops, resets camera zoom (Pinch Zoom-Out), and upgrades Walls.",
+    show_sim_title: "Play Workflow Preview",
+    show_sim_sub: "Connecting to video stream at dl.coc-vipbot.web.id/showcase.mp4",
+    vc_label_1: "ADB Scan & Set Army Setup",
+    vc_label_2: "Deadbase Filter & Troop Deployment",
+    vc_label_3: "Auto Upgrade Wall & Pinch Zoom-Out",
+    how_eyebrow: "CONFIGURATION PROCEDURE",
+    how_sec_title: "Four Steps to Run the Bot",
+    how_sec_sub: "Going from downloading the client package to unattended 24/7 farming takes only a few minutes.",
+    how_1_title: "Download .EXE & Activate Key",
+    how_1_desc: "Download COC-VIPBot-Setup.zip, then claim your 24-Hour Free Trial Serial Key via our Discord Server or official Telegram Bot.",
+    how_2_title: "Set Emulator to 1600×900",
+    how_2_desc: "Configure LDPlayer or MuMuPlayer to 1600×900 (240 DPI). Click Scan inside the bot to bind the target ADB port for each account.",
+    how_3_title: "Configure Army & Wall Thresholds",
+    how_3_desc: "Record your troop slots in Set Army, then enable Auto Upgrade Wall and minimum Gold/Elixir thresholds under More Option.",
+    how_4_title: "Start Automated Rotation",
+    how_4_desc: "Press Start. The bot will complete Ranked loops, switch to Farming, claim Star Bonuses, and upgrade your Walls continuously.",
+    price_eyebrow: "LICENSING & HAMMER TIME SPECIAL PROMO",
+    price_sec_title: "Select License Duration",
+    price_sec_sub: "Every license unlocks 100% of application features with no module restrictions. Supports Indonesian QRIS (IDR) and Binance Pay (USDT).",
+    promo_pill_1: "HAMMER TIME SPECIAL DEAL",
+    promo_pill_2: "DURATION BONUS & PROMO CODE",
+    promo_banner_title: "Indonesia: Rp 30,000 for 14 Days · International: $2 USDT for 20 Days Access",
+    promo_banner_sub: "Pay 1 week get 1 week free (14 days for Indonesian QRIS) or 20 full days for Binance USDT payments. Have a voucher code? Enter it at checkout.",
+    promo_stamp_sub: "LIMITED TIME OFFER",
+    promo_cut_label: "SAVE 67%",
     tier1_name: "Trial Free",
-    tier1_free_tag: "🎁 100% FREE FOR 24H",
+    tier1_free_tag: "FULL 24H ACCESS",
     tier1_period: "/ 1 Day",
-    tier1_desc: "Experience the full power of COC VIPBot on your account for a full 24 hours at zero cost (Claim via Discord or Telegram).",
-    tier1_btn: "Claim Free Trial (Telegram)",
-    tier1_btn_dc: "💬 Claim Trial on Discord Server",
-    tier2_name: "1 Week Plan",
-    tier2_period: "/ 7 Days",
-    tier2_desc: "Great for weekly Hammer Jam progression boosts, Clan Games events, or quickly maxing out your resource storages.",
-    tier2_btn: "Choose 1 Week Plan",
-    tier3_ribbon: "⚡ HAMMER JAM PROMO • SAVE 67%",
+    tier1_desc: "Test all bot features on your PC for a full 24 hours at zero cost via Discord or Telegram.",
+    tier1_btn: "Claim Trial (Telegram)",
+    tier1_btn_dc: "Claim Trial on Discord",
+    tier2_name: "Hammer Time Deal",
+    tier2_bonus_tag: "20 DAYS ACCESS",
+    tier2_desc: "Pay 1 week get 1 extra week free (14 days for IDR, or $2 for 20 days international full access).",
+    tier2_btn: "Grab Hammer Time Deal",
+    tier3_ribbon: "BEST MONTHLY · SAVE 67%",
     tier3_name: "1 Month Plan",
     tier3_pill: "~$0.21 / day",
     tier3_period: "/ 30 Days",
-    tier3_desc: "Player favorite! Prepare all your Walls & Heroes for a full month ahead of the upcoming Town Hall 19 release.",
+    tier3_desc: "Most efficient monthly option. Prepare your Walls and Heroes for a full 30 days ahead of Town Hall 19.",
     tier3_btn: "Get 1 Month Promo",
-    tier4_ribbon: "👑 TH 19 SPECIAL • PAY ONCE FOREVER",
-    tier4_pill: "Forever Access",
+    tier4_ribbon: "BEST VALUE · ONE-TIME PAYMENT",
+    tier4_pill: "Permanent",
     tier4_period: "/ Lifetime",
-    tier4_desc: "The ultimate investment for Town Hall 19 with zero monthly fees! Pay once for permanent access, free lifetime updates + VIPP Discord Role.",
-    tier4_btn: "👑 Get Life Time Promo Now",
+    tier4_desc: "Single payment for permanent access with zero recurring fees, including all Town Hall 19 updates and VIPP Discord Role.",
+    tier4_btn: "Get Life Time License",
     faq_sec_title: "Frequently Asked Questions (FAQ)",
-    faq_sec_sub: "Everything you need to know about COC VIPBot, Anti-Ban safety, Multi-Instances, and claiming trials on Discord.",
+    faq_sec_sub: "Technical details regarding Trial keys, OpenCV visual recognition, Multi-Instances, and payment methods.",
     faq_q1: "Can I claim the 1-Day Free Trial from both Discord and Telegram?",
-    faq_a1: "Yes! You can claim your 24-Hour Free Trial Serial Key with 1 click in the #🎁-claim-free-trial channel on our Discord Server or via our official Telegram Bot.",
-    faq_q2: "How does Auto Up Wall work during the Hammer Jam event?",
-    faq_a2: "Simply set your discounted Hammer Jam wall price in More Option. Whenever your Gold or Elixir exceeds your threshold, the bot visually scans the Upgrade buttons, upgrades multiple walls at once, and performs an automatic Pinch Zoom-Out.",
-    faq_q3: "What is Support Multi Instances and are settings isolated per emulator?",
-    faq_a3: "Support Multi Instances lets you run multiple Bot windows for multiple emulators (MuMuPlayer / LDPlayer) simultaneously on 1 PC. Each bot window automatically saves its own Set Army and Wall/Event settings independently.",
-    faq_q4: "Where can I see testimonials and reviews from verified buyers?",
-    faq_a4: "Join our official Discord Server (https://discord.gg/YyRhX7uPvp) and check the #⭐-testimoni-pembeli channel. Only verified buyers with active FULL keys can post reviews and farming screenshots there.",
-    faq_q5: "How do Anti-Ban & Town Hall 19 readiness work in COC VIPBot?",
-    faq_a5: "Our engine never modifies game memory; it uses visual OpenCV screen recognition and human-like ADB touch inputs. With the built-in Auto-Updater, all Town Hall 19 updates are delivered automatically to your app.",
-    faq_q6: "How do I complete payment from Indonesia or Internationally?",
-    faq_a6: "Click your desired plan in the Pricing section. You can choose QRIS Indonesia (IDR) or Binance Pay QRIS (USDT) for international users. Orders and Serial Keys are processed seamlessly via our official Telegram Bot.",
-    cta_eyebrow: "JOIN OUR COMMUNITY & START FARMING",
-    cta_title: "Prepare Your Village for Town Hall 19 Today!",
-    cta_desc: "Don't miss the Hammer Jam event & 67% discount. Join our Discord Server to view real buyer testimonials and claim your 1-Day Free Trial!",
-    cta_btn_discord: "Join Discord (Reviews & Free Trial)",
-    cta_btn1: "🔥 Grab Hammer Jam Promo (-67%)",
-    footer_bio: "Clash of Clans farming automation platform featuring Best Loot Finder, Super Smart Auto Up Wall, Auto Ranked ➔ Farming, Auto Builder Base, and Multi-Instances."
+    faq_a1: "Yes. You can claim a 24-Hour Free Trial Serial Key (unlocking all features) in the #claim-free-trial channel on our Discord Server or via our official Telegram Bot.",
+    faq_q2: "How do I check my Serial Key status on this website?",
+    faq_a2: "Click the Portal / Login button in the top right corner, then enter your Serial Key without any password. The system will instantly display license status, remaining time, and HWID device binding.",
+    faq_q3: "What is Support Multi Instances and are settings isolated?",
+    faq_a3: "Support Multi Instances allows you to run multiple Bot windows for multiple emulators (MuMuPlayer / LDPlayer) concurrently on 1 PC. Each instance saves its own Set Army and Wall settings independently.",
+    faq_q4: "Where can I see testimonials from verified buyers?",
+    faq_a4: "Join our official Discord Server (https://discord.gg/YyRhX7uPvp) and open the buyer reviews channel. Only verified users with active licenses can post reviews and farming screenshots there.",
+    faq_q5: "How do I request a PC transfer (Reset HWID)?",
+    faq_a5: "For license security, legacy device removal (HWID reset) is verified by Admin. You can submit an HWID reset request via the Key Saya menu in our official Telegram Bot or contact Admin through the Portal.",
+    faq_q6: "How do I use Promo Codes when purchasing a plan?",
+    faq_a6: "Select your desired license plan in Pricing, enter your voucher code in the Promo Code field at checkout, and click Apply. The invoice price on the web and in Telegram will automatically discount.",
+    cta_eyebrow: "START AUTOMATING YOUR VILLAGE",
+    cta_title: "Prepare Your Walls and Heroes for Town Hall 19",
+    cta_desc: "Download the client installer now, check community reviews on Discord, or claim a 24-Hour Free Trial license at zero cost.",
+    cta_btn_discord: "Join Discord (Reviews & Trial)",
+    cta_btn1: "View Hammer Time Promo",
+    footer_bio: "Desktop automation utility for Clash of Clans featuring Loot Finder, Auto Upgrade Wall, Ranked-to-Farming rotation, Builder Base, and Multi-Instance support.",
+    chk_method_lbl: "Select Payment Method:",
+    chk_promo_lbl: "Have a Promo Code?",
+    chk_promo_btn: "Apply",
+    portal_badge: "LICENSE & ADMIN PORTAL",
+    portal_title: "COC VIPBot Access Portal",
+    portal_sub: "Enter your Serial Key to check your license status, or log in to the Admin panel to manage pricing and promo codes.",
+    portal_tab_user: "Check Serial Key (User)",
+    portal_tab_admin: "Admin Login",
+    portal_key_lbl: "Enter Your Serial Key:",
+    portal_key_btn: "Check Status"
   }
 };
 
 let currentLang = localStorage.getItem("coc_vipbot_lang") || SITE_CONFIG.defaultLang;
 let currentPaymentRegion = localStorage.getItem("coc_vipbot_region") || (currentLang === "en" ? "usdt" : "idr");
 let activeCheckoutTier = "monthly";
+let appliedPromoCode = "";
+let appliedDiscountInfo = null;
 
 document.addEventListener("DOMContentLoaded", () => {
-  initDynamicYear();
+  const yearEl = document.getElementById("currentYear");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  fetchLiveConfigFromSheets();
   initLanguageSwitcher();
   initPaymentRegionSwitcher();
   initHeroBotUiReplica();
   initMobileNav();
   initVideoShowcase();
   initCheckoutModalAndLinks();
+  initPortalModal();
   initFaqAccordion();
-  initScrollReveal();
   initScrollSpyAndBackToTop();
 });
 
-/* 1. Dynamic Copyright Year */
-function initDynamicYear() {
-  const yearEl = document.getElementById("currentYear");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
+async function fetchLiveConfigFromSheets() {
+  if (!SITE_CONFIG.gasWebAppUrl || SITE_CONFIG.gasWebAppUrl.trim() === "") return;
+  try {
+    const res = await fetch(`${SITE_CONFIG.gasWebAppUrl}?action=web_public_config`, { method: "GET" });
+    const data = await res.json();
+    if (data && data.ok && data.pricing) {
+      Object.keys(data.pricing).forEach((tKey) => {
+        if (SITE_CONFIG.pricing[tKey]) {
+          const remote = data.pricing[tKey];
+          SITE_CONFIG.pricing[tKey].idrVal = remote.idrVal;
+          SITE_CONFIG.pricing[tKey].idrOld = remote.idrOld;
+          SITE_CONFIG.pricing[tKey].usdtVal = remote.usdtVal;
+          SITE_CONFIG.pricing[tKey].usdtOld = remote.usdtOld;
+        }
+      });
+      updatePricingDisplay();
+    }
+  } catch (e) {}
 }
 
-/* 2. Bilingual Language Switcher (ID / ENG) */
 function initLanguageSwitcher() {
   const langBtn = document.getElementById("langSwitchBtn");
-  const htmlFormattedKeys = ["hero_title", "hero_desc"];
 
   const applyLanguage = (lang) => {
     currentLang = lang === "en" ? "en" : "id";
@@ -303,11 +330,7 @@ function initLanguageSwitcher() {
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (dict[key]) {
-        if (htmlFormattedKeys.includes(key)) {
-          el.innerHTML = dict[key];
-        } else {
-          el.textContent = dict[key];
-        }
+        el.textContent = dict[key];
       }
     });
 
@@ -315,6 +338,19 @@ function initLanguageSwitcher() {
       const code = ind.getAttribute("data-lang-ind");
       ind.classList.toggle("active-lang", code === currentLang);
     });
+
+    const weeklyTitle = document.getElementById("weeklyTierTitle");
+    const weeklyRibbon = document.getElementById("weeklyRibbon");
+    const weeklyPeriod = document.getElementById("weeklyPeriodLabel");
+    if (currentLang === "en") {
+      if (weeklyTitle) weeklyTitle.textContent = "Hammer Time Deal";
+      if (weeklyRibbon) weeklyRibbon.textContent = "HAMMER TIME · 20 DAYS ACCESS";
+      if (weeklyPeriod) weeklyPeriod.textContent = "/ 20 Days";
+    } else {
+      if (weeklyTitle) weeklyTitle.textContent = "Hammer Time Promo";
+      if (weeklyRibbon) weeklyRibbon.textContent = "HAMMER TIME · 7+7 HARI PENUH";
+      if (weeklyPeriod) weeklyPeriod.textContent = "/ 14 Hari";
+    }
 
     updatePricingDisplay();
   };
@@ -331,7 +367,6 @@ function initLanguageSwitcher() {
   }
 }
 
-/* 3. Dual-Payment Region Switcher (IDR QRIS vs International Binance USDT) */
 function initPaymentRegionSwitcher() {
   const btnIdr = document.getElementById("regionBtnIdr");
   const btnUsdt = document.getElementById("regionBtnUsdt");
@@ -381,18 +416,21 @@ function updatePricingDisplay() {
   }
 }
 
-/* 4. Interactive Replica of COC_VIPBot.exe in Hero Section */
 function initHeroBotUiReplica() {
   const switchBtn = document.getElementById("mockSwitchModeBtn");
   const badge = document.getElementById("mockVillageBadge");
   const panelAsal = document.getElementById("mockPanelAsal");
   const panelMalam = document.getElementById("mockPanelMalam");
+  const startBtn = document.getElementById("mockBtnStart");
+  const stopBtn = document.getElementById("mockBtnStop");
+  const emuStatus = document.getElementById("mockEmuStatus");
   const toggleLogBtn = document.getElementById("mockBtnToggleLog");
   const logContainer = document.getElementById("mockLogContainer");
   const dynamicLog = document.getElementById("mockDynamicLog");
   const remBadge = document.getElementById("mockRemLoop");
 
   let isMalam = false;
+  let isRunning = true;
   let remCount = 8;
 
   if (switchBtn && badge && panelAsal && panelMalam) {
@@ -401,12 +439,30 @@ function initHeroBotUiReplica() {
       panelAsal.hidden = isMalam;
       panelMalam.hidden = !isMalam;
       if (isMalam) {
-        badge.textContent = currentLang === "en" ? "🌙 BUILDER BASE" : "🌙 DESA MALAM";
+        badge.textContent = currentLang === "en" ? "BUILDER BASE" : "DESA MALAM";
         badge.classList.add("malam-badge");
       } else {
-        badge.textContent = currentLang === "en" ? "☀️ HOME VILLAGE" : "☀️ DESA ASAL";
+        badge.textContent = currentLang === "en" ? "HOME VILLAGE" : "DESA ASAL";
         badge.classList.remove("malam-badge");
       }
+    });
+  }
+
+  if (startBtn && emuStatus && dynamicLog) {
+    startBtn.addEventListener("click", () => {
+      isRunning = true;
+      emuStatus.textContent = "RUNNING";
+      emuStatus.style.color = "#34D399";
+      dynamicLog.textContent = "[09:15:22] [ENGINE] Loop pertempuran dimulai oleh pengguna.";
+    });
+  }
+
+  if (stopBtn && emuStatus && dynamicLog) {
+    stopBtn.addEventListener("click", () => {
+      isRunning = false;
+      emuStatus.textContent = "PAUSED";
+      emuStatus.style.color = "#FBBF24";
+      dynamicLog.textContent = "[09:15:24] [ENGINE] Siklus dihentikan sementara (Standby).";
     });
   }
 
@@ -419,15 +475,16 @@ function initHeroBotUiReplica() {
   }
 
   const sampleLogs = [
-    "[09:15:10] [WALL-SUCCESS] Upgrade 8 Wall menggunakan GOLD selesai!",
-    "[09:15:12] [ZOOM] Mereset kamera (Pinch Zoom Out via /dev/input/event2)...",
-    "[09:15:14] [AUTO-SWITCH] Ranked selesai! Otomatis pindah ke Mode Farming...",
-    "[09:15:18] [LOOT] Gold: 1,120,000/500,000 (OK) | Elixir: 980,500 (OK)",
-    "[09:15:20] [FAST-DEPLOY] Menurunkan pasukan Desa Siang dalam 2.45 detik!"
+    "[09:15:10] [WALL] Upgrade 8 segmen Wall menggunakan Gold selesai.",
+    "[09:15:12] [ZOOM] Mereset kamera (Pinch Zoom-Out via /dev/input/event2).",
+    "[09:15:14] [SWITCH] Kuota Ranked selesai, berpindah ke Mode Farming.",
+    "[09:15:18] [LOOT] Gold: 1,120,000 | Elixir: 980,500 (Memenuhi syarat).",
+    "[09:15:20] [DEPLOY] Menurunkan pasukan Home Village dalam 2.45 detik."
   ];
   let logIdx = 0;
 
   setInterval(() => {
+    if (!isRunning) return;
     logIdx = (logIdx + 1) % sampleLogs.length;
     if (dynamicLog) {
       dynamicLog.textContent = sampleLogs[logIdx];
@@ -435,12 +492,11 @@ function initHeroBotUiReplica() {
     if (logIdx === 0 && remBadge) {
       remCount = remCount > 1 ? remCount - 1 : 8;
       const prefix = currentLang === "en" ? "Left:" : "Sisa:";
-      remBadge.textContent = `${prefix} R:${remCount}➔15`;
+      remBadge.textContent = `${prefix} R:${remCount}→15`;
     }
-  }, 3200);
+  }, 3400);
 }
 
-/* 5. Mobile Navigation Toggle */
 function initMobileNav() {
   const toggleBtn = document.getElementById("mobileNavToggle");
   const navMenu = document.getElementById("primaryNavigation");
@@ -469,15 +525,10 @@ function initMobileNav() {
   });
 }
 
-/* 6. Smart Video Showcase Loader & Interactive Preview Simulator */
 function initVideoShowcase() {
   const nativeVideo = document.getElementById("showcaseNativeVideo");
   const youtubeIframe = document.getElementById("showcaseYoutubeIframe");
   const posterOverlay = document.getElementById("videoPosterOverlay");
-  const triggerBtn = document.getElementById("triggerDemoVideoBtn");
-  const simTitle = document.getElementById("simTitleText");
-  const simSub = document.getElementById("simSubText");
-  const simSteps = document.querySelectorAll(".sim-step");
 
   if (SITE_CONFIG.showcaseVideoMp4 && SITE_CONFIG.showcaseVideoMp4.trim() !== "") {
     if (nativeVideo && posterOverlay) {
@@ -494,76 +545,9 @@ function initVideoShowcase() {
       youtubeIframe.hidden = false;
       posterOverlay.style.display = "none";
     }
-    return;
-  }
-
-  let simInterval = null;
-  let currentStep = 0;
-
-  if (triggerBtn) {
-    triggerBtn.addEventListener("click", () => {
-      if (simInterval) {
-        clearInterval(simInterval);
-        simInterval = null;
-        if (simTitle) {
-          simTitle.textContent = currentLang === "en"
-            ? "Simulation Paused — Ready for Your MP4 Video"
-            : "Simulasi Dihentikan — Siap Untuk Video MP4 Anda";
-        }
-        return;
-      }
-
-      const stages = {
-        id: [
-          {
-            title: "🔍 [00:05] Best Loot Finder Memindai Deadbase...",
-            sub: "Menemukan target: Gold 1.150.000 | Elixir 1.210.000 (Melewati batas filter minimum)"
-          },
-          {
-            title: "⚔️ [00:20] Balanced-Fast Deploy & Auto Ability...",
-            sub: "Menurunkan Troop, Spell, Hero, dan Siege Machine secara presisi."
-          },
-          {
-            title: "🧱 [00:38] Auto Up Wall + Pinch Zoom-Out Otomatis!",
-            sub: "Upgrade 8x Wall sekaligus lalu mereset kamera kembali ke ukuran penuh."
-          }
-        ],
-        en: [
-          {
-            title: "🔍 [00:05] Best Loot Finder Scanning Deadbases...",
-            sub: "Target found: Gold 1,150,000 | Elixir 1,210,000 (Exceeds minimum filter threshold)"
-          },
-          {
-            title: "⚔️ [00:20] Balanced-Fast Deploy & Hero Abilities...",
-            sub: "Deploys Troops, Spells, Heroes, and Siege Machine with natural intervals."
-          },
-          {
-            title: "🧱 [00:38] Auto Up Wall + Automatic Pinch Zoom-Out!",
-            sub: "Upgrades 8x Walls at once and resets camera zoom back to full view."
-          }
-        ]
-      };
-
-      const runStep = () => {
-        const list = stages[currentLang] || stages.id;
-        const data = list[currentStep];
-        if (simTitle) simTitle.textContent = data.title;
-        if (simSub) simSub.textContent = data.sub;
-
-        simSteps.forEach((stepEl, idx) => {
-          stepEl.classList.toggle("active-step", idx === currentStep);
-        });
-
-        currentStep = (currentStep + 1) % list.length;
-      };
-
-      runStep();
-      simInterval = setInterval(runStep, 2600);
-    });
   }
 }
 
-/* 7. Dual-Payment Checkout Modal (QRIS Indonesia, Binance Pay & Discord Server) */
 function initCheckoutModalAndLinks() {
   const chkModal = document.getElementById("checkoutModal");
   const chkBackdrop = document.getElementById("chkModalBackdrop");
@@ -577,23 +561,25 @@ function initCheckoutModalAndLinks() {
   const payTabBinance = document.getElementById("payTabBinance");
   const qrPreviewBox = document.getElementById("chkQrPreviewBox");
   const qrImage = document.getElementById("chkQrImage");
-  const chkDesc = document.getElementById("chkModalDesc");
   const tgActionBtn = document.getElementById("chkTelegramActionBtn");
   const tgBtnText = document.getElementById("chkTelegramBtnText");
   const dcBtnText = document.getElementById("chkDiscordBtnText");
+  const promoInput = document.getElementById("chkPromoInput");
+  const applyPromoBtn = document.getElementById("chkApplyPromoBtn");
+  const promoFeedback = document.getElementById("chkPromoFeedback");
 
   const tierTitles = {
     id: {
       trial: "Trial Gratis 1 Hari (All Fitur Unlock)",
-      weekly: "Paket 1 Minggu (Promo Hammer Jam)",
-      monthly: "⚡ Paket 1 Bulan (Promo Hammer Jam)",
-      lifetime: "👑 Paket Life Time VIPP (Spesial TH 19)"
+      weekly: "Hammer Time Promo (14 Hari / 7+7)",
+      monthly: "Paket 1 Bulan (Promo Hammer Jam)",
+      lifetime: "Paket Life Time VIPP (Spesial TH 19)"
     },
     en: {
       trial: "1-Day Free Trial (All Features Unlocked)",
-      weekly: "1 Week Plan (Hammer Jam Promo)",
-      monthly: "⚡ 1 Month Plan (Hammer Jam Promo)",
-      lifetime: "👑 Life Time VIPP (TH 19 Special)"
+      weekly: "Hammer Time Deal (20 Days Access)",
+      monthly: "1 Month Plan (Hammer Jam Promo)",
+      lifetime: "Life Time VIPP (TH 19 Special)"
     }
   };
 
@@ -605,7 +591,7 @@ function initCheckoutModalAndLinks() {
     if (chkBadge) {
       chkBadge.textContent = activeCheckoutTier === "trial"
         ? (isEn ? "FREE TRIAL ACCESS (24 HOURS)" : "AKSES TRIAL GRATIS (24 JAM)")
-        : (isUsdt ? "🔥 HAMMER JAM & TH 19 SALE (-67%)" : "🔥 PROMO HAMMER JAM & TH 19 (-67%)");
+        : (isUsdt ? "HAMMER TIME SPECIAL DEAL" : "HAMMER TIME SPECIAL PROMO");
     }
 
     if (chkTitle) {
@@ -623,9 +609,11 @@ function initCheckoutModalAndLinks() {
     }
 
     if (chkPrice) {
-      chkPrice.textContent = isUsdt
-        ? `${cfg.usdtCurr} ${cfg.usdtVal}`
-        : `${cfg.idrCurr} ${cfg.idrVal}`;
+      if (appliedDiscountInfo && activeCheckoutTier !== "trial") {
+        chkPrice.textContent = isUsdt ? appliedDiscountInfo.finalUsdtFormatted : ("Rp " + appliedDiscountInfo.finalIdrFormatted);
+      } else {
+        chkPrice.textContent = isUsdt ? `${cfg.usdtCurr} ${cfg.usdtVal}` : `${cfg.idrCurr} ${cfg.idrVal}`;
+      }
     }
 
     if (chkPaySelectorWrap) {
@@ -645,53 +633,42 @@ function initCheckoutModalAndLinks() {
       }
     }
 
-    const startParam = isUsdt ? cfg.tgCodeUsdt : cfg.tgCodeIdr;
-    const tgUrl = `https://t.me/${SITE_CONFIG.telegramBotUsername}?start=${startParam}`;
+    let tierCodeMap = { weekly: "7", monthly: "30", lifetime: "LIFETIME" };
+    let codeStr = tierCodeMap[activeCheckoutTier] || "30";
+    let payStr = isUsdt ? "BINANCE" : "QRIS_INDO";
+    let promoSuffix = appliedPromoCode ? ("_PROMO_" + appliedPromoCode) : "";
+
+    const tgUrl = `https://t.me/${SITE_CONFIG.telegramBotUsername}?start=BUY_${codeStr}_${payStr}${promoSuffix}`;
     if (tgActionBtn) {
       tgActionBtn.href = tgUrl;
     }
 
     if (activeCheckoutTier === "trial") {
-      if (chkDesc) {
-        chkDesc.textContent = isEn
-          ? "Claim your 24-hour Free Trial Serial Key instantly via our Telegram Bot or click the Discord button to claim via the #🎁-claim-free-trial channel!"
-          : "Klaim Serial Key Trial 24 Jam Anda secara instan melalui Bot Telegram, atau klik tombol Discord untuk klaim langsung di channel #🎁-claim-free-trial!";
-      }
       if (tgBtnText) {
-        tgBtnText.textContent = isEn
-          ? "🤖 Claim Free Trial Key in Telegram"
-          : "🤖 Klaim Key Trial Gratis di Telegram";
+        tgBtnText.textContent = isEn ? "Claim Free Trial Key in Telegram" : "Klaim Key Trial Gratis di Telegram";
       }
       if (dcBtnText) {
-        dcBtnText.textContent = isEn
-          ? "💬 Claim 1-Day Trial on Discord Server"
-          : "💬 Klaim Key Trial 1 Hari di Server Discord";
+        dcBtnText.textContent = isEn ? "Claim 1-Day Trial on Discord Server" : "Klaim Key Trial 1 Hari di Server Discord";
       }
     } else {
-      if (chkDesc) {
-        chkDesc.textContent = isUsdt
-          ? (isEn
-              ? "Scan the Binance QR above or click the Telegram button to receive your automated Order ID & Serial Key. After buying, claim your Buyer Role on Discord!"
-              : "Scan QRIS Binance di atas atau klik tombol Telegram untuk memproses Order ID & Serial Key otomatis. Setelah beli, klaim Role Buyer di Discord!")
-          : (isEn
-              ? "Scan the Indonesian QRIS above or click the Telegram button to receive your invoice & Serial Key. After buying, claim your Buyer Role on Discord!"
-              : "Scan QRIS Indonesia di atas atau klik tombol Telegram untuk konfirmasi & terima Serial Key otomatis. Setelah beli, klaim Role Buyer Anda di Discord!");
-      }
       if (tgBtnText) {
-        tgBtnText.textContent = isUsdt
-          ? (isEn ? "🌍 Confirm & Get Key via Telegram Bot" : "🌍 Konfirmasi & Ambil Key di Bot Telegram")
-          : (isEn ? "🇮🇩 Confirm & Get Key via Telegram Bot" : "🇮🇩 Konfirmasi & Ambil Key di Bot Telegram");
+        tgBtnText.textContent = isEn ? "Confirm & Get Key via Telegram Bot" : "Konfirmasi & Ambil Key di Bot Telegram";
       }
       if (dcBtnText) {
-        dcBtnText.textContent = isEn
-          ? "💬 View Buyer Testimonials on Discord"
-          : "💬 Cek Testimoni Pembeli di Server Discord";
+        dcBtnText.textContent = isEn ? "View Buyer Testimonials on Discord" : "Cek Testimoni Pembeli di Server Discord";
       }
     }
   };
 
   const openCheckoutModal = (tierKey) => {
     activeCheckoutTier = tierKey;
+    appliedPromoCode = "";
+    appliedDiscountInfo = null;
+    if (promoInput) promoInput.value = "";
+    if (promoFeedback) {
+      promoFeedback.hidden = true;
+      promoFeedback.textContent = "";
+    }
     renderCheckoutState();
     if (chkModal) chkModal.hidden = false;
   };
@@ -718,6 +695,49 @@ function initCheckoutModalAndLinks() {
     });
   }
 
+  if (applyPromoBtn && promoInput && promoFeedback) {
+    applyPromoBtn.addEventListener("click", async () => {
+      const codeVal = promoInput.value.trim();
+      if (!codeVal) return;
+      applyPromoBtn.disabled = true;
+      applyPromoBtn.textContent = "...";
+      try {
+        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "web_check_promo",
+            promo_code: codeVal,
+            tier: activeCheckoutTier,
+            region: currentPaymentRegion
+          })
+        });
+        const json = await res.json();
+        if (json && json.ok) {
+          appliedPromoCode = json.code;
+          appliedDiscountInfo = json;
+          promoFeedback.hidden = false;
+          promoFeedback.className = "chk-promo-feedback ok";
+          promoFeedback.textContent = json.message + " (" + json.discountLabel + ")";
+          renderCheckoutState();
+        } else {
+          appliedPromoCode = "";
+          appliedDiscountInfo = null;
+          promoFeedback.hidden = false;
+          promoFeedback.className = "chk-promo-feedback err";
+          promoFeedback.textContent = (json && json.message) || "Kode promo tidak valid.";
+          renderCheckoutState();
+        }
+      } catch (e) {
+        promoFeedback.hidden = false;
+        promoFeedback.className = "chk-promo-feedback err";
+        promoFeedback.textContent = "Gagal memverifikasi kode promo ke server.";
+      } finally {
+        applyPromoBtn.disabled = false;
+        applyPromoBtn.textContent = currentLang === "en" ? "Apply" : "Terapkan";
+      }
+    });
+  }
+
   if (chkCloseX) chkCloseX.addEventListener("click", closeCheckoutModal);
   if (chkBackdrop) chkBackdrop.addEventListener("click", closeCheckoutModal);
 
@@ -729,17 +749,14 @@ function initCheckoutModalAndLinks() {
     });
   });
 
-  // Hubungkan link downloadUrl, discordUrl, telegramUrl, communityUrl, supportUrl
   document.querySelectorAll("[data-config-link]").forEach((el) => {
     const key = el.getAttribute("data-config-link");
     const targetUrl = SITE_CONFIG[key];
-    if (targetUrl && targetUrl !== "COMING_SOON") {
-      if (el.tagName.toLowerCase() === "a") {
-        el.setAttribute("href", targetUrl);
-        if (targetUrl.startsWith("http")) {
-          el.setAttribute("target", "_blank");
-          el.setAttribute("rel", "noopener noreferrer");
-        }
+    if (targetUrl && targetUrl !== "COMING_SOON" && el.tagName.toLowerCase() === "a") {
+      el.setAttribute("href", targetUrl);
+      if (targetUrl.startsWith("http")) {
+        el.setAttribute("target", "_blank");
+        el.setAttribute("rel", "noopener noreferrer");
       }
     }
   });
@@ -751,7 +768,328 @@ function initCheckoutModalAndLinks() {
   });
 }
 
-/* 8. Accessible FAQ Accordion */
+function initPortalModal() {
+  const modal = document.getElementById("portalModal");
+  const backdrop = document.getElementById("portalModalBackdrop");
+  const closeBtn = document.getElementById("portalCloseXBtn");
+  const openBtn = document.getElementById("openPortalBtn");
+  const footerBtn = document.getElementById("footerPortalBtn");
+
+  const tabUser = document.getElementById("tabBtnUserLogin");
+  const tabAdmin = document.getElementById("tabBtnAdminLogin");
+  const secUser = document.getElementById("portalUserSection");
+  const secAdmin = document.getElementById("portalAdminSection");
+
+  const userForm = document.getElementById("userKeyLoginForm");
+  const userInput = document.getElementById("userSerialKeyInput");
+  const userFeedback = document.getElementById("userLoginFeedback");
+  const userDashboard = document.getElementById("userDashboardCard");
+
+  const adminForm = document.getElementById("adminLoginForm");
+  const adminInput = document.getElementById("adminPasswordInput");
+  const adminFeedback = document.getElementById("adminLoginFeedback");
+  const adminPanel = document.getElementById("adminDashboardPanel");
+
+  const savePricingBtn = document.getElementById("admSavePricingBtn");
+  const pricingFeedback = document.getElementById("admPricingFeedback");
+  const savePromoBtn = document.getElementById("admSavePromoBtn");
+
+  const openModal = () => {
+    if (modal) modal.hidden = false;
+    if (userInput) userInput.focus();
+  };
+
+  const closeModal = () => {
+    if (modal) modal.hidden = true;
+  };
+
+  if (openBtn) openBtn.addEventListener("click", openModal);
+  if (footerBtn) footerBtn.addEventListener("click", openModal);
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (backdrop) backdrop.addEventListener("click", closeModal);
+
+  if (tabUser && tabAdmin && secUser && secAdmin) {
+    tabUser.addEventListener("click", () => {
+      tabUser.classList.add("active-portal-tab");
+      tabUser.setAttribute("aria-selected", "true");
+      tabAdmin.classList.remove("active-portal-tab");
+      tabAdmin.setAttribute("aria-selected", "false");
+      secUser.hidden = false;
+      secAdmin.hidden = true;
+    });
+
+    tabAdmin.addEventListener("click", () => {
+      tabAdmin.classList.add("active-portal-tab");
+      tabAdmin.setAttribute("aria-selected", "true");
+      tabUser.classList.remove("active-portal-tab");
+      tabUser.setAttribute("aria-selected", "false");
+      secAdmin.hidden = false;
+      secUser.hidden = true;
+      if (adminInput) adminInput.focus();
+    });
+  }
+
+  // 1. User Key Login Submission
+  if (userForm && userInput && userFeedback && userDashboard) {
+    userForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const keyVal = userInput.value.trim();
+      if (!keyVal) return;
+
+      userLoginSubmitBtn.disabled = true;
+      userLoginSubmitBtn.textContent = "...";
+      userFeedback.hidden = true;
+
+      try {
+        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+          method: "POST",
+          body: JSON.stringify({ action: "web_user_login", serial_key: keyVal })
+        });
+        const json = await res.json();
+        if (json && json.ok) {
+          const lic = json.license;
+          document.getElementById("udSerialKey").textContent = lic.serialKey;
+          const statusPill = document.getElementById("udStatusPill");
+          statusPill.textContent = lic.status;
+          statusPill.style.color = lic.status === "ACTIVE" ? "#34D399" : "#F87171";
+
+          document.getElementById("udTypeAndDur").textContent = lic.type + " (" + lic.durationLabel + ")";
+          document.getElementById("udRemaining").textContent = lic.remaining;
+          document.getElementById("udExpiresAt").textContent = lic.expiresAt;
+          document.getElementById("udHwid").textContent = lic.hwid;
+
+          userDashboard.hidden = false;
+          userFeedback.hidden = false;
+          userFeedback.className = "portal-msg success-msg";
+          userFeedback.textContent = "Serial Key berhasil diverifikasi!";
+        } else {
+          userDashboard.hidden = true;
+          userFeedback.hidden = false;
+          userFeedback.className = "portal-msg error-msg";
+          userFeedback.textContent = (json && json.message) || "Serial Key tidak ditemukan.";
+        }
+      } catch (err) {
+        userFeedback.hidden = false;
+        userFeedback.className = "portal-msg error-msg";
+        userFeedback.textContent = "Gagal terhubung ke server database.";
+      } finally {
+        userLoginSubmitBtn.disabled = false;
+        userLoginSubmitBtn.textContent = currentLang === "en" ? "Check Status" : "Cek Status";
+      }
+    });
+  }
+
+  let currentAdminPassword = "";
+
+  // 2. Admin Login Submission
+  if (adminForm && adminInput && adminFeedback && adminPanel) {
+    adminForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const pass = adminInput.value.trim();
+      if (!pass) return;
+
+      adminLoginSubmitBtn.disabled = true;
+      adminLoginSubmitBtn.textContent = "...";
+      adminFeedback.hidden = true;
+
+      try {
+        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+          method: "POST",
+          body: JSON.stringify({ action: "web_admin_login", admin_password: pass })
+        });
+        const json = await res.json();
+        if (json && json.ok) {
+          currentAdminPassword = pass;
+          adminPanel.hidden = false;
+          adminForm.hidden = true;
+
+          // Isi form editor harga
+          if (json.pricing) {
+            Object.keys(json.pricing).forEach((tKey) => {
+              const p = json.pricing[tKey];
+              const dIdr = document.getElementById(`adm_${tKey}_daysIdr`);
+              const idrRaw = document.getElementById(`adm_${tKey}_idrRaw`);
+              const idrOld = document.getElementById(`adm_${tKey}_idrOldRaw`);
+              const dUsdt = document.getElementById(`adm_${tKey}_daysUsdt`);
+              const usdtRaw = document.getElementById(`adm_${tKey}_usdtRaw`);
+              const usdtOld = document.getElementById(`adm_${tKey}_usdtOldRaw`);
+
+              if (dIdr) dIdr.value = p.daysIdr || 14;
+              if (idrRaw) idrRaw.value = p.idrRaw || 0;
+              if (idrOld) idrOld.value = p.idrOldRaw || 0;
+              if (dUsdt) dUsdt.value = p.daysUsdt || 20;
+              if (usdtRaw) usdtRaw.value = p.usdtRaw || 0;
+              if (usdtOld) usdtOld.value = p.usdtOldRaw || 0;
+            });
+          }
+
+          renderAdminPromos(json.promos || []);
+        } else {
+          adminFeedback.hidden = false;
+          adminFeedback.className = "portal-msg error-msg";
+          adminFeedback.textContent = (json && json.message) || "Password Admin salah.";
+        }
+      } catch (err) {
+        adminFeedback.hidden = false;
+        adminFeedback.className = "portal-msg error-msg";
+        adminFeedback.textContent = "Gagal autentikasi admin ke server.";
+      } finally {
+        adminLoginSubmitBtn.disabled = false;
+        adminLoginSubmitBtn.textContent = "Buka Panel Admin";
+      }
+    });
+  }
+
+  // 3. Admin Save Pricing
+  if (savePricingBtn && pricingFeedback) {
+    savePricingBtn.addEventListener("click", async () => {
+      if (!currentAdminPassword) return;
+      savePricingBtn.disabled = true;
+      savePricingBtn.textContent = "Menyimpan...";
+      pricingFeedback.hidden = true;
+
+      const payload = {};
+      ["weekly", "monthly", "lifetime"].forEach((tKey) => {
+        payload[tKey] = {
+          daysIdr: Number(document.getElementById(`adm_${tKey}_daysIdr`).value) || 1,
+          idrRaw: Number(document.getElementById(`adm_${tKey}_idrRaw`).value) || 0,
+          idrOldRaw: Number(document.getElementById(`adm_${tKey}_idrOldRaw`).value) || 0,
+          daysUsdt: Number(document.getElementById(`adm_${tKey}_daysUsdt`).value) || 1,
+          usdtRaw: Number(document.getElementById(`adm_${tKey}_usdtRaw`).value) || 0,
+          usdtOldRaw: Number(document.getElementById(`adm_${tKey}_usdtOldRaw`).value) || 0
+        };
+      });
+
+      try {
+        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "web_admin_save_pricing",
+            admin_password: currentAdminPassword,
+            pricing: payload
+          })
+        });
+        const json = await res.json();
+        if (json && json.ok) {
+          pricingFeedback.hidden = false;
+          pricingFeedback.className = "portal-msg success-msg";
+          pricingFeedback.textContent = json.message;
+          fetchLiveConfigFromSheets();
+        } else {
+          pricingFeedback.hidden = false;
+          pricingFeedback.className = "portal-msg error-msg";
+          pricingFeedback.textContent = (json && json.message) || "Gagal menyimpan harga.";
+        }
+      } catch (e) {
+        pricingFeedback.hidden = false;
+        pricingFeedback.className = "portal-msg error-msg";
+        pricingFeedback.textContent = "Koneksi ke server gagal.";
+      } finally {
+        savePricingBtn.disabled = false;
+        savePricingBtn.textContent = "Simpan Perubahan Harga ke Server";
+      }
+    });
+  }
+
+  // 4. Admin Save Promo Code
+  if (savePromoBtn) {
+    savePromoBtn.addEventListener("click", async () => {
+      if (!currentAdminPassword) return;
+      const code = document.getElementById("admPromoCode").value.trim();
+      const discType = document.getElementById("admPromoType").value;
+      const discIdr = document.getElementById("admPromoIdr").value;
+      const discUsdt = document.getElementById("admPromoUsdt").value;
+      const maxUses = document.getElementById("admPromoMax").value;
+      const note = document.getElementById("admPromoNote").value;
+
+      if (!code) {
+        alert("Masukkan kode promo terlebih dahulu.");
+        return;
+      }
+
+      savePromoBtn.disabled = true;
+      savePromoBtn.textContent = "Menyimpan...";
+
+      try {
+        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+          method: "POST",
+          body: JSON.stringify({
+            action: "web_admin_save_promo",
+            admin_password: currentAdminPassword,
+            promo: { code, discountType: discType, discountIdr: discIdr, discountUsdt: discUsdt, maxUses, status: "ACTIVE", note }
+          })
+        });
+        const json = await res.json();
+        if (json && json.ok) {
+          renderAdminPromos(json.promos || []);
+          document.getElementById("admPromoCode").value = "";
+          document.getElementById("admPromoNote").value = "";
+          alert("Kode promo berhasil disimpan!");
+        } else {
+          alert((json && json.message) || "Gagal menyimpan kode promo.");
+        }
+      } catch (e) {
+        alert("Koneksi server gagal.");
+      } finally {
+        savePromoBtn.disabled = false;
+        savePromoBtn.textContent = "Tambah / Simpan Kode Promo";
+      }
+    });
+  }
+}
+
+function renderAdminPromos(promos) {
+  const tbody = document.getElementById("admPromoTableBody");
+  if (!tbody) return;
+
+  if (!promos || promos.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="5">Belum ada kode promo aktif.</td></tr>`;
+    return;
+  }
+
+  let html = "";
+  promos.forEach((p) => {
+    let valStr = p.discountType === "PERCENT" ? (p.discountIdr + "%") : ("Rp " + p.discountIdr + " / $" + p.discountUsdt);
+    html += `
+      <tr>
+        <td><strong>${p.code}</strong></td>
+        <td>${p.discountType}</td>
+        <td>${valStr}</td>
+        <td>${p.usedCount} / ${p.maxUses === 0 ? "∞" : p.maxUses}</td>
+        <td>
+          <button type="button" class="btn btn-outline btn-sm" onclick="deleteAdminPromo('${p.code}')" style="padding:2px 6px; font-size:0.7rem;">Hapus</button>
+        </td>
+      </tr>
+    `;
+  });
+  tbody.innerHTML = html;
+}
+
+window.deleteAdminPromo = async function(promoCode) {
+  const pass = prompt("Masukkan password admin untuk menghapus promo " + promoCode + ":");
+  if (!pass) return;
+
+  try {
+    const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+      method: "POST",
+      body: JSON.stringify({
+        action: "web_admin_delete_promo",
+        admin_password: pass,
+        promo_code: promoCode
+      })
+    });
+    const json = await res.json();
+    if (json && json.ok) {
+      renderAdminPromos(json.promos || []);
+      alert("Kode promo " + promoCode + " berhasil dihapus.");
+    } else {
+      alert((json && json.message) || "Password salah atau gagal menghapus.");
+    }
+  } catch (e) {
+    alert("Koneksi server gagal.");
+  }
+};
+
 function initFaqAccordion() {
   const triggers = document.querySelectorAll(".faq-trigger");
 
@@ -769,32 +1107,6 @@ function initFaqAccordion() {
   });
 }
 
-/* 9. Scroll Reveal */
-function initScrollReveal() {
-  const revealElements = document.querySelectorAll(".reveal");
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    revealElements.forEach((el) => el.classList.add("is-visible"));
-    return;
-  }
-
-  const observer = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          obs.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-  );
-
-  revealElements.forEach((el) => observer.observe(el));
-}
-
-/* 10. Active Navigation Spy & Back to Top Button */
 function initScrollSpyAndBackToTop() {
   const backToTopBtn = document.getElementById("backToTopBtn");
   const sections = document.querySelectorAll("main section[id]");
