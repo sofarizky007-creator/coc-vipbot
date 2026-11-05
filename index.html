@@ -87,7 +87,7 @@
             <span class="meta-sep">·</span>
             <span data-i18n="hero_meta_tech">Windows Desktop (.EXE) · OpenCV &amp; ADB</span>
             <span class="meta-sep">·</span>
-            <a href="#pricing" class="meta-promo-link" data-i18n="hero_promo_pill">Hammer Time Deal: Rp 30.000 (14 Hari) / $2 (20 Days)</a>
+            <a href="#pricing" class="meta-promo-link" id="heroPromoLink" data-i18n="hero_promo_pill">Hammer Time Deal: Rp 30.000 (14 Hari) / $2 (20 Days)</a>
           </div>
 
           <h1 class="hero-title" data-i18n="hero_title">
@@ -514,14 +514,14 @@
               <span class="region-code">IDR</span>
               <div class="region-txt">
                 <strong>QRIS Indonesia</strong>
-                <small>Promo Rp 30.000 = 14 Hari Penuh (7+7 Hari)</small>
+                <small id="regionSubIdr">Promo Rp 30.000 = 14 Hari Penuh (7+7 Hari)</small>
               </div>
             </button>
             <button type="button" class="region-btn" id="regionBtnUsdt" data-region="usdt">
               <span class="region-code">USDT</span>
               <div class="region-txt">
                 <strong>International (Binance QR)</strong>
-                <small>Special Deal $2 USDT = 20 Days Access</small>
+                <small id="regionSubUsdt">Special Deal $2 USDT = 20 Days Access</small>
               </div>
             </button>
           </div>
@@ -533,7 +533,7 @@
               <span class="event-tag-pill hammerjam-pill" data-i18n="promo_pill_1">HAMMER TIME SPECIAL DEAL</span>
               <span class="event-tag-pill th19-pill" data-i18n="promo_pill_2">BONUS DURASI &amp; KODE PROMO</span>
             </div>
-            <h3 class="promo-banner-title" data-i18n="promo_banner_title">
+            <h3 class="promo-banner-title" id="mainPromoBannerTitle" data-i18n="promo_banner_title">
               Indonesia: Rp 30.000 Dapat 14 Hari Penuh · International: $2 USDT Dapat 20 Days Access
             </h3>
             <p class="promo-banner-sub" data-i18n="promo_banner_sub">
@@ -597,13 +597,13 @@
           </div>
 
           <div class="pricing-card best-weekly-promo-card">
-            <div class="popular-ribbon emerald-ribbon" id="weeklyRibbon" data-i18n="tier2_ribbon">HAMMER TIME · 7+7 HARI PENUH</div>
+            <div class="popular-ribbon emerald-ribbon" id="weeklyRibbon">HAMMER TIME · 14 HARI PENUH</div>
             <div>
               <div class="pricing-header">
                 <span class="tier-name emerald-text" id="weeklyTierTitle" data-i18n="tier2_name">Hammer Time Promo</span>
                 <div class="tier-price-original">
                   <span class="old-price-strike" data-price-old="weekly">Rp 90.000</span>
-                  <span class="discount-cut-badge" id="weeklyBonusBadge" data-i18n="tier2_bonus_tag">14 HARI AKSES</span>
+                  <span class="discount-cut-badge" id="weeklyBonusBadge">14 HARI AKSES</span>
                 </div>
                 <div class="tier-price">
                   <span class="price-currency" data-price-curr="weekly">Rp</span>
@@ -647,8 +647,8 @@
             <div>
               <div class="pricing-header">
                 <div class="tier-title-row">
-                  <span class="tier-name cyan-text" data-i18n="tier3_name">Paket 1 Bulan</span>
-                  <span class="value-Savings-pill" id="monthlyPerDayPill" data-i18n="tier3_pill">~Rp 3.300 / hari</span>
+                  <span class="tier-name cyan-text" id="monthlyTierTitle" data-i18n="tier3_name">Paket 1 Bulan</span>
+                  <span class="value-Savings-pill" id="monthlyPerDayPill">~Rp 3.300 / hari</span>
                 </div>
                 <div class="tier-price-original">
                   <span class="old-price-strike" data-price-old="monthly">Rp 297.000</span>
@@ -657,7 +657,7 @@
                 <div class="tier-price">
                   <span class="price-currency" data-price-curr="monthly">Rp</span>
                   <span class="price-amount" data-price-val="monthly">99.000</span>
-                  <span class="price-period" data-price-period="monthly" data-i18n="tier3_period">/ 30 Hari</span>
+                  <span class="price-period" id="monthlyPeriodLabel" data-price-period="monthly">/ 30 Hari</span>
                 </div>
                 <p class="tier-desc" data-i18n="tier3_desc">Pilihan paling efisien untuk farming bulanan. Siapkan seluruh Wall dan Hero Anda menyambut rilisnya Town Hall 19.</p>
               </div>
@@ -696,7 +696,7 @@
             <div>
               <div class="pricing-header">
                 <div class="tier-title-row">
-                  <span class="tier-name gold-text">Life Time VIPP</span>
+                  <span class="tier-name gold-text" id="lifetimeTierTitle">Life Time VIPP</span>
                   <span class="value-Savings-pill gold-savings-pill" data-i18n="tier4_pill">Permanen</span>
                 </div>
                 <div class="tier-price-original">
@@ -706,7 +706,7 @@
                 <div class="tier-price">
                   <span class="price-currency gold-text" data-price-curr="lifetime">Rp</span>
                   <span class="price-amount gold-text" data-price-val="lifetime">499.000</span>
-                  <span class="price-period" data-i18n="tier4_period">/ Selamanya</span>
+                  <span class="price-period" id="lifetimePeriodLabel" data-i18n="tier4_period">/ Selamanya</span>
                 </div>
                 <p class="tier-desc" data-i18n="tier4_desc">Satu kali pembayaran untuk akses permanen tanpa biaya bulanan, termasuk seluruh update Town Hall 19 dan Role VIPP Discord.</p>
               </div>
@@ -992,14 +992,14 @@
 
   <div class="toast-modal" id="portalModal" role="dialog" aria-modal="true" aria-labelledby="portalModalTitle" hidden>
     <div class="toast-backdrop" id="portalModalBackdrop"></div>
-    <div class="toast-card portal-modal-card">
+    <div class="toast-card portal-modal-card" id="portalModalCard">
       <button type="button" class="modal-close-x" id="portalCloseXBtn" aria-label="Tutup jendela">&times;</button>
 
       <div class="portal-header">
         <span class="chk-badge" data-i18n="portal_badge">LICENSE &amp; ADMIN PORTAL</span>
         <h3 id="portalModalTitle" class="toast-title" data-i18n="portal_title">Portal Akses COC VIPBot</h3>
         <p class="portal-sub" data-i18n="portal_sub">
-          Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengelola harga dan kode promo.
+          Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengedit kartu harga dan kode promo.
         </p>
       </div>
 
@@ -1095,167 +1095,260 @@
         </form>
 
         <div id="adminDashboardPanel" class="admin-dashboard-panel" hidden>
-          <div class="adm-block">
-            <div class="adm-block-head">
-              <h4>1. Pengaturan Harga Promo, Harga Coret &amp; Durasi</h4>
-              <p>Perubahan yang disimpan di sini akan langsung memperbarui tampilan Website dan harga di Bot Telegram.</p>
-            </div>
-
-            <div class="adm-tier-editor-list">
-              <div class="adm-tier-box">
-                <strong class="adm-tier-title">Paket 1 (Hammer Time / Mingguan)</strong>
-                <div class="adm-input-grid">
-                  <div>
-                    <label>Durasi IDR (Hari)</label>
-                    <input type="number" id="adm_weekly_daysIdr" class="portal-input" value="14" />
-                  </div>
-                  <div>
-                    <label>Harga Promo IDR (Rp)</label>
-                    <input type="number" id="adm_weekly_idrRaw" class="portal-input" value="30000" />
-                  </div>
-                  <div>
-                    <label>Harga Coret IDR (Rp)</label>
-                    <input type="number" id="adm_weekly_idrOldRaw" class="portal-input" value="90000" />
-                  </div>
-                  <div>
-                    <label>Durasi USDT (Days)</label>
-                    <input type="number" id="adm_weekly_daysUsdt" class="portal-input" value="20" />
-                  </div>
-                  <div>
-                    <label>Harga Promo USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_weekly_usdtRaw" class="portal-input" value="2" />
-                  </div>
-                  <div>
-                    <label>Harga Coret USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_weekly_usdtOldRaw" class="portal-input" value="6" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="adm-tier-box">
-                <strong class="adm-tier-title">Paket 2 (Bulanan / 30 Hari)</strong>
-                <div class="adm-input-grid">
-                  <div>
-                    <label>Durasi IDR (Hari)</label>
-                    <input type="number" id="adm_monthly_daysIdr" class="portal-input" value="30" />
-                  </div>
-                  <div>
-                    <label>Harga Promo IDR (Rp)</label>
-                    <input type="number" id="adm_monthly_idrRaw" class="portal-input" value="99000" />
-                  </div>
-                  <div>
-                    <label>Harga Coret IDR (Rp)</label>
-                    <input type="number" id="adm_monthly_idrOldRaw" class="portal-input" value="297000" />
-                  </div>
-                  <div>
-                    <label>Durasi USDT (Days)</label>
-                    <input type="number" id="adm_monthly_daysUsdt" class="portal-input" value="30" />
-                  </div>
-                  <div>
-                    <label>Harga Promo USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_monthly_usdtRaw" class="portal-input" value="6.5" />
-                  </div>
-                  <div>
-                    <label>Harga Coret USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_monthly_usdtOldRaw" class="portal-input" value="19.5" />
-                  </div>
-                </div>
-              </div>
-
-              <div class="adm-tier-box">
-                <strong class="adm-tier-title">Paket 3 (Life Time VIPP)</strong>
-                <div class="adm-input-grid">
-                  <div>
-                    <label>Durasi IDR (Hari)</label>
-                    <input type="number" id="adm_lifetime_daysIdr" class="portal-input" value="36500" />
-                  </div>
-                  <div>
-                    <label>Harga Promo IDR (Rp)</label>
-                    <input type="number" id="adm_lifetime_idrRaw" class="portal-input" value="499000" />
-                  </div>
-                  <div>
-                    <label>Harga Coret IDR (Rp)</label>
-                    <input type="number" id="adm_lifetime_idrOldRaw" class="portal-input" value="1497000" />
-                  </div>
-                  <div>
-                    <label>Durasi USDT (Days)</label>
-                    <input type="number" id="adm_lifetime_daysUsdt" class="portal-input" value="36500" />
-                  </div>
-                  <div>
-                    <label>Harga Promo USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_lifetime_usdtRaw" class="portal-input" value="32" />
-                  </div>
-                  <div>
-                    <label>Harga Coret USDT ($)</label>
-                    <input type="number" step="0.01" id="adm_lifetime_usdtOldRaw" class="portal-input" value="96" />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <button type="button" class="btn btn-primary btn-block" id="admSavePricingBtn">
-              Simpan Perubahan Harga ke Server
+          <div class="adm-workspace-nav">
+            <button type="button" class="adm-subtab active-adm-subtab" id="admSubTabBtnCards">
+              1. Edit Kartu Harga (Visual Card)
             </button>
-            <p class="portal-msg" id="admPricingFeedback" hidden></p>
+            <button type="button" class="adm-subtab" id="admSubTabBtnPromos">
+              2. Kelola Kode Promo (Voucher)
+            </button>
           </div>
 
-          <div class="adm-block">
-            <div class="adm-block-head">
-              <h4>2. Manajemen Kode Promo (Voucher Diskon)</h4>
-              <p>Buat kode promo baru atau perbarui kode yang sudah ada untuk potongan harga saat checkout.</p>
-            </div>
-
-            <div class="adm-promo-form-grid">
-              <div>
-                <label>Kode Promo</label>
-                <input type="text" id="admPromoCode" class="portal-input mono-input" placeholder="CONTOH: TH19GO" />
+          <div id="admViewCards" class="adm-view-section">
+            <div class="adm-currency-bar">
+              <div class="adm-currency-info">
+                <strong>Pilih Mata Uang Kartu yang Ingin Diedit:</strong>
+                <span>Klik langsung angka pada kartu di bawah ini untuk mengubah Harga Coret, Harga Promo, atau Durasi Hari.</span>
               </div>
-              <div>
-                <label>Tipe Diskon</label>
-                <select id="admPromoType" class="portal-input">
-                  <option value="PERCENT">Persentase (%)</option>
-                  <option value="FIXED">Nominal Tetap (Rp / $)</option>
-                </select>
-              </div>
-              <div>
-                <label>Nilai Potongan IDR (% atau Rp)</label>
-                <input type="number" id="admPromoIdr" class="portal-input" placeholder="Misal: 10 atau 15000" value="10" />
-              </div>
-              <div>
-                <label>Nilai Potongan USDT (% atau $)</label>
-                <input type="number" step="0.1" id="admPromoUsdt" class="portal-input" placeholder="Misal: 10 atau 1" value="10" />
-              </div>
-              <div>
-                <label>Batas Kuota Pakai (0 = Bebas)</label>
-                <input type="number" id="admPromoMax" class="portal-input" value="100" />
-              </div>
-              <div>
-                <label>Catatan</label>
-                <input type="text" id="admPromoNote" class="portal-input" placeholder="Keterangan promo" />
+              <div class="adm-currency-switch">
+                <button type="button" class="adm-curr-btn active-adm-curr" id="admCurrBtnIdr" data-adm-curr="idr">
+                  Kartu Indonesia (IDR)
+                </button>
+                <button type="button" class="adm-curr-btn" id="admCurrBtnUsdt" data-adm-curr="usdt">
+                  Kartu International (USDT)
+                </button>
               </div>
             </div>
 
-            <button type="button" class="btn btn-gold btn-block" id="admSavePromoBtn">
-              Tambah / Simpan Kode Promo
-            </button>
+            <div class="adm-visual-cards-grid">
+              <div class="pricing-card best-weekly-promo-card adm-editable-card">
+                <div class="popular-ribbon emerald-ribbon">PAKET 1 · HAMMER TIME / MINGGUAN</div>
+                <div class="pricing-header">
+                  <span class="tier-name emerald-text">Hammer Time Promo</span>
 
-            <div class="adm-promo-table-wrap">
-              <table class="adm-promo-table">
-                <thead>
-                  <tr>
-                    <th>Kode</th>
-                    <th>Tipe</th>
-                    <th>Potongan</th>
-                    <th>Terpakai</th>
-                    <th>Aksi</th>
-                  </tr>
-                </thead>
-                <tbody id="admPromoTableBody">
-                  <tr>
-                    <td colspan="5">Memuat daftar kode promo...</td>
-                  </tr>
-                </tbody>
-              </table>
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_weekly_idrOldRaw">Harga Coret (Normal):</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix strike-prefix">Rp</span>
+                      <input type="number" id="adm_weekly_idrOldRaw" class="adm-card-input strike-input" value="90000" />
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix strike-prefix">$</span>
+                      <input type="number" step="0.01" id="adm_weekly_usdtOldRaw" class="adm-card-input strike-input" value="6" />
+                      <span class="adm-suffix">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_weekly_idrRaw">Harga Jual Promo:</label>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="idr">
+                      <span class="adm-prefix">Rp</span>
+                      <input type="number" id="adm_weekly_idrRaw" class="adm-card-input big-price-input" value="30000" />
+                    </div>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix">$</span>
+                      <input type="number" step="0.01" id="adm_weekly_usdtRaw" class="adm-card-input big-price-input" value="2" />
+                      <span class="adm-suffix">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_weekly_daysIdr">Durasi Aktif Lisensi:</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_weekly_daysIdr" class="adm-card-input days-input" value="14" />
+                      <span class="adm-suffix">Hari (IDR)</span>
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_weekly_daysUsdt" class="adm-card-input days-input" value="20" />
+                      <span class="adm-suffix">Days (USDT)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="tier-features adm-compact-features">
+                  <li><span>✓ All Fitur Unlock (Ranked &amp; Farming)</span></li>
+                  <li><span>✓ Super Smart Wall Upgrade</span></li>
+                  <li><span>✓ Standard Support + Role Buyer</span></li>
+                </ul>
+              </div>
+
+              <div class="pricing-card best-monthly-card adm-editable-card">
+                <div class="popular-ribbon cyan-ribbon">PAKET 2 · BULANAN (MOST POPULAR)</div>
+                <div class="pricing-header">
+                  <span class="tier-name cyan-text">Paket 1 Bulan</span>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_monthly_idrOldRaw">Harga Coret (Normal):</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix strike-prefix">Rp</span>
+                      <input type="number" id="adm_monthly_idrOldRaw" class="adm-card-input strike-input" value="297000" />
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix strike-prefix">$</span>
+                      <input type="number" step="0.01" id="adm_monthly_usdtOldRaw" class="adm-card-input strike-input" value="19.5" />
+                      <span class="adm-suffix">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_monthly_idrRaw">Harga Jual Promo:</label>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="idr">
+                      <span class="adm-prefix">Rp</span>
+                      <input type="number" id="adm_monthly_idrRaw" class="adm-card-input big-price-input" value="99000" />
+                    </div>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix">$</span>
+                      <input type="number" step="0.01" id="adm_monthly_usdtRaw" class="adm-card-input big-price-input" value="6.5" />
+                      <span class="adm-suffix">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_monthly_daysIdr">Durasi Aktif Lisensi:</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_monthly_daysIdr" class="adm-card-input days-input" value="30" />
+                      <span class="adm-suffix">Hari (IDR)</span>
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_monthly_daysUsdt" class="adm-card-input days-input" value="30" />
+                      <span class="adm-suffix">Days (USDT)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="tier-features adm-compact-features">
+                  <li><span>✓ All Fitur Unlock (Ranked &amp; Farming)</span></li>
+                  <li><span>✓ Super Smart Wall Upgrade</span></li>
+                  <li><span class="cyan-text">✓ Priority Support</span></li>
+                </ul>
+              </div>
+
+              <div class="pricing-card best-lifetime-card adm-editable-card">
+                <div class="popular-ribbon gold-ribbon">PAKET 3 · LIFE TIME VIPP</div>
+                <div class="pricing-header">
+                  <span class="tier-name gold-text">Life Time VIPP</span>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_lifetime_idrOldRaw">Harga Coret (Normal):</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix strike-prefix">Rp</span>
+                      <input type="number" id="adm_lifetime_idrOldRaw" class="adm-card-input strike-input" value="1497000" />
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix strike-prefix">$</span>
+                      <input type="number" step="0.01" id="adm_lifetime_usdtOldRaw" class="adm-card-input strike-input" value="96" />
+                      <span class="adm-suffix">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_lifetime_idrRaw">Harga Jual Promo:</label>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="idr">
+                      <span class="adm-prefix gold-text">Rp</span>
+                      <input type="number" id="adm_lifetime_idrRaw" class="adm-card-input big-price-input gold-text" value="499000" />
+                    </div>
+                    <div class="adm-price-edit-row main-price-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix gold-text">$</span>
+                      <input type="number" step="0.01" id="adm_lifetime_usdtRaw" class="adm-card-input big-price-input gold-text" value="32" />
+                      <span class="adm-suffix gold-text">USDT</span>
+                    </div>
+                  </div>
+
+                  <div class="adm-field-group">
+                    <label class="adm-micro-label" for="adm_lifetime_daysIdr">Durasi Aktif (36500 = Selamanya):</label>
+                    <div class="adm-price-edit-row" data-curr-box="idr">
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_lifetime_daysIdr" class="adm-card-input days-input" value="36500" />
+                      <span class="adm-suffix">Hari</span>
+                    </div>
+                    <div class="adm-price-edit-row" data-curr-box="usdt" hidden>
+                      <span class="adm-prefix">/</span>
+                      <input type="number" id="adm_lifetime_daysUsdt" class="adm-card-input days-input" value="36500" />
+                      <span class="adm-suffix">Days</span>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="tier-features adm-compact-features">
+                  <li><span>✓ All Fitur Unlock + Free TH 19 Updates</span></li>
+                  <li><span>✓ Super Smart Wall Upgrade</span></li>
+                  <li><span class="gold-text">✓ VIPP Support Exclusive</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="adm-save-bar">
+              <button type="button" class="btn btn-gold btn-lg btn-block" id="admSavePricingBtn">
+                Simpan &amp; Terbitkan Perubahan Kartu Harga (Update Web &amp; Bot Telegram)
+              </button>
+              <p class="portal-msg" id="admPricingFeedback" hidden></p>
+            </div>
+          </div>
+
+          <div id="admViewPromos" class="adm-view-section" hidden>
+            <div class="adm-block">
+              <div class="adm-block-head">
+                <h4>Buat atau Perbarui Kode Promo (Voucher Diskon)</h4>
+                <p>Kode voucher ini dapat dimasukkan oleh pembeli pada jendela Checkout untuk memotong harga otomatis.</p>
+              </div>
+
+              <div class="adm-promo-form-grid">
+                <div>
+                  <label for="admPromoCode">Kode Promo</label>
+                  <input type="text" id="admPromoCode" class="portal-input mono-input" placeholder="CONTOH: TH19GO" />
+                </div>
+                <div>
+                  <label for="admPromoType">Tipe Diskon</label>
+                  <select id="admPromoType" class="portal-input">
+                    <option value="PERCENT">Persentase (%)</option>
+                    <option value="FIXED">Nominal Tetap (Rp / $)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="admPromoIdr">Potongan IDR (% atau Rp)</label>
+                  <input type="number" id="admPromoIdr" class="portal-input" placeholder="Misal: 10 atau 15000" value="10" />
+                </div>
+                <div>
+                  <label for="admPromoUsdt">Potongan USDT (% atau $)</label>
+                  <input type="number" step="0.1" id="admPromoUsdt" class="portal-input" placeholder="Misal: 10 atau 1" value="10" />
+                </div>
+                <div>
+                  <label for="admPromoMax">Kuota Pakai (0 = Bebas)</label>
+                  <input type="number" id="admPromoMax" class="portal-input" value="100" />
+                </div>
+                <div>
+                  <label for="admPromoNote">Catatan Promo</label>
+                  <input type="text" id="admPromoNote" class="portal-input" placeholder="Keterangan singkat" />
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-primary btn-block" id="admSavePromoBtn">
+                Tambah / Simpan Kode Promo Ini
+              </button>
+              <p class="portal-msg" id="admPromoFeedback" hidden></p>
+
+              <div class="adm-promo-table-wrap">
+                <table class="adm-promo-table">
+                  <thead>
+                    <tr>
+                      <th>Kode</th>
+                      <th>Tipe</th>
+                      <th>Potongan</th>
+                      <th>Terpakai</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="admPromoTableBody">
+                    <tr>
+                      <td colspan="5">Memuat daftar kode promo...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

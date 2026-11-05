@@ -1,4 +1,4 @@
-/* COC VIPBot Frontend Controller & Dynamic Backend Integration */
+/* COC VIPBot Frontend Controller, Visual Card Editor & GAS Integration */
 
 const SITE_CONFIG = {
   brandName: "COC VIPBot",
@@ -12,26 +12,29 @@ const SITE_CONFIG = {
   qrisIndoImage: "assets/images/qris_indo.png",
   qrisBinanceImage: "assets/images/qris_binance.png",
 
-  // Fallback pricing jika fetch ke Google Sheets tertunda
   pricing: {
     trial: {
-      idrCurr: "Rp", idrVal: "0", idrOld: "",
-      usdtCurr: "USDT", usdtVal: "0", usdtOld: "",
+      daysIdr: 1, daysUsdt: 1,
+      idrCurr: "Rp", idrVal: "0", idrRaw: 0, idrOld: "", idrOldRaw: 0,
+      usdtCurr: "USDT", usdtVal: "0", usdtRaw: 0, usdtOld: "", usdtOldRaw: 0,
       tgCodeIdr: "TRIAL", tgCodeUsdt: "TRIAL"
     },
     weekly: {
-      idrCurr: "Rp", idrVal: "30.000", idrOld: "Rp 90.000",
-      usdtCurr: "$", usdtVal: "2 USDT", usdtOld: "$6 USDT",
+      daysIdr: 14, daysUsdt: 20,
+      idrCurr: "Rp", idrVal: "30.000", idrRaw: 30000, idrOld: "Rp 90.000", idrOldRaw: 90000,
+      usdtCurr: "$", usdtVal: "2 USDT", usdtRaw: 2, usdtOld: "$6 USDT", usdtOldRaw: 6,
       tgCodeIdr: "BUY_7_QRIS_INDO", tgCodeUsdt: "BUY_7_BINANCE"
     },
     monthly: {
-      idrCurr: "Rp", idrVal: "99.000", idrOld: "Rp 297.000",
-      usdtCurr: "$", usdtVal: "6.50 USDT", usdtOld: "$19.50 USDT",
+      daysIdr: 30, daysUsdt: 30,
+      idrCurr: "Rp", idrVal: "99.000", idrRaw: 99000, idrOld: "Rp 297.000", idrOldRaw: 297000,
+      usdtCurr: "$", usdtVal: "6.50 USDT", usdtRaw: 6.5, usdtOld: "$19.50 USDT", usdtOldRaw: 19.5,
       tgCodeIdr: "BUY_30_QRIS_INDO", tgCodeUsdt: "BUY_30_BINANCE"
     },
     lifetime: {
-      idrCurr: "Rp", idrVal: "499.000", idrOld: "Rp 1.497.000",
-      usdtCurr: "$", usdtVal: "32.00 USDT", usdtOld: "$96.00 USDT",
+      daysIdr: 36500, daysUsdt: 36500,
+      idrCurr: "Rp", idrVal: "499.000", idrRaw: 499000, idrOld: "Rp 1.497.000", idrOldRaw: 1497000,
+      usdtCurr: "$", usdtVal: "32.00 USDT", usdtRaw: 32, usdtOld: "$96.00 USDT", usdtOldRaw: 96,
       tgCodeIdr: "BUY_LIFETIME_QRIS_INDO", tgCodeUsdt: "BUY_LIFETIME_BINANCE"
     }
   },
@@ -55,7 +58,6 @@ const I18N_DICT = {
     nav_cta: "Trial 24 Jam",
     nav_portal: "Portal Key / Login",
     hero_meta_tech: "Windows Desktop (.EXE) · OpenCV & ADB",
-    hero_promo_pill: "Hammer Time Deal: Rp 30.000 (14 Hari) / $2 (20 Days)",
     hero_title: "Otomatisasi Farming, Ranked Loop, dan Upgrade Wall Clash of Clans.",
     hero_desc: "Jalankan rotasi serangan Ranked ke Farming, pemindaian deadbase, dan upgrade Wall otomatis di Home Village maupun Builder Base. Bekerja secara visual melalui ADB di LDPlayer dan MuMuPlayer dengan konfigurasi terpisah untuk setiap akun.",
     spec_1_k: "Target Resolusi",
@@ -103,8 +105,7 @@ const I18N_DICT = {
     price_sec_sub: "Seluruh paket membuka 100% fitur aplikasi tanpa batasan modul. Mendukung pembayaran via QRIS Indonesia (IDR) dan Binance Pay (USDT).",
     promo_pill_1: "HAMMER TIME SPECIAL DEAL",
     promo_pill_2: "BONUS DURASI & KODE PROMO",
-    promo_banner_title: "Indonesia: Rp 30.000 Dapat 14 Hari Penuh · International: $2 USDT Dapat 20 Days Access",
-    promo_banner_sub: "Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari untuk QRIS Indonesia) atau 20 hari penuh untuk pembayaran Binance USDT. Punya kode voucher? Masukkan saat checkout.",
+    promo_banner_sub: "Nikmati durasi ekstra pada paket mingguan atau gunakan kode voucher diskon saat checkout untuk potongan harga langsung.",
     promo_stamp_sub: "LIMITED TIME OFFER",
     promo_cut_label: "HEMAT 67%",
     tier1_name: "Trial Free",
@@ -114,13 +115,10 @@ const I18N_DICT = {
     tier1_btn: "Klaim Trial (Telegram)",
     tier1_btn_dc: "Klaim Trial via Discord",
     tier2_name: "Hammer Time Promo",
-    tier2_bonus_tag: "14 HARI AKSES",
-    tier2_desc: "Bayar 1 minggu langsung dapat bonus 1 minggu tambahan (14 hari penuh untuk IDR, atau $2 untuk 20 hari akses internasional).",
+    tier2_desc: "Paket akselerasi mingguan dengan tambahan bonus hari aktif untuk mengejar progres Wall dan event Clan Games.",
     tier2_btn: "Ambil Promo Hammer Time",
     tier3_ribbon: "BEST MONTHLY · HEMAT 67%",
     tier3_name: "Paket 1 Bulan",
-    tier3_pill: "~Rp 3.300 / hari",
-    tier3_period: "/ 30 Hari",
     tier3_desc: "Pilihan paling efisien untuk farming bulanan. Siapkan seluruh Wall dan Hero Anda menyambut rilisnya Town Hall 19.",
     tier3_btn: "Ambil Promo 1 Bulan",
     tier4_ribbon: "BEST VALUE · SEKALI BAYAR SELAMANYA",
@@ -153,7 +151,7 @@ const I18N_DICT = {
     chk_promo_btn: "Terapkan",
     portal_badge: "LICENSE & ADMIN PORTAL",
     portal_title: "Portal Akses COC VIPBot",
-    portal_sub: "Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengelola harga dan kode promo.",
+    portal_sub: "Masukkan Serial Key untuk melihat status masa aktif lisensi Anda, atau masuk ke panel Admin untuk mengedit kartu harga dan kode promo.",
     portal_tab_user: "Cek Serial Key (User)",
     portal_tab_admin: "Login Admin",
     portal_key_lbl: "Masukkan Kode Serial Key Anda:",
@@ -170,7 +168,6 @@ const I18N_DICT = {
     nav_cta: "24h Free Trial",
     nav_portal: "Portal / Login",
     hero_meta_tech: "Windows Desktop (.EXE) · OpenCV & ADB",
-    hero_promo_pill: "Hammer Time Deal: Rp 30.000 (14 Days) / $2 (20 Days)",
     hero_title: "Automated Farming, Ranked Loops, and Wall Upgrades for Clash of Clans.",
     hero_desc: "Run automated Ranked-to-Farming attack rotations, deadbase scanning, and continuous Wall upgrades across Home Village and Builder Base. Operates visually via ADB on LDPlayer and MuMuPlayer with isolated profiles per account.",
     spec_1_k: "Target Resolution",
@@ -218,8 +215,7 @@ const I18N_DICT = {
     price_sec_sub: "Every license unlocks 100% of application features with no module restrictions. Supports Indonesian QRIS (IDR) and Binance Pay (USDT).",
     promo_pill_1: "HAMMER TIME SPECIAL DEAL",
     promo_pill_2: "DURATION BONUS & PROMO CODE",
-    promo_banner_title: "Indonesia: Rp 30,000 for 14 Days · International: $2 USDT for 20 Days Access",
-    promo_banner_sub: "Pay 1 week get 1 week free (14 days for Indonesian QRIS) or 20 full days for Binance USDT payments. Have a voucher code? Enter it at checkout.",
+    promo_banner_sub: "Enjoy bonus active days on our weekly deal or enter a voucher code at checkout for an instant discount.",
     promo_stamp_sub: "LIMITED TIME OFFER",
     promo_cut_label: "SAVE 67%",
     tier1_name: "Trial Free",
@@ -229,13 +225,10 @@ const I18N_DICT = {
     tier1_btn: "Claim Trial (Telegram)",
     tier1_btn_dc: "Claim Trial on Discord",
     tier2_name: "Hammer Time Deal",
-    tier2_bonus_tag: "20 DAYS ACCESS",
-    tier2_desc: "Pay 1 week get 1 extra week free (14 days for IDR, or $2 for 20 days international full access).",
+    tier2_desc: "Accelerated weekly package with bonus active days to boost your Wall progression and Clan Games.",
     tier2_btn: "Grab Hammer Time Deal",
     tier3_ribbon: "BEST MONTHLY · SAVE 67%",
     tier3_name: "1 Month Plan",
-    tier3_pill: "~$0.21 / day",
-    tier3_period: "/ 30 Days",
     tier3_desc: "Most efficient monthly option. Prepare your Walls and Heroes for a full 30 days ahead of Town Hall 19.",
     tier3_btn: "Get 1 Month Promo",
     tier4_ribbon: "BEST VALUE · ONE-TIME PAYMENT",
@@ -268,7 +261,7 @@ const I18N_DICT = {
     chk_promo_btn: "Apply",
     portal_badge: "LICENSE & ADMIN PORTAL",
     portal_title: "COC VIPBot Access Portal",
-    portal_sub: "Enter your Serial Key to check your license status, or log in to the Admin panel to manage pricing and promo codes.",
+    portal_sub: "Enter your Serial Key to check your license status, or log in to the Admin panel to edit pricing cards and promo codes.",
     portal_tab_user: "Check Serial Key (User)",
     portal_tab_admin: "Admin Login",
     portal_key_lbl: "Enter Your Serial Key:",
@@ -281,12 +274,12 @@ let currentPaymentRegion = localStorage.getItem("coc_vipbot_region") || (current
 let activeCheckoutTier = "monthly";
 let appliedPromoCode = "";
 let appliedDiscountInfo = null;
+let currentAdminPassword = "";
 
 document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("currentYear");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  fetchLiveConfigFromSheets();
   initLanguageSwitcher();
   initPaymentRegionSwitcher();
   initHeroBotUiReplica();
@@ -296,24 +289,47 @@ document.addEventListener("DOMContentLoaded", () => {
   initPortalModal();
   initFaqAccordion();
   initScrollSpyAndBackToTop();
+  fetchLiveConfigFromSheets();
 });
+
+async function postToGas(payloadObj) {
+  const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify(payloadObj)
+  });
+  return await res.json();
+}
+
+function applyRemotePricingToState(remotePricing) {
+  if (!remotePricing) return;
+  Object.keys(remotePricing).forEach((tKey) => {
+    if (SITE_CONFIG.pricing[tKey]) {
+      const rem = remotePricing[tKey];
+      SITE_CONFIG.pricing[tKey].daysIdr = Number(rem.daysIdr) || SITE_CONFIG.pricing[tKey].daysIdr;
+      SITE_CONFIG.pricing[tKey].daysUsdt = Number(rem.daysUsdt) || SITE_CONFIG.pricing[tKey].daysUsdt;
+      SITE_CONFIG.pricing[tKey].idrVal = rem.idrVal;
+      SITE_CONFIG.pricing[tKey].idrRaw = Number(rem.idrRaw) || 0;
+      SITE_CONFIG.pricing[tKey].idrOld = rem.idrOld || "";
+      SITE_CONFIG.pricing[tKey].idrOldRaw = Number(rem.idrOldRaw) || 0;
+      SITE_CONFIG.pricing[tKey].usdtVal = rem.usdtVal;
+      SITE_CONFIG.pricing[tKey].usdtRaw = Number(rem.usdtRaw) || 0;
+      SITE_CONFIG.pricing[tKey].usdtOld = rem.usdtOld || "";
+      SITE_CONFIG.pricing[tKey].usdtOldRaw = Number(rem.usdtOldRaw) || 0;
+    }
+  });
+  updatePricingDisplay();
+}
 
 async function fetchLiveConfigFromSheets() {
   if (!SITE_CONFIG.gasWebAppUrl || SITE_CONFIG.gasWebAppUrl.trim() === "") return;
   try {
-    const res = await fetch(`${SITE_CONFIG.gasWebAppUrl}?action=web_public_config`, { method: "GET" });
+    const res = await fetch(`${SITE_CONFIG.gasWebAppUrl}?action=web_public_config&t=${Date.now()}`, {
+      method: "GET"
+    });
     const data = await res.json();
     if (data && data.ok && data.pricing) {
-      Object.keys(data.pricing).forEach((tKey) => {
-        if (SITE_CONFIG.pricing[tKey]) {
-          const remote = data.pricing[tKey];
-          SITE_CONFIG.pricing[tKey].idrVal = remote.idrVal;
-          SITE_CONFIG.pricing[tKey].idrOld = remote.idrOld;
-          SITE_CONFIG.pricing[tKey].usdtVal = remote.usdtVal;
-          SITE_CONFIG.pricing[tKey].usdtOld = remote.usdtOld;
-        }
-      });
-      updatePricingDisplay();
+      applyRemotePricingToState(data.pricing);
     }
   } catch (e) {}
 }
@@ -338,19 +354,6 @@ function initLanguageSwitcher() {
       const code = ind.getAttribute("data-lang-ind");
       ind.classList.toggle("active-lang", code === currentLang);
     });
-
-    const weeklyTitle = document.getElementById("weeklyTierTitle");
-    const weeklyRibbon = document.getElementById("weeklyRibbon");
-    const weeklyPeriod = document.getElementById("weeklyPeriodLabel");
-    if (currentLang === "en") {
-      if (weeklyTitle) weeklyTitle.textContent = "Hammer Time Deal";
-      if (weeklyRibbon) weeklyRibbon.textContent = "HAMMER TIME · 20 DAYS ACCESS";
-      if (weeklyPeriod) weeklyPeriod.textContent = "/ 20 Days";
-    } else {
-      if (weeklyTitle) weeklyTitle.textContent = "Hammer Time Promo";
-      if (weeklyRibbon) weeklyRibbon.textContent = "HAMMER TIME · 7+7 HARI PENUH";
-      if (weeklyPeriod) weeklyPeriod.textContent = "/ 14 Hari";
-    }
 
     updatePricingDisplay();
   };
@@ -392,9 +395,9 @@ function initPaymentRegionSwitcher() {
 
 function updatePricingDisplay() {
   const isUsdt = currentPaymentRegion === "usdt";
+  const isEn = currentLang === "en";
   const btnIdr = document.getElementById("regionBtnIdr");
   const btnUsdt = document.getElementById("regionBtnUsdt");
-  const monthlyPill = document.getElementById("monthlyPerDayPill");
 
   if (btnIdr) btnIdr.classList.toggle("active-region", !isUsdt);
   if (btnUsdt) btnUsdt.classList.toggle("active-region", isUsdt);
@@ -404,15 +407,70 @@ function updatePricingDisplay() {
     const currEl = document.querySelector(`[data-price-curr="${tierKey}"]`);
     const valEl = document.querySelector(`[data-price-val="${tierKey}"]`);
     const oldEl = document.querySelector(`[data-price-old="${tierKey}"]`);
+    const periodEl = document.querySelector(`[data-price-period="${tierKey}"]`);
+
     if (currEl) currEl.textContent = isUsdt ? cfg.usdtCurr : cfg.idrCurr;
     if (valEl) valEl.textContent = isUsdt ? cfg.usdtVal : cfg.idrVal;
-    if (oldEl) oldEl.textContent = isUsdt ? cfg.usdtOld : cfg.idrOld;
+    if (oldEl) {
+      const oldTxt = isUsdt ? cfg.usdtOld : cfg.idrOld;
+      oldEl.textContent = oldTxt;
+      oldEl.hidden = !oldTxt || oldTxt.trim() === "";
+    }
+    if (periodEl && tierKey !== "lifetime" && tierKey !== "trial") {
+      const activeDays = isUsdt ? cfg.daysUsdt : cfg.daysIdr;
+      periodEl.textContent = `/ ${activeDays} ${isEn || isUsdt ? "Days" : "Hari"}`;
+    }
   });
 
+  const wCfg = SITE_CONFIG.pricing.weekly;
+  const mCfg = SITE_CONFIG.pricing.monthly;
+  const activeWeeklyDays = isUsdt ? wCfg.daysUsdt : wCfg.daysIdr;
+
+  const weeklyRibbon = document.getElementById("weeklyRibbon");
+  const weeklyBonusBadge = document.getElementById("weeklyBonusBadge");
+  if (weeklyRibbon) {
+    weeklyRibbon.textContent = isEn || isUsdt
+      ? `HAMMER TIME · ${activeWeeklyDays} DAYS ACCESS`
+      : `HAMMER TIME · ${activeWeeklyDays} HARI PENUH`;
+  }
+  if (weeklyBonusBadge) {
+    weeklyBonusBadge.textContent = isEn || isUsdt
+      ? `${activeWeeklyDays} DAYS ACCESS`
+      : `${activeWeeklyDays} HARI AKSES`;
+  }
+
+  const regionSubIdr = document.getElementById("regionSubIdr");
+  const regionSubUsdt = document.getElementById("regionSubUsdt");
+  if (regionSubIdr) {
+    regionSubIdr.textContent = `Promo Rp ${wCfg.idrVal} = ${wCfg.daysIdr} Hari Penuh`;
+  }
+  if (regionSubUsdt) {
+    regionSubUsdt.textContent = `Special Deal $${wCfg.usdtVal} = ${wCfg.daysUsdt} Days Access`;
+  }
+
+  const mainBannerTitle = document.getElementById("mainPromoBannerTitle");
+  if (mainBannerTitle) {
+    mainBannerTitle.textContent = isEn
+      ? `Indonesia: Rp ${wCfg.idrVal} for ${wCfg.daysIdr} Days · International: $${wCfg.usdtVal} for ${wCfg.daysUsdt} Days Access`
+      : `Indonesia: Rp ${wCfg.idrVal} Dapat ${wCfg.daysIdr} Hari Penuh · International: $${wCfg.usdtVal} Dapat ${wCfg.daysUsdt} Days Access`;
+  }
+
+  const heroPromoLink = document.getElementById("heroPromoLink");
+  if (heroPromoLink) {
+    heroPromoLink.textContent = `Hammer Time Deal: Rp ${wCfg.idrVal} (${wCfg.daysIdr} Hari) / $${wCfg.usdtVal} (${wCfg.daysUsdt} Days)`;
+  }
+
+  const monthlyPill = document.getElementById("monthlyPerDayPill");
   if (monthlyPill) {
-    monthlyPill.textContent = isUsdt
-      ? (currentLang === "en" ? "~$0.21 / day" : "~$0.21 / hari")
-      : (currentLang === "en" ? "~Rp 3,300 / day" : "~Rp 3.300 / hari");
+    if (isUsdt) {
+      const perDayUsdt = (mCfg.usdtRaw / Math.max(1, mCfg.daysUsdt)).toFixed(2);
+      monthlyPill.textContent = isEn ? `~$${perDayUsdt} / day` : `~$${perDayUsdt} / hari`;
+    } else {
+      const perDayIdr = Math.round(mCfg.idrRaw / Math.max(1, mCfg.daysIdr))
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      monthlyPill.textContent = isEn ? `~Rp ${perDayIdr} / day` : `~Rp ${perDayIdr} / hari`;
+    }
   }
 }
 
@@ -568,19 +626,22 @@ function initCheckoutModalAndLinks() {
   const applyPromoBtn = document.getElementById("chkApplyPromoBtn");
   const promoFeedback = document.getElementById("chkPromoFeedback");
 
-  const tierTitles = {
-    id: {
-      trial: "Trial Gratis 1 Hari (All Fitur Unlock)",
-      weekly: "Hammer Time Promo (14 Hari / 7+7)",
-      monthly: "Paket 1 Bulan (Promo Hammer Jam)",
-      lifetime: "Paket Life Time VIPP (Spesial TH 19)"
-    },
-    en: {
-      trial: "1-Day Free Trial (All Features Unlocked)",
-      weekly: "Hammer Time Deal (20 Days Access)",
-      monthly: "1 Month Plan (Hammer Jam Promo)",
-      lifetime: "Life Time VIPP (TH 19 Special)"
+  const getTierTitle = (tierKey) => {
+    const isEn = currentLang === "en";
+    const isUsdt = currentPaymentRegion === "usdt";
+    const cfg = SITE_CONFIG.pricing[tierKey] || SITE_CONFIG.pricing.monthly;
+    const d = isUsdt ? cfg.daysUsdt : cfg.daysIdr;
+
+    if (tierKey === "trial") {
+      return isEn ? "1-Day Free Trial (All Features Unlocked)" : "Trial Gratis 1 Hari (All Fitur Unlock)";
     }
+    if (tierKey === "weekly") {
+      return isEn ? `Hammer Time Deal (${d} Days Access)` : `Hammer Time Promo (${d} Hari Penuh)`;
+    }
+    if (tierKey === "monthly") {
+      return isEn ? `1 Month Plan (${d} Days)` : `Paket 1 Bulan (${d} Hari)`;
+    }
+    return isEn ? "Life Time VIPP (Permanent)" : "Paket Life Time VIPP (Selamanya)";
   };
 
   const renderCheckoutState = () => {
@@ -595,7 +656,7 @@ function initCheckoutModalAndLinks() {
     }
 
     if (chkTitle) {
-      chkTitle.textContent = (tierTitles[currentLang] || tierTitles.id)[activeCheckoutTier];
+      chkTitle.textContent = getTierTitle(activeCheckoutTier);
     }
 
     if (chkOldPrice) {
@@ -610,9 +671,11 @@ function initCheckoutModalAndLinks() {
 
     if (chkPrice) {
       if (appliedDiscountInfo && activeCheckoutTier !== "trial") {
-        chkPrice.textContent = isUsdt ? appliedDiscountInfo.finalUsdtFormatted : ("Rp " + appliedDiscountInfo.finalIdrFormatted);
+        chkPrice.textContent = isUsdt
+          ? `$${appliedDiscountInfo.finalUsdtFormatted}`
+          : `Rp ${appliedDiscountInfo.finalIdrFormatted}`;
       } else {
-        chkPrice.textContent = isUsdt ? `${cfg.usdtCurr} ${cfg.usdtVal}` : `${cfg.idrCurr} ${cfg.idrVal}`;
+        chkPrice.textContent = isUsdt ? `${cfg.usdtCurr}${cfg.usdtVal}` : `${cfg.idrCurr} ${cfg.idrVal}`;
       }
     }
 
@@ -633,12 +696,15 @@ function initCheckoutModalAndLinks() {
       }
     }
 
-    let tierCodeMap = { weekly: "7", monthly: "30", lifetime: "LIFETIME" };
-    let codeStr = tierCodeMap[activeCheckoutTier] || "30";
-    let payStr = isUsdt ? "BINANCE" : "QRIS_INDO";
-    let promoSuffix = appliedPromoCode ? ("_PROMO_" + appliedPromoCode) : "";
+    let tgUrl = `https://t.me/${SITE_CONFIG.telegramBotUsername}?start=TRIAL`;
+    if (activeCheckoutTier !== "trial") {
+      const tierCodeMap = { weekly: "7", monthly: "30", lifetime: "LIFETIME" };
+      const codeStr = tierCodeMap[activeCheckoutTier] || "30";
+      const payStr = isUsdt ? "BINANCE" : "QRIS_INDO";
+      const promoSuffix = appliedPromoCode ? `_PROMO_${appliedPromoCode}` : "";
+      tgUrl = `https://t.me/${SITE_CONFIG.telegramBotUsername}?start=BUY_${codeStr}_${payStr}${promoSuffix}`;
+    }
 
-    const tgUrl = `https://t.me/${SITE_CONFIG.telegramBotUsername}?start=BUY_${codeStr}_${payStr}${promoSuffix}`;
     if (tgActionBtn) {
       tgActionBtn.href = tgUrl;
     }
@@ -698,26 +764,27 @@ function initCheckoutModalAndLinks() {
   if (applyPromoBtn && promoInput && promoFeedback) {
     applyPromoBtn.addEventListener("click", async () => {
       const codeVal = promoInput.value.trim();
-      if (!codeVal) return;
+      if (!codeVal) {
+        promoFeedback.hidden = false;
+        promoFeedback.className = "chk-promo-feedback err";
+        promoFeedback.textContent = currentLang === "en" ? "Enter a voucher code first." : "Ketik kode voucher terlebih dahulu.";
+        return;
+      }
       applyPromoBtn.disabled = true;
       applyPromoBtn.textContent = "...";
       try {
-        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "web_check_promo",
-            promo_code: codeVal,
-            tier: activeCheckoutTier,
-            region: currentPaymentRegion
-          })
+        const json = await postToGas({
+          action: "web_check_promo",
+          promo_code: codeVal,
+          tier: activeCheckoutTier,
+          region: currentPaymentRegion
         });
-        const json = await res.json();
         if (json && json.ok) {
           appliedPromoCode = json.code;
           appliedDiscountInfo = json;
           promoFeedback.hidden = false;
           promoFeedback.className = "chk-promo-feedback ok";
-          promoFeedback.textContent = json.message + " (" + json.discountLabel + ")";
+          promoFeedback.textContent = `${json.message} (${json.discountLabel})`;
           renderCheckoutState();
         } else {
           appliedPromoCode = "";
@@ -770,6 +837,7 @@ function initCheckoutModalAndLinks() {
 
 function initPortalModal() {
   const modal = document.getElementById("portalModal");
+  const modalCard = document.getElementById("portalModalCard");
   const backdrop = document.getElementById("portalModalBackdrop");
   const closeBtn = document.getElementById("portalCloseXBtn");
   const openBtn = document.getElementById("openPortalBtn");
@@ -782,21 +850,32 @@ function initPortalModal() {
 
   const userForm = document.getElementById("userKeyLoginForm");
   const userInput = document.getElementById("userSerialKeyInput");
+  const userSubmitBtn = document.getElementById("userLoginSubmitBtn");
   const userFeedback = document.getElementById("userLoginFeedback");
   const userDashboard = document.getElementById("userDashboardCard");
 
   const adminForm = document.getElementById("adminLoginForm");
   const adminInput = document.getElementById("adminPasswordInput");
+  const adminSubmitBtn = document.getElementById("adminLoginSubmitBtn");
   const adminFeedback = document.getElementById("adminLoginFeedback");
   const adminPanel = document.getElementById("adminDashboardPanel");
+
+  const subTabCards = document.getElementById("admSubTabBtnCards");
+  const subTabPromos = document.getElementById("admSubTabBtnPromos");
+  const viewCards = document.getElementById("admViewCards");
+  const viewPromos = document.getElementById("admViewPromos");
+
+  const currBtnIdr = document.getElementById("admCurrBtnIdr");
+  const currBtnUsdt = document.getElementById("admCurrBtnUsdt");
 
   const savePricingBtn = document.getElementById("admSavePricingBtn");
   const pricingFeedback = document.getElementById("admPricingFeedback");
   const savePromoBtn = document.getElementById("admSavePromoBtn");
+  const promoFeedback = document.getElementById("admPromoFeedback");
 
   const openModal = () => {
     if (modal) modal.hidden = false;
-    if (userInput) userInput.focus();
+    if (userInput && !secUser.hidden) userInput.focus();
   };
 
   const closeModal = () => {
@@ -816,6 +895,7 @@ function initPortalModal() {
       tabAdmin.setAttribute("aria-selected", "false");
       secUser.hidden = false;
       secAdmin.hidden = true;
+      if (modalCard) modalCard.classList.remove("admin-expanded");
     });
 
     tabAdmin.addEventListener("click", () => {
@@ -825,27 +905,66 @@ function initPortalModal() {
       tabUser.setAttribute("aria-selected", "false");
       secAdmin.hidden = false;
       secUser.hidden = true;
-      if (adminInput) adminInput.focus();
+      if (adminPanel && !adminPanel.hidden && modalCard) {
+        modalCard.classList.add("admin-expanded");
+      }
+      if (adminInput && !adminForm.hidden) adminInput.focus();
     });
   }
 
-  // 1. User Key Login Submission
+  // Sub-Tab Switcher di dalam Panel Admin (Tab 1: Kartu Harga vs Tab 2: Kode Promo)
+  if (subTabCards && subTabPromos && viewCards && viewPromos) {
+    subTabCards.addEventListener("click", () => {
+      subTabCards.classList.add("active-adm-subtab");
+      subTabPromos.classList.remove("active-adm-subtab");
+      viewCards.hidden = false;
+      viewPromos.hidden = true;
+    });
+
+    subTabPromos.addEventListener("click", () => {
+      subTabPromos.classList.add("active-adm-subtab");
+      subTabCards.classList.remove("active-adm-subtab");
+      viewPromos.hidden = false;
+      viewCards.hidden = true;
+    });
+  }
+
+  // Saklar Mata Uang (IDR vs USDT) pada Kartu Visual Admin
+  const switchAdminCardCurrency = (curr) => {
+    const isUsdt = curr === "usdt";
+    if (currBtnIdr) currBtnIdr.classList.toggle("active-adm-curr", !isUsdt);
+    if (currBtnUsdt) currBtnUsdt.classList.toggle("active-adm-curr", isUsdt);
+
+    document.querySelectorAll('[data-curr-box="idr"]').forEach((el) => {
+      el.hidden = isUsdt;
+    });
+    document.querySelectorAll('[data-curr-box="usdt"]').forEach((el) => {
+      el.hidden = !isUsdt;
+    });
+  };
+
+  if (currBtnIdr) {
+    currBtnIdr.addEventListener("click", () => switchAdminCardCurrency("idr"));
+  }
+  if (currBtnUsdt) {
+    currBtnUsdt.addEventListener("click", () => switchAdminCardCurrency("usdt"));
+  }
+
+  // 1. User Serial Key Login
   if (userForm && userInput && userFeedback && userDashboard) {
     userForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const keyVal = userInput.value.trim();
       if (!keyVal) return;
 
-      userLoginSubmitBtn.disabled = true;
-      userLoginSubmitBtn.textContent = "...";
+      if (userSubmitBtn) {
+        userSubmitBtn.disabled = true;
+        userSubmitBtn.textContent = "...";
+      }
       userFeedback.hidden = true;
 
       try {
-        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-          method: "POST",
-          body: JSON.stringify({ action: "web_user_login", serial_key: keyVal })
-        });
-        const json = await res.json();
+        const json = await postToGas({ action: "web_user_login", serial_key: keyVal });
         if (json && json.ok) {
           const lic = json.license;
           document.getElementById("udSerialKey").textContent = lic.serialKey;
@@ -853,7 +972,7 @@ function initPortalModal() {
           statusPill.textContent = lic.status;
           statusPill.style.color = lic.status === "ACTIVE" ? "#34D399" : "#F87171";
 
-          document.getElementById("udTypeAndDur").textContent = lic.type + " (" + lic.durationLabel + ")";
+          document.getElementById("udTypeAndDur").textContent = `${lic.type} (${lic.durationLabel})`;
           document.getElementById("udRemaining").textContent = lic.remaining;
           document.getElementById("udExpiresAt").textContent = lic.expiresAt;
           document.getElementById("udHwid").textContent = lic.hwid;
@@ -861,7 +980,7 @@ function initPortalModal() {
           userDashboard.hidden = false;
           userFeedback.hidden = false;
           userFeedback.className = "portal-msg success-msg";
-          userFeedback.textContent = "Serial Key berhasil diverifikasi!";
+          userFeedback.textContent = "Serial Key berhasil diverifikasi.";
         } else {
           userDashboard.hidden = true;
           userFeedback.hidden = false;
@@ -873,56 +992,58 @@ function initPortalModal() {
         userFeedback.className = "portal-msg error-msg";
         userFeedback.textContent = "Gagal terhubung ke server database.";
       } finally {
-        userLoginSubmitBtn.disabled = false;
-        userLoginSubmitBtn.textContent = currentLang === "en" ? "Check Status" : "Cek Status";
+        if (userSubmitBtn) {
+          userSubmitBtn.disabled = false;
+          userSubmitBtn.textContent = currentLang === "en" ? "Check Status" : "Cek Status";
+        }
       }
     });
   }
 
-  let currentAdminPassword = "";
+  const populateAdminCardInputs = (pricingObj) => {
+    if (!pricingObj) return;
+    ["weekly", "monthly", "lifetime"].forEach((tKey) => {
+      const p = pricingObj[tKey];
+      if (!p) return;
+      const dIdr = document.getElementById(`adm_${tKey}_daysIdr`);
+      const idrRaw = document.getElementById(`adm_${tKey}_idrRaw`);
+      const idrOld = document.getElementById(`adm_${tKey}_idrOldRaw`);
+      const dUsdt = document.getElementById(`adm_${tKey}_daysUsdt`);
+      const usdtRaw = document.getElementById(`adm_${tKey}_usdtRaw`);
+      const usdtOld = document.getElementById(`adm_${tKey}_usdtOldRaw`);
 
-  // 2. Admin Login Submission
+      if (dIdr) dIdr.value = p.daysIdr !== undefined ? p.daysIdr : 14;
+      if (idrRaw) idrRaw.value = p.idrRaw !== undefined ? p.idrRaw : 0;
+      if (idrOld) idrOld.value = p.idrOldRaw !== undefined ? p.idrOldRaw : 0;
+      if (dUsdt) dUsdt.value = p.daysUsdt !== undefined ? p.daysUsdt : 20;
+      if (usdtRaw) usdtRaw.value = p.usdtRaw !== undefined ? p.usdtRaw : 0;
+      if (usdtOld) usdtOld.value = p.usdtOldRaw !== undefined ? p.usdtOldRaw : 0;
+    });
+  };
+
+  // 2. Admin Login
   if (adminForm && adminInput && adminFeedback && adminPanel) {
     adminForm.addEventListener("submit", async (e) => {
       e.preventDefault();
       const pass = adminInput.value.trim();
       if (!pass) return;
 
-      adminLoginSubmitBtn.disabled = true;
-      adminLoginSubmitBtn.textContent = "...";
+      if (adminSubmitBtn) {
+        adminSubmitBtn.disabled = true;
+        adminSubmitBtn.textContent = "Memverifikasi...";
+      }
       adminFeedback.hidden = true;
 
       try {
-        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-          method: "POST",
-          body: JSON.stringify({ action: "web_admin_login", admin_password: pass })
-        });
-        const json = await res.json();
+        const json = await postToGas({ action: "web_admin_login", admin_password: pass });
         if (json && json.ok) {
           currentAdminPassword = pass;
           adminPanel.hidden = false;
           adminForm.hidden = true;
+          if (modalCard) modalCard.classList.add("admin-expanded");
 
-          // Isi form editor harga
-          if (json.pricing) {
-            Object.keys(json.pricing).forEach((tKey) => {
-              const p = json.pricing[tKey];
-              const dIdr = document.getElementById(`adm_${tKey}_daysIdr`);
-              const idrRaw = document.getElementById(`adm_${tKey}_idrRaw`);
-              const idrOld = document.getElementById(`adm_${tKey}_idrOldRaw`);
-              const dUsdt = document.getElementById(`adm_${tKey}_daysUsdt`);
-              const usdtRaw = document.getElementById(`adm_${tKey}_usdtRaw`);
-              const usdtOld = document.getElementById(`adm_${tKey}_usdtOldRaw`);
-
-              if (dIdr) dIdr.value = p.daysIdr || 14;
-              if (idrRaw) idrRaw.value = p.idrRaw || 0;
-              if (idrOld) idrOld.value = p.idrOldRaw || 0;
-              if (dUsdt) dUsdt.value = p.daysUsdt || 20;
-              if (usdtRaw) usdtRaw.value = p.usdtRaw || 0;
-              if (usdtOld) usdtOld.value = p.usdtOldRaw || 0;
-            });
-          }
-
+          populateAdminCardInputs(json.pricing);
+          applyRemotePricingToState(json.pricing);
           renderAdminPromos(json.promos || []);
         } else {
           adminFeedback.hidden = false;
@@ -932,20 +1053,22 @@ function initPortalModal() {
       } catch (err) {
         adminFeedback.hidden = false;
         adminFeedback.className = "portal-msg error-msg";
-        adminFeedback.textContent = "Gagal autentikasi admin ke server.";
+        adminFeedback.textContent = "Gagal menghubungkan ke Google Apps Script.";
       } finally {
-        adminLoginSubmitBtn.disabled = false;
-        adminLoginSubmitBtn.textContent = "Buka Panel Admin";
+        if (adminSubmitBtn) {
+          adminSubmitBtn.disabled = false;
+          adminSubmitBtn.textContent = "Buka Panel Admin";
+        }
       }
     });
   }
 
-  // 3. Admin Save Pricing
+  // 3. Admin Save Pricing Cards (Berdiri Sendiri, Tidak Perlu Input Kode Promo)
   if (savePricingBtn && pricingFeedback) {
     savePricingBtn.addEventListener("click", async () => {
       if (!currentAdminPassword) return;
       savePricingBtn.disabled = true;
-      savePricingBtn.textContent = "Menyimpan...";
+      savePricingBtn.textContent = "Menyimpan Perubahan ke Server...";
       pricingFeedback.hidden = true;
 
       const payload = {};
@@ -961,38 +1084,39 @@ function initPortalModal() {
       });
 
       try {
-        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "web_admin_save_pricing",
-            admin_password: currentAdminPassword,
-            pricing: payload
-          })
+        const json = await postToGas({
+          action: "web_admin_save_pricing",
+          admin_password: currentAdminPassword,
+          pricing: payload
         });
-        const json = await res.json();
         if (json && json.ok) {
           pricingFeedback.hidden = false;
           pricingFeedback.className = "portal-msg success-msg";
-          pricingFeedback.textContent = json.message;
-          fetchLiveConfigFromSheets();
+          pricingFeedback.textContent = json.message || "Harga berhasil diperbarui di Website & Bot Telegram!";
+          if (json.pricing) {
+            applyRemotePricingToState(json.pricing);
+            populateAdminCardInputs(json.pricing);
+          } else {
+            fetchLiveConfigFromSheets();
+          }
         } else {
           pricingFeedback.hidden = false;
           pricingFeedback.className = "portal-msg error-msg";
-          pricingFeedback.textContent = (json && json.message) || "Gagal menyimpan harga.";
+          pricingFeedback.textContent = (json && json.message) || "Gagal menyimpan perubahan harga.";
         }
       } catch (e) {
         pricingFeedback.hidden = false;
         pricingFeedback.className = "portal-msg error-msg";
-        pricingFeedback.textContent = "Koneksi ke server gagal.";
+        pricingFeedback.textContent = "Gagal mengirim data ke server Google Sheets.";
       } finally {
         savePricingBtn.disabled = false;
-        savePricingBtn.textContent = "Simpan Perubahan Harga ke Server";
+        savePricingBtn.textContent = "Simpan & Terbitkan Perubahan Kartu Harga (Update Web & Bot Telegram)";
       }
     });
   }
 
-  // 4. Admin Save Promo Code
-  if (savePromoBtn) {
+  // 4. Admin Save Promo Code (Berada di Tab 2 Khusus Promo)
+  if (savePromoBtn && promoFeedback) {
     savePromoBtn.addEventListener("click", async () => {
       if (!currentAdminPassword) return;
       const code = document.getElementById("admPromoCode").value.trim();
@@ -1003,39 +1127,58 @@ function initPortalModal() {
       const note = document.getElementById("admPromoNote").value;
 
       if (!code) {
-        alert("Masukkan kode promo terlebih dahulu.");
+        promoFeedback.hidden = false;
+        promoFeedback.className = "portal-msg error-msg";
+        promoFeedback.textContent = "Ketik nama Kode Promo terlebih dahulu (contoh: TH19GO).";
         return;
       }
 
       savePromoBtn.disabled = true;
-      savePromoBtn.textContent = "Menyimpan...";
+      savePromoBtn.textContent = "Menyimpan Kode Promo...";
+      promoFeedback.hidden = true;
 
       try {
-        const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-          method: "POST",
-          body: JSON.stringify({
-            action: "web_admin_save_promo",
-            admin_password: currentAdminPassword,
-            promo: { code, discountType: discType, discountIdr: discIdr, discountUsdt: discUsdt, maxUses, status: "ACTIVE", note }
-          })
+        const json = await postToGas({
+          action: "web_admin_save_promo",
+          admin_password: currentAdminPassword,
+          promo: {
+            code: code,
+            discountType: discType,
+            discountIdr: discIdr,
+            discountUsdt: discUsdt,
+            maxUses: maxUses,
+            status: "ACTIVE",
+            note: note
+          }
         });
-        const json = await res.json();
         if (json && json.ok) {
           renderAdminPromos(json.promos || []);
           document.getElementById("admPromoCode").value = "";
           document.getElementById("admPromoNote").value = "";
-          alert("Kode promo berhasil disimpan!");
+          promoFeedback.hidden = false;
+          promoFeedback.className = "portal-msg success-msg";
+          promoFeedback.textContent = `Kode promo ${code.toUpperCase()} berhasil disimpan!`;
         } else {
-          alert((json && json.message) || "Gagal menyimpan kode promo.");
+          promoFeedback.hidden = false;
+          promoFeedback.className = "portal-msg error-msg";
+          promoFeedback.textContent = (json && json.message) || "Gagal menyimpan kode promo.";
         }
       } catch (e) {
-        alert("Koneksi server gagal.");
+        promoFeedback.hidden = false;
+        promoFeedback.className = "portal-msg error-msg";
+        promoFeedback.textContent = "Koneksi ke server gagal.";
       } finally {
         savePromoBtn.disabled = false;
-        savePromoBtn.textContent = "Tambah / Simpan Kode Promo";
+        savePromoBtn.textContent = "Tambah / Simpan Kode Promo Ini";
       }
     });
   }
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal && !modal.hidden) {
+      closeModal();
+    }
+  });
 }
 
 function renderAdminPromos(promos) {
@@ -1049,46 +1192,46 @@ function renderAdminPromos(promos) {
 
   let html = "";
   promos.forEach((p) => {
-    let valStr = p.discountType === "PERCENT" ? (p.discountIdr + "%") : ("Rp " + p.discountIdr + " / $" + p.discountUsdt);
+    const valStr = p.discountType === "PERCENT"
+      ? `${p.discountIdr}%`
+      : `Rp ${p.discountIdr} / $${p.discountUsdt}`;
+    const quotaStr = `${p.usedCount} / ${p.maxUses === 0 ? "∞" : p.maxUses}`;
     html += `
       <tr>
         <td><strong>${p.code}</strong></td>
         <td>${p.discountType}</td>
         <td>${valStr}</td>
-        <td>${p.usedCount} / ${p.maxUses === 0 ? "∞" : p.maxUses}</td>
+        <td>${quotaStr}</td>
         <td>
-          <button type="button" class="btn btn-outline btn-sm" onclick="deleteAdminPromo('${p.code}')" style="padding:2px 6px; font-size:0.7rem;">Hapus</button>
+          <button type="button" class="btn btn-outline btn-sm" data-del-promo="${p.code}">Hapus</button>
         </td>
       </tr>
     `;
   });
   tbody.innerHTML = html;
-}
 
-window.deleteAdminPromo = async function(promoCode) {
-  const pass = prompt("Masukkan password admin untuk menghapus promo " + promoCode + ":");
-  if (!pass) return;
-
-  try {
-    const res = await fetch(SITE_CONFIG.gasWebAppUrl, {
-      method: "POST",
-      body: JSON.stringify({
-        action: "web_admin_delete_promo",
-        admin_password: pass,
-        promo_code: promoCode
-      })
+  tbody.querySelectorAll("[data-del-promo]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const codeToDel = btn.getAttribute("data-del-promo");
+      if (!codeToDel || !currentAdminPassword) return;
+      btn.disabled = true;
+      btn.textContent = "...";
+      try {
+        const json = await postToGas({
+          action: "web_admin_delete_promo",
+          admin_password: currentAdminPassword,
+          promo_code: codeToDel
+        });
+        if (json && json.ok) {
+          renderAdminPromos(json.promos || []);
+        }
+      } catch (e) {
+        btn.disabled = false;
+        btn.textContent = "Hapus";
+      }
     });
-    const json = await res.json();
-    if (json && json.ok) {
-      renderAdminPromos(json.promos || []);
-      alert("Kode promo " + promoCode + " berhasil dihapus.");
-    } else {
-      alert((json && json.message) || "Password salah atau gagal menghapus.");
-    }
-  } catch (e) {
-    alert("Koneksi server gagal.");
-  }
-};
+  });
+}
 
 function initFaqAccordion() {
   const triggers = document.querySelectorAll(".faq-trigger");
